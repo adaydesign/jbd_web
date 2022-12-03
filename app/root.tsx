@@ -1,3 +1,4 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -7,6 +8,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { theme } from "~/styles/theme"
+import PublicLayout from "./layouts/PublicLayout";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -14,7 +17,11 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
-export default function App() {
+type DocumentProps = {
+  children?: React.ReactNode;
+};
+
+const Document = ({children}:DocumentProps)=>{
   return (
     <html lang="en">
       <head>
@@ -22,11 +29,23 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <ChakraProvider theme={theme}>
+          {children}
+        </ChakraProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
+  )
+}
+
+export default function App() {
+  return (
+    <Document>
+      <PublicLayout>
+        <Outlet />
+      </PublicLayout>
+    </Document>
   );
 }
