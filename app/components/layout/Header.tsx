@@ -7,6 +7,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react"
+import { Link } from "@remix-run/react"
 import {
   RiWechatFill,
   RiChatHistoryFill,
@@ -19,7 +20,11 @@ import {
 } from "react-icons/ri"
 
 const Logo = () => {
-  return <Image src="/images/logo2.png" width="209" height="50" />
+  return (
+    <Link to="/">
+      <Image src="/images/logo2.png" width="209" height="50" />
+    </Link>
+  )
 }
 
 type ContactItemProps = {
@@ -91,7 +96,16 @@ const HeaderBottom = () => {
   return (
     <Flex mt={4}>
       <SocialIconPanel />
-      <Flex justify="flex-end" bgColor="gray.300" w="full">
+      <Flex
+        justify="space-between"
+        bgColor="gray.300"
+        w="full"
+        align="center"
+        px={6}
+      >
+        <Button variant="ghost" colorScheme="green" as={Link} to="/application">
+          Apply Now!
+        </Button>
         <Button borderRadius="50px" variant="" boxSize="50px">
           <Icon as={RiSearch2Line} />
         </Button>
