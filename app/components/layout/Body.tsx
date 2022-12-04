@@ -1,10 +1,15 @@
+import { Flex } from "@chakra-ui/react"
+
 type BodyProps = {
-  children?: React.ReactNode;
+  children?: React.ReactNode
+  rest: any
 }
 
-const Body = ({children}:BodyProps) => {
+const Body = ({ children, ...rest }: BodyProps) => {
   return (
-    <div>Body</div>
+    <Flex w="full" bgColor="palette.body" {...rest}>
+      {children}
+    </Flex>
   )
 }
 

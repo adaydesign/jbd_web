@@ -9,6 +9,8 @@ import {
 } from "@chakra-ui/react"
 import {
   RiWechatFill,
+  RiChatHistoryFill,
+  RiMailSendFill,
   RiShareLine,
   RiFacebookFill,
   RiTwitterFill,
@@ -28,10 +30,10 @@ type ContactItemProps = {
 const ContactItem = ({ icon, text, detail }: ContactItemProps) => {
   return (
     <Flex>
-      <Icon as={icon} boxSize={12} />
+      <Icon as={icon} boxSize={12} color="green" mr={4} />
       <Flex direction="column">
-        <Text>{text}</Text>
-        <Text>{detail}</Text>
+        <Text color="gray.600">{text}</Text>
+        <Text fontWeight="bold">{detail}</Text>
       </Flex>
     </Flex>
   )
@@ -39,18 +41,18 @@ const ContactItem = ({ icon, text, detail }: ContactItemProps) => {
 
 const Contact = () => {
   return (
-    <HStack spacing={3}>
+    <HStack spacing={6}>
       <ContactItem
         icon={RiWechatFill}
         text="Hotline Number"
         detail="01 2345 6789"
       />
       <ContactItem
-        icon={RiWechatFill}
+        icon={RiChatHistoryFill}
         text="Office Hours"
         detail="9:00-17:00 [Sun:Closed]"
       />
-      <ContactItem icon={RiWechatFill} text="Email Us" detail="example.com" />
+      <ContactItem icon={RiMailSendFill} text="Email Us" detail="example.com" />
     </HStack>
   )
 }
@@ -62,21 +64,33 @@ type SocialIconProps = {
 }
 const SocialIcon = ({ icon, url, color }: SocialIconProps) => {
   return (
-    <Button borderRadius="50px" variant="ghost" shadow="2xl" boxSize="50px">
+    <Button
+      borderRadius="50px"
+      variant="ghost"
+      shadow="2xl"
+      boxSize="50px"
+      bgColor="white"
+    >
       <Icon as={icon} color={color || ""} />
     </Button>
+  )
+}
+
+export const SocialIconPanel = () => {
+  return (
+    <HStack spacing={4} mr={8}>
+      <SocialIcon icon={RiShareLine} url="" color="green" />
+      <SocialIcon icon={RiFacebookFill} url="" />
+      <SocialIcon icon={RiTwitterFill} url="" />
+      <SocialIcon icon={RiYoutubeLine} url="" />
+    </HStack>
   )
 }
 
 const HeaderBottom = () => {
   return (
     <Flex mt={4}>
-      <HStack spacing={4}>
-        <SocialIcon icon={RiShareLine} url="" color="green" />
-        <SocialIcon icon={RiFacebookFill} url="" />
-        <SocialIcon icon={RiTwitterFill} url="" />
-        <SocialIcon icon={RiYoutubeLine} url="" />
-      </HStack>
+      <SocialIconPanel />
       <Flex justify="flex-end" bgColor="gray.300" w="full">
         <Button borderRadius="50px" variant="" boxSize="50px">
           <Icon as={RiSearch2Line} />

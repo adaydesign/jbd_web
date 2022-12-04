@@ -1,7 +1,18 @@
+import { Flex } from "@chakra-ui/react"
+import {
+  ApplySection,
+  ExpertiseSection,
+  HeroSection,
+  WorkingSection,
+} from "~/components/home"
+
 export default function Index() {
   return (
-    <div>
-      Index
-    </div>
-  );
+    <Flex w="full" direction="column">
+      <HeroSection />
+      <ApplySection />
+      <ExpertiseSection />
+      <WorkingSection />
+    </Flex>
+  )
 }
