@@ -17,7 +17,7 @@ const Text2 = () => {
       <Text fontSize="70px" fontWeight="bold">
         Digital Marketing Agency
       </Text>
-      <Text fontSize="18px" bgColor="green">
+      <Text fontSize="18px" bgColor="menu.500">
         We create and build flexible & creative design in your budget. Helping
         your get increase sales.
       </Text>
@@ -30,7 +30,7 @@ const ButtonStart = () => {
     <Flex w="fit-content" mt={6}>
       <Button
         rightIcon={<RiChatForwardFill />}
-        colorScheme="green"
+        colorScheme="menu"
         p={3}
         borderRadius="xl"
         color="white"

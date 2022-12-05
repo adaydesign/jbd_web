@@ -41,7 +41,7 @@ const FooterBottomPanel = () => {
 
 const Footer = () => {
   return (
-    <Flex w="full" bgColor="blue.900" direction="column" px={16} pt={16} pb={8}>
+    <Flex w="full" bgColor="palette.footer" direction="column" px={16} pt={16} pb={8}>
       <FooterTopPanel />
       <Divider my={8} />
       <FooterBottomPanel />

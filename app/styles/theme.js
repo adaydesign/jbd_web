@@ -8,10 +8,12 @@ export const theme = extendTheme({
     },
     colors: {
         palette: {
-            main: "#22577E",
-            secondary: "#F8F0DF",
-            footer: "#22577E",
-            body: "#F5F8FA",
+            main: "#a31f34",
+            secondary: "#f6b221",
+            footer: "#555759",
+            body1: "#f3f3f3",
+            body2: "#8a8c8c",
+            body3: "#faf4f5",
             container: "#FFFFFF"
         },
         menu: {
