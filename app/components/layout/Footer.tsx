@@ -13,12 +13,10 @@ import { SocialIconPanel } from "./Header"
 const FooterTopPanel = () => {
   return (
     <Flex w="full" direction="column">
-      <Heading color="white">About Justice by Design</Heading>
+      <Heading color="palette.secondary">About Justice by Design</Heading>
       <Box h="3px" w="160px" bgColor="green" my={6} />
       <Text w="40%" fontSize="25px" color="white">
-        It is a long established fact that reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum
+      Creating Justice Initiative through Design Thinking Process.
       </Text>
     </Flex>
   )
@@ -27,7 +25,7 @@ const FooterTopPanel = () => {
 const FooterBottomPanel = () => {
   return (
     <Flex w="full" justify="space-between">
-      <Image src="/images/logo22.png" />
+      <Image src="/images/Logo_jbd_footer.png" width="209" height="50" />
       <SocialIconPanel />
       <VStack>
         <Text color="white">

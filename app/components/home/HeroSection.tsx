@@ -3,9 +3,9 @@ import { RiChatForwardFill } from "react-icons/ri"
 
 const Text1 = () => {
   return (
-    <Flex p={3} bgColor="blue" w="fit-content">
+    <Flex p={3} bgColor="palette.body2" w="fit-content">
       <Text color="white" fontSize="25px">
-        Welcome innovation in business starts here
+      Call for Applications for COJ Fellowship Program
       </Text>
     </Flex>
   )
@@ -14,12 +14,11 @@ const Text1 = () => {
 const Text2 = () => {
   return (
     <Flex direction="column" color="white">
-      <Text fontSize="70px" fontWeight="bold">
-        Digital Marketing Agency
+      <Text fontSize="70px" fontWeight="bold" textAlign="right">
+      People-Centered Justice Matters
       </Text>
-      <Text fontSize="18px" bgColor="menu.500">
-        We create and build flexible & creative design in your budget. Helping
-        your get increase sales.
+      <Text fontSize="18px" bgColor="" textAlign="right">
+      ร่วมสร้างกระบวนการยุติธรรมที่ยึดความต้องการ ทัศนคติ และความคาดหวังของประชาชนเป็นศูนย์กลาง (People-Centered) ในการพัฒนาคุณภาพการให้บริการของศาลยุติธรรม เพื่อลดช่องว่างของกระบวนการยุติธรรมแบบดั้งเดิมที่ยึดองค์กรผู้ให้บริการเป็นศูนย์กลาง (Institution-Focused)
       </Text>
     </Flex>
   )
