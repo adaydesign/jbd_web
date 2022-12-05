@@ -6,13 +6,18 @@ import {
   Input,
   Spacer,
 } from "@chakra-ui/react"
+import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
 const FormStep1ButtonControl = () => {
+  const { setStep } = useFormStepContext()
+  const onChangeStepHandle = () => {
+    setStep(2)
+  }
   return (
     <>
       <Spacer />
-      <Button>ถัดไป</Button>
+      <Button onClick={onChangeStepHandle}>ถัดไป</Button>
     </>
   )
 }

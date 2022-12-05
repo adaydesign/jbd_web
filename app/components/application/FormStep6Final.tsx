@@ -13,12 +13,17 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react"
+import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
 const FormStep6ButtonControl = () => {
+  const { setStep } = useFormStepContext()
+  const onChangeStepHandle = () => {
+    setStep(5)
+  }
   return (
     <>
-      <Button>ก่อนหน้า</Button>
+      <Button onClick={onChangeStepHandle}>ก่อนหน้า</Button>
       <Spacer />
       <Button>ยืนยันการสมัคร</Button>
     </>
