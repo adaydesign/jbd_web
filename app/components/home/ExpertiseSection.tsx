@@ -25,10 +25,10 @@ export const BlockTitle = ({
 }: BlockTitleProps) => {
   return (
     <HStack spacing={3}>
-      <Text fontSize="65px" fontWeight="bold" color={text1Color}>
+      <Text fontSize="36px" fontWeight="bold" color={text1Color}>
         {text1}
       </Text>
-      <Text fontSize="65px" fontWeight="bold" color="green">
+      <Text fontSize="36px" fontWeight="bold" color="palette.main">
         {text2}
       </Text>
     </HStack>
@@ -38,11 +38,11 @@ export const BlockTitle = ({
 type LineProps = {
   lineColor?: any
 }
-export const Line = ({ lineColor = "blue.800" }) => {
+export const Line = ({ lineColor = "blue.800" }:LineProps) => {
   return (
     <HStack mt={6}>
       <Box h="3px" w="60px" bgColor={lineColor} />
-      <Box h="16px" w="16px" borderWidth="4px" borderColor="green.400" />
+      <Box h="16px" w="16px" borderWidth="4px" borderColor="palette.secondary" />
       <Box h="3px" w="60px" bgColor={lineColor} />
     </HStack>
   )
@@ -65,7 +65,7 @@ const ExpertiseItem = ({ icon, title, desc }: ExpertiseItemProps) => {
         borderStyle="dashed"
         borderColor="blue.700"
       >
-        <Icon as={icon} boxSize="120px" color="green" />
+        <Icon as={icon} boxSize="120px" color="palette.main" />
         <Text fontSize="30px" fontWeight="bold">
           {title}
         </Text>
@@ -80,18 +80,18 @@ const ExpertisePanel = () => {
     <SimpleGrid columns={3} spacing={14} mt={6} w="90%">
       <ExpertiseItem
         icon={RiShieldCheckFill}
-        title="Secure Business"
-        desc="Contrary to popular belief, Lorem ipsum is not simply random text. it has roots in a piece of classical Latin literature Contrary"
+        title="Design Thinking Bootcamp"
+        desc="(In-person)"
       />
       <ExpertiseItem
         icon={RiMailSendFill}
-        title="Facebook Ads"
-        desc="Contrary to popular belief, Lorem ipsum is not simply random text. it has roots in a piece of classical Latin literature Contrary"
+        title="Feb 5,11,18,25 Mar 11,18,25"
+        desc="Time are subject to change"
       />
       <ExpertiseItem
         icon={RiPieChart2Fill}
-        title="Marketing Analytics"
-        desc="Contrary to popular belief, Lorem ipsum is not simply random text. it has roots in a piece of classical Latin literature Contrary"
+        title="Saturday"
+        desc="9.00-16.00"
       />
     </SimpleGrid>
   )
@@ -100,11 +100,10 @@ const ExpertisePanel = () => {
 const ExpertiseSection = () => {
   return (
     <Center w="full" display="flex" flexDirection="column" py="100px">
-      <BlockTitle text1="Our" text2="Expertise" />
+      <BlockTitle text1="Justice by" text2="Design" />
       <Line />
-      <Text fontSize="25px" mt={6} w="50%" textAlign="center">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+      <Text fontSize="19px" mt={6} w="50%" textAlign="center">
+      ร่วมสร้างสรรค์การพิจารณาคดีในชั้นศาลผ่านกระบวนการคิดเชิงออกแบบ (Design Thinking) ไปพร้อม ๆ กับเพื่อนร่วมทีมที่มาจากภาคประชาชนผู้ใช้บริการศาลและภาคปฏิบัติ เพื่อนำเสนอ นวัตกรรมการดำเนินคดีในศาลรูปแบบใหม่ที่ยึดเอาความต้องการของประชาชนเป็นศูนย์กลาง (People-Centered) ภายใต้ Theme “Redesign Court for People-Centered Justice”
       </Text>
       <ExpertisePanel />
     </Center>

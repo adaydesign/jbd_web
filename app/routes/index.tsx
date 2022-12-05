@@ -4,6 +4,7 @@ import {
   ExpertiseSection,
   HeroSection,
   WorkingSection,
+  WhySection,
 } from "~/components/home"
 
 export default function Index() {
@@ -13,6 +14,7 @@ export default function Index() {
       <ApplySection />
       <ExpertiseSection />
       <WorkingSection />
+      <WhySection />
     </Flex>
   )
 }

@@ -22,7 +22,7 @@ import {
 const Logo = () => {
   return (
     <Link to="/">
-      <Image src="/images/logo2.png" width="209" height="50" />
+      <Image src="/images/logo_jbd_top.png" width="200" height="73" />
     </Link>
   )
 }
@@ -98,7 +98,7 @@ const HeaderBottom = () => {
       <SocialIconPanel />
       <Flex
         justify="space-between"
-        bgColor="gray.300"
+        bgColor="palette.main"
         w="full"
         align="center"
         px={6}
