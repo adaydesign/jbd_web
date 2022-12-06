@@ -1,5 +1,6 @@
 import {
   Button,
+  Collapse,
   FormControl,
   FormLabel,
   HStack,
@@ -11,6 +12,7 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react"
+import { Controller, useFormContext } from "react-hook-form"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
@@ -29,6 +31,7 @@ const FormStep5ButtonControl = () => {
 }
 
 const FormStep5 = () => {
+  const { control, watch } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep5ButtonControl />}>
       <HStack spacing={4}>
@@ -37,7 +40,11 @@ const FormStep5 = () => {
             คุณรู้จักกระบวนการคิดเชิงออกแบบ (Design Thinking) หรือไม่ อย่างไร
             (ไม่เกิน 200 คำ)
           </FormLabel>
-          <Textarea rows={5} />
+          <Controller
+            name="essay_1"
+            control={control}
+            render={({ field }) => <Textarea rows={5} {...field} />}
+          />
         </FormControl>
       </HStack>
 
@@ -48,7 +55,11 @@ const FormStep5 = () => {
             ทำงานที่เกี่ยวข้องกับกระบวนพิจารณาในชั้นศาลหรือไม่ อย่างไร (ไม่เกิน
             200 คำ)
           </FormLabel>
-          <Textarea rows={5} />
+          <Controller
+            name="essay_2"
+            control={control}
+            render={({ field }) => <Textarea rows={5} {...field} />}
+          />
         </FormControl>
       </HStack>
 
@@ -58,7 +69,11 @@ const FormStep5 = () => {
             คุณคิดว่าขั้นตอนการให้บริการของศาล หรือกระบวนพิจารณาในชั้นศาล
             มีส่วนใดที่ควรได้รับการ พัฒนามากที่สุด เพราะเหตุใด (ไม่เกิน 300 คำ)
           </FormLabel>
-          <Textarea rows={5} />
+          <Controller
+            name="essay_3"
+            control={control}
+            render={({ field }) => <Textarea rows={5} {...field} />}
+          />
         </FormControl>
       </HStack>
 
@@ -71,7 +86,11 @@ const FormStep5 = () => {
             อนาคต (กรุณาอธิบายพอสังเขป แต่ไม่เกิน 500 คำ
             เพื่อให้คณะกรรมการเข้าใจเป้าหมายในการเข้า ร่วมกิจกรรมของคุณ)
           </FormLabel>
-          <Textarea rows={5} />
+          <Controller
+            name="essay_4"
+            control={control}
+            render={({ field }) => <Textarea rows={5} {...field} />}
+          />
         </FormControl>
       </HStack>
 
@@ -80,19 +99,35 @@ const FormStep5 = () => {
           <FormLabel>
             คุณสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่
           </FormLabel>
-          <RadioGroup>
-            <Stack direction="row">
-              <Radio value="1">สามารถเข้าร่วมได้ทุกครั้ง</Radio>
-              <Radio value="2">ไม่สามารถเข้าร่วมได้ทุกครั้ง</Radio>
-            </Stack>
-          </RadioGroup>
-        </FormControl>
-        <FormControl>
-          <Input
-            type="text"
-            placeholder="กรุณาระบบเหตุผลที่ไม่สามารถเข้าร่วมได้ทุกครั้ง"
+          <Controller
+            name="join"
+            control={control}
+            defaultValue="1"
+            render={({ field }) => (
+              <RadioGroup {...field}>
+                <Stack direction="row">
+                  <Radio value="1">สามารถเข้าร่วมได้ทุกครั้ง</Radio>
+                  <Radio value="2">ไม่สามารถเข้าร่วมได้ทุกครั้ง</Radio>
+                </Stack>
+              </RadioGroup>
+            )}
           />
         </FormControl>
+        <Collapse in={watch("join") == "2"} style={{ width: "100%" }}>
+          <FormControl>
+            <Controller
+              name="join_note"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  type="text"
+                  placeholder="กรุณาระบบเหตุผลที่ไม่สามารถเข้าร่วมได้ทุกครั้ง"
+                  {...field}
+                />
+              )}
+            />
+          </FormControl>
+        </Collapse>
       </VStack>
     </FormLayout>
   )

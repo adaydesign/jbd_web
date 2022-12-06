@@ -7,6 +7,7 @@ import {
   Input,
   Spacer,
 } from "@chakra-ui/react"
+import { Controller, useFormContext } from "react-hook-form"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
@@ -25,23 +26,38 @@ const FormStep4ButtonControl = () => {
 }
 
 const FormStep4 = () => {
+  const { control } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep4ButtonControl />}>
       <HStack spacing={4}>
         <FormControl>
           <FormLabel>ตำแหน่ง</FormLabel>
-          <Input type="text" />
+          <Controller
+            name="position"
+            control={control}
+            render={({ field }) => <Input type="text" {...field} />}
+          />
         </FormControl>
       </HStack>
 
       <HStack spacing={4} mt={4}>
         <FormControl>
           <FormLabel>องค์กร</FormLabel>
-          <Input type="text" />
+          <Controller
+            name="org"
+            control={control}
+            render={({ field }) => <Input type="text" {...field} />}
+          />
         </FormControl>
         <FormControl>
           <FormLabel>อายุการทำงาน</FormLabel>
-          <Input type="text" placeholder="เช่น 3 ปี 4 เดือน" />
+          <Controller
+            name="work_age"
+            control={control}
+            render={({ field }) => (
+              <Input type="text" placeholder="เช่น 3 ปี 4 เดือน" {...field} />
+            )}
+          />
         </FormControl>
       </HStack>
 
@@ -50,13 +66,25 @@ const FormStep4 = () => {
           <FormLabel>
             กรุณาระบุข้อมูลโดยสังเขปเกี่ยวกับลักษณะงานที่รับผิดชอบ
           </FormLabel>
-          <Input type="text" />
+          <Controller
+            name="working_desc"
+            control={control}
+            render={({ field }) => <Input type="text" {...field} />}
+          />
         </FormControl>
       </HStack>
 
       <HStack spacing={4} mt={4}>
         <FormControl>
-          <Checkbox>ข้าพเจ้าอยู่ระหว่างการศึกษาในสถาบันศึกษา</Checkbox>
+          <Controller
+            name="study"
+            control={control}
+            render={({ field }) => (
+              <Checkbox {...field}>
+                ข้าพเจ้าอยู่ระหว่างการศึกษาในสถาบันศึกษา
+              </Checkbox>
+            )}
+          />
         </FormControl>
       </HStack>
     </FormLayout>

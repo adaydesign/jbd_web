@@ -7,6 +7,7 @@ import {
   Input,
   Spacer,
 } from "@chakra-ui/react"
+import { Controller, useFormContext } from "react-hook-form"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
@@ -25,6 +26,7 @@ const FormStep3ButtonControl = () => {
 }
 
 const FormStep3 = () => {
+  const { control } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep3ButtonControl />}>
       <HStack spacing={4}>
@@ -32,7 +34,11 @@ const FormStep3 = () => {
           <FormLabel>
             กรณีสำเร็จการศึกษา กรุณาระบุ หลักสูตรและปีที่สำเร็จการศึกษา
           </FormLabel>
-          <Input type="text" />
+          <Controller
+            name="edu_1"
+            control={control}
+            render={({ field }) => <Input type="text" {...field} />}
+          />
         </FormControl>
       </HStack>
 
@@ -42,7 +48,11 @@ const FormStep3 = () => {
             กรณีอยู่ระหว่างการศึกษา กรุณาระบุ มหาวิทยาลัย คณะ สำนักวิชา สาขา
             และชั้นปีที่เรียน
           </FormLabel>
-          <Input type="text" />
+          <Controller
+            name="edu_2"
+            control={control}
+            render={({ field }) => <Input type="text" {...field} />}
+          />
         </FormControl>
       </HStack>
 
@@ -51,7 +61,11 @@ const FormStep3 = () => {
           <FormLabel>
             กรุณาแนบ CV / Resume ภาษาไทยหรือภาษาอังกฤษ (หากมี)
           </FormLabel>
-          <Input type="file" />
+          <Controller
+            name="cv_file"
+            control={control}
+            render={({ field }) => <Input type="file" {...field} />}
+          />
           <FormHelperText>
             (แนะนำการตั้งชื่อไฟล์โดยใช้ชื่อ-นามสกุล เช่น manee_choojai.pdf)
           </FormHelperText>
