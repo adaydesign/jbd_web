@@ -10,7 +10,7 @@ const TextHeader = ({ text1, text2 }: TextHeaderProps) => {
     <Flex w="full" py={8} direction="column">
       <HStack>
         <Heading mr={2}>{text1}</Heading>
-        <Heading color="green">{text2}</Heading>
+        <Heading color="palette.main">{text2}</Heading>
       </HStack>
       <Box h="2px" w="full" bgColor="black" mt={2} />
     </Flex>

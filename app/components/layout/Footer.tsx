@@ -15,7 +15,7 @@ const FooterTopPanel = () => {
     <Flex w="full" direction="column">
       <Heading color="palette.secondary">About Justice by Design</Heading>
       <Box h="3px" w="160px" bgColor="green" my={6} />
-      <Text w="40%" fontSize="25px" color="white">
+      <Text w="40%" fontSize="19px" color="white">
       Creating Justice Initiative through Design Thinking Process.
       </Text>
     </Flex>

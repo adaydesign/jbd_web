@@ -5,17 +5,18 @@ import {
   HStack,
   Icon,
   SimpleGrid,
+  Spacer,
   Text,
 } from "@chakra-ui/react"
 import {
-  RiShieldCheckFill,
-  RiMailSendFill,
-  RiPieChart2Fill,
+  RiCalendarTodoFill,
+  RiTimeFill,
+  RiUserVoiceFill,
 } from "react-icons/ri"
 
 type BlockTitleProps = {
-  text1: String
-  text2: String
+  text1: string
+  text2: string
   text1Color?: any
 }
 export const BlockTitle = ({
@@ -48,64 +49,73 @@ export const Line = ({ lineColor = "blue.800" }:LineProps) => {
   )
 }
 
-type ExpertiseItemProps = {
-  icon: any
-  title: String
-  desc: String
-}
-const ExpertiseItem = ({ icon, title, desc }: ExpertiseItemProps) => {
-  return (
-    <Flex p={6} shadow="2xl">
-      <Flex
-        direction="column"
-        align="center"
-        justify="center"
-        p={4}
-        borderWidth="2px"
-        borderStyle="dashed"
-        borderColor="blue.700"
-      >
-        <Icon as={icon} boxSize="120px" color="palette.main" />
-        <Text fontSize="30px" fontWeight="bold">
-          {title}
-        </Text>
-        <Text fontSize="25px">{desc}</Text>
-      </Flex>
-    </Flex>
-  )
-}
+// type ExpertiseItemProps = {
+//   icon: any
+//   title: String
+//   desc: String
+// }
+// const ExpertiseItem = ({ icon, title, desc }: ExpertiseItemProps) => {
+//   return (
+//     <Flex p={6} shadow="2xl" w="full">
+//       <Flex
+//         direction="column"
+//         align="center"
+//         justify="center"
+//         p={4}
+//         borderWidth="2px"
+//         borderStyle="dashed"
+//         borderColor="blue.700"
+//         w="full"
+//       >
+//         <Icon as={icon} boxSize="80px" color="palette.main" />
+//         <Text fontSize="21px" fontWeight="bold" textAlign="center">
+//           {title}
+//         </Text>
+//         <Text fontSize="19px">{desc}</Text>
+//       </Flex>
+//     </Flex>
+//   )
+// }
 
-const ExpertisePanel = () => {
-  return (
-    <SimpleGrid columns={3} spacing={14} mt={6} w="90%">
-      <ExpertiseItem
-        icon={RiShieldCheckFill}
-        title="Design Thinking Bootcamp"
-        desc="(In-person)"
-      />
-      <ExpertiseItem
-        icon={RiMailSendFill}
-        title="Feb 5,11,18,25 Mar 11,18,25"
-        desc="Time are subject to change"
-      />
-      <ExpertiseItem
-        icon={RiPieChart2Fill}
-        title="Saturday"
-        desc="9.00-16.00"
-      />
-    </SimpleGrid>
-  )
-}
+// const ExpertisePanel = () => {
+//   return (
+    
+//     <SimpleGrid columns={3} spacing={14} mt={6} pb={100} w="90%">
+//       <ExpertiseItem
+//         icon={RiUserVoiceFill}
+//         title="Design Thinking Bootcamp"
+//         desc="(In-person)"
+//       />
+//       <ExpertiseItem
+//         icon={RiCalendarTodoFill}
+//         title="Feb 5,11,18,25 Mar 11,18,25"
+//         desc="Time are subject to change"
+//       />
+//       <ExpertiseItem
+//         icon={RiTimeFill}
+//         title="Saturday"
+//         desc="9.00-16.00"
+//       />
+//     </SimpleGrid>
+//   )
+// }
 
 const ExpertiseSection = () => {
   return (
-    <Center w="full" display="flex" flexDirection="column" py="100px">
+    <Center w="full" display="flex" flexDirection="column" py="50px" bgColor="palette.body1">
+     
+      {/* <BlockTitle text1="At-a-" text2="Glance"/>
+      <Line />
+      <ExpertisePanel /> */}
       <BlockTitle text1="Justice by" text2="Design" />
+      <Text fontSize="19px" mt={6} w="50%" textAlign="center">
+      
+      </Text>
       <Line />
       <Text fontSize="19px" mt={6} w="50%" textAlign="center">
       ร่วมสร้างสรรค์การพิจารณาคดีในชั้นศาลผ่านกระบวนการคิดเชิงออกแบบ (Design Thinking) ไปพร้อม ๆ กับเพื่อนร่วมทีมที่มาจากภาคประชาชนผู้ใช้บริการศาลและภาคปฏิบัติ เพื่อนำเสนอ นวัตกรรมการดำเนินคดีในศาลรูปแบบใหม่ที่ยึดเอาความต้องการของประชาชนเป็นศูนย์กลาง (People-Centered) ภายใต้ Theme “Redesign Court for People-Centered Justice”
       </Text>
-      <ExpertisePanel />
+      
     </Center>
   )
 }

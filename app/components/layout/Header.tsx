@@ -6,6 +6,7 @@ import {
   Image,
   Spacer,
   Text,
+  Link as CKLink,
 } from "@chakra-ui/react"
 import { Link } from "@remix-run/react"
 import {
@@ -17,28 +18,32 @@ import {
   RiTwitterFill,
   RiYoutubeLine,
   RiSearch2Line,
+  RiGovernmentFill,
 } from "react-icons/ri"
 
 const Logo = () => {
   return (
     <Link to="/">
-      <Image src="/images/logo_jbd_top.png" width="200" height="73" />
+      <Image src="/images/logo_jbd_top.png" width="200" height="62" />
     </Link>
   )
 }
 
 type ContactItemProps = {
   icon: any
-  text: String
-  detail: String
+  text: string
+  text2: string
+  detail: string
+  
 }
-const ContactItem = ({ icon, text, detail }: ContactItemProps) => {
+const ContactItem = ({ icon, text,text2, detail }: ContactItemProps) => {
   return (
     <Flex>
-      <Icon as={icon} boxSize={12} color="green" mr={4} />
+      <Icon as={icon} boxSize={9} color="palette.cojblue" mr={4} />
       <Flex direction="column">
-        <Text color="gray.600">{text}</Text>
-        <Text fontWeight="bold">{detail}</Text>
+        <Text color="gray.600" fontSize="12">{text}</Text>
+        <Text color="gray.600" fontSize="12">{text2}</Text>
+        <Text fontWeight="bold"fontSize="14">{detail}</Text>
       </Flex>
     </Flex>
   )
@@ -48,16 +53,22 @@ const Contact = () => {
   return (
     <HStack spacing={6}>
       <ContactItem
-        icon={RiWechatFill}
-        text="Hotline Number"
-        detail="01 2345 6789"
+        icon={RiGovernmentFill}
+        text="สำนักส่งเสริมงานตุลาการ "
+        text2=""
+        detail="02 512 8499"
       />
-      <ContactItem
+      {/* <ContactItem
         icon={RiChatHistoryFill}
         text="Office Hours"
+        text2=""
         detail="9:00-17:00 [Sun:Closed]"
-      />
-      <ContactItem icon={RiMailSendFill} text="Email Us" detail="example.com" />
+      /> */}
+      <ContactItem 
+      icon={RiMailSendFill} 
+      text="Email Us" 
+      text2="" 
+      detail="oja@coj.go.th" />
     </HStack>
   )
 }
@@ -84,7 +95,7 @@ const SocialIcon = ({ icon, url, color }: SocialIconProps) => {
 export const SocialIconPanel = () => {
   return (
     <HStack spacing={4} mr={8}>
-      <SocialIcon icon={RiShareLine} url="" color="green" />
+      <SocialIcon icon={RiShareLine} url="" color="palette.main" />
       <SocialIcon icon={RiFacebookFill} url="" />
       <SocialIcon icon={RiTwitterFill} url="" />
       <SocialIcon icon={RiYoutubeLine} url="" />
@@ -97,29 +108,49 @@ const HeaderBottom = () => {
     <Flex mt={4}>
       <SocialIconPanel />
       <Flex
-        justify="space-between"
+        // justify="space-between"
         bgColor="palette.main"
         w="full"
         align="center"
         px={6}
       >
-        <Button variant="ghost" colorScheme="green" as={Link} to="/application">
+        <Button variant="ghost" colorScheme="yellow" as={Link}  to="/application">
           Apply Now!
         </Button>
+        <Button variant="ghost" colorScheme="yellow" as={Link} to="/details">
+          Details
+        </Button>
+        <Button variant="ghost" colorScheme="yellow" as={Link} to="/program_journey">
+          Program Journey
+        </Button>
+        <Button variant="ghost" colorScheme="yellow" as={Link} to="/contact">
+          Contact Us
+        </Button>
+        <Spacer />
         <Button borderRadius="50px" variant="" boxSize="50px">
-          <Icon as={RiSearch2Line} />
+          <Icon as={RiSearch2Line} color="white" />
         </Button>
       </Flex>
     </Flex>
   )
 }
 
+const CojLogo = () => {
+  return (
+    <CKLink href="https://www.coj.go.th/" isExternal>
+      <Image src="/images/cojlogo2.png"  height="50px" mr={12}/>
+    </CKLink>
+  )
+}
+
+
 const Header = () => {
   return (
-    <Flex w="full" p={8} direction="column">
-      <Flex>
+    <Flex w="full" direction="column" borderBottomColor="palette.main" borderBottomWidth="7px">
+      <Flex p={8} pb={0} align="center">
         <Logo />
         <Spacer />
+        <CojLogo />
         <Contact />
       </Flex>
       <HeaderBottom />

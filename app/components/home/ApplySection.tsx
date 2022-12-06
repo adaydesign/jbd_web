@@ -5,16 +5,16 @@ const ContactUs = () => {
   return (
     <Flex
       flex={6}
-      bgColor="rgba(0, 100, 0, 0.9)"
+      bgColor="rgba(189, 5, 30, 0.9)"
       direction="column"
       justify="center"
       px={10}
     >
       <HStack color="white" spacing={10}>
-        <Icon as={RiContactsFill} boxSize="160px" />
+        <Icon as={RiContactsFill} boxSize="60px" />
         <VStack align="flex-start">
           <Text fontSize="25px">Call Us:</Text>
-          <Text fontSize="40px" fontWeight="bold">
+          <Text fontSize="32px" fontWeight="bold">
             +(01) 2345 6789
           </Text>
         </VStack>
@@ -24,26 +24,28 @@ const ContactUs = () => {
 }
 const ApplyNow = () => {
   return (
-    <Flex flex={8} bgColor="rgba(0, 0, 60, 0.9)" align="center">
+    <Flex flex={8} bgColor="rgba(85, 87, 89, 0.97)" align="center">
       <Flex px="60px" direction="column">
-        <Text fontSize="35px" fontWeight="bold" color="green">
-          Professional and Dedicated Consulting Services
+        <Text fontSize="24px" fontWeight="bold" color="white"  mt={4}>
+          สนใจเข้าร่วมโครงการ
         </Text>
-        <Text fontSize="25px" color="white" mt={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore.
+        <Text fontSize="19px" color="white" mt={4}>
+          สมัครเข้าร่วมโครงการได้ตั้งแต่วันที่ 15 ธ.ค. 65
+        </Text>
+        <Text fontSize="19px" color="white" >
+          ไม่มีค่าใช้จ่ายตลอดเข้าร่วมโครงการ
         </Text>
         <Button
           rightIcon={<RiChatForwardFill />}
-          colorScheme="green"
+          colorScheme="menu"
           p={3}
           borderRadius="xl"
           color="white"
-          height="60px"
+          height="50px"
           w="fit-content"
-          mt={4}
+          mt={2}
         >
-          <Text fontSize="25px">Apply Now</Text>
+          <Text fontSize="24px">Apply Now</Text>
         </Button>
       </Flex>
     </Flex>

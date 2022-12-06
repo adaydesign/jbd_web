@@ -5,6 +5,8 @@ import {
   HeroSection,
   WorkingSection,
   WhySection,
+  AtAGlanceSection,
+  AttendSection,
 } from "~/components/home"
 
 export default function Index() {
@@ -12,7 +14,9 @@ export default function Index() {
     <Flex w="full" direction="column">
       <HeroSection />
       <ApplySection />
+      <AtAGlanceSection />
       <ExpertiseSection />
+      <AttendSection />
       <WorkingSection />
       <WhySection />
     </Flex>
