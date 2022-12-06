@@ -1,7 +1,14 @@
 import { Flex, Heading } from "@chakra-ui/react"
+import { ActionArgs } from "@remix-run/node"
 import React from "react"
 import { ApplicationForm } from "~/components/application"
 import { PageHeader, TextHeader } from "~/components/common"
+
+export const action = async ({ request }: ActionArgs) => {
+  const formData = await request.formData()
+  console.log(formData.keys())
+  return {}
+}
 
 const Application = () => {
   return (

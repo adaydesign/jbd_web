@@ -2,6 +2,7 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Collapse,
   FormControl,
   FormLabel,
   HStack,
@@ -13,6 +14,7 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react"
+import { Controller, useFormContext } from "react-hook-form"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
@@ -21,16 +23,18 @@ const FormStep6ButtonControl = () => {
   const onChangeStepHandle = () => {
     setStep(5)
   }
+
   return (
     <>
       <Button onClick={onChangeStepHandle}>ก่อนหน้า</Button>
       <Spacer />
-      <Button>ยืนยันการสมัคร</Button>
+      <Button type="submit">ยืนยันการสมัคร</Button>
     </>
   )
 }
 
 const FormStep6Final = () => {
+  const { control, watch } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep6ButtonControl />}>
       <HStack spacing={4}>
@@ -38,11 +42,66 @@ const FormStep6Final = () => {
           <FormLabel>ช่องทางออนไลน์</FormLabel>
           <CheckboxGroup colorScheme="green">
             <Stack direction="column">
-              <Checkbox value="">Facebook</Checkbox>
-              <Checkbox value="">Instagram</Checkbox>
-              <Checkbox value="">Twitter</Checkbox>
-              <Checkbox value="">Email</Checkbox>
-              <Checkbox value="">Website ศาลยุติธรรม</Checkbox>
+              <Controller
+                name="online_facebook"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    Facebook
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="online_instagram"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    Instagram
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="online_twitter"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    Twitter
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="online_email"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    Email
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="online_website"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    Website ศาลยุติธรรม
+                  </Checkbox>
+                )}
+              />
             </Stack>
           </CheckboxGroup>
         </FormControl>
@@ -53,17 +112,80 @@ const FormStep6Final = () => {
           <FormLabel>ได้รับการแนะนำจาก</FormLabel>
           <CheckboxGroup colorScheme="green">
             <Stack direction="column">
-              <Checkbox value="">เพื่อนร่วมงาน</Checkbox>
-              <Checkbox value="">อาจารย์</Checkbox>
-              <Checkbox value="">บุคลากรของศาลยุติธรรม</Checkbox>
-              <Checkbox value="">Email</Checkbox>
-              <Checkbox value="">อื่นๆ (โปรดระบุ)</Checkbox>
+              <Controller
+                name="sugg_colleague"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    เพื่อนร่วมงาน
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="sugg_teacher"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    อาจารย์
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="sugg_officer"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    บุคลากรของศาลยุติธรรม
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="sugg_email"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    Email
+                  </Checkbox>
+                )}
+              />
+              <Controller
+                name="sugg_other"
+                control={control}
+                render={({ field }) => (
+                  <Checkbox
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    checked={field.value}
+                  >
+                    อื่นๆ (โปรดระบุ)
+                  </Checkbox>
+                )}
+              />
             </Stack>
           </CheckboxGroup>
         </FormControl>
-        <FormControl>
-          <Input type="text" placeholder="อื่นๆ (โปรดระบุ)" />
-        </FormControl>
+        <Collapse in={watch("sugg_other")} style={{ width: "100%" }}>
+          <FormControl>
+            <Controller
+              name="sugg_note"
+              control={control}
+              render={({ field }) => (
+                <Input type="text" placeholder="อื่นๆ (โปรดระบุ)" {...field} />
+              )}
+            />
+          </FormControl>
+        </Collapse>
       </VStack>
     </FormLayout>
   )
