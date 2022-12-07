@@ -9,16 +9,30 @@ import FormStep5 from "./FormStep5"
 import FormStep6Final from "./FormStep6Final"
 import FormStepController from "./FormStepController"
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form"
+import { useFetcher } from "@remix-run/react"
 
 const ApplicationForm = () => {
   const [step, setStep] = useState<number>(1)
   const divRef = useRef<HTMLInputElement | null>(null)
-
+  // const fetcher = useFetcher()
   const methods = useForm()
-  const onSubmit: SubmitHandler<any> = (data) => {
-    console.log("form")
-    console.log(data)
-  }
+
+  // const onSubmit: SubmitHandler<any> = (data) => {
+  //   //const formData = new FormData()
+  //   //formData.append("cv_file", data.cv_file[0])
+
+  //   // console.log("form")
+  //   // console.log(data)
+  //   // method="post" encType="multipart/form-data" action="/application/"
+  //   fetcher.submit(
+  //     { ...data, cv_file: data.cv_file[0] },
+  //     {
+  //       method: "post",
+  //       encType: "multipart/form-data",
+  //       action: "/application",
+  //     }
+  //   )
+  // }
 
   useEffect(() => {
     if (divRef) {
@@ -29,9 +43,10 @@ const ApplicationForm = () => {
     }
   }, [step])
 
+  // onSubmit={methods.handleSubmit(onSubmit)}
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form method="post" encType="multipart/form-data" action="/application">
         <FormStepContext.Provider value={{ step, setStep }}>
           <Flex w="full" direction="column" ref={divRef}>
             <FormStepController />

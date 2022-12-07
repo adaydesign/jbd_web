@@ -1,5 +1,5 @@
 import { prisma } from "~/db.server"
 
-export const createUnit = (data:any) => {
+export const createApplication = (data:any) => {
     return prisma.application.create({ data: data })
 }

@@ -61,11 +61,12 @@ const FormStep3 = () => {
           <FormLabel>
             กรุณาแนบ CV / Resume ภาษาไทยหรือภาษาอังกฤษ (หากมี)
           </FormLabel>
-          <Controller
+          {/* <Controller
             name="cv_file"
             control={control}
             render={({ field }) => <Input type="file" {...field} />}
-          />
+          /> */}
+          <Input name="cv_file" type="file" />
           <FormHelperText>
             (แนะนำการตั้งชื่อไฟล์โดยใช้ชื่อ-นามสกุล เช่น manee_choojai.pdf)
           </FormHelperText>
