@@ -14,40 +14,41 @@ import {
   RiUserVoiceFill,
 } from "react-icons/ri"
 
-type BlockTitleProps = {
-  text1: string
-  text2: string
-  text1Color?: any
-}
-export const BlockTitle = ({
-  text1,
-  text2,
-  text1Color = "black",
-}: BlockTitleProps) => {
-  return (
-    <HStack spacing={3}>
-      <Text fontSize="36px" fontWeight="bold" color={text1Color}>
-        {text1}
-      </Text>
-      <Text fontSize="36px" fontWeight="bold" color="palette.main">
-        {text2}
-      </Text>
-    </HStack>
-  )
-}
+import { BlockTitle,Line } from "~/components/common"
+// type BlockTitleProps = {
+//   text1: string
+//   text2: string
+//   text1Color?: any
+// }
+// export const BlockTitle = ({
+//   text1,
+//   text2,
+//   text1Color = "black",
+// }: BlockTitleProps) => {
+//   return (
+//     <HStack spacing={3}>
+//       <Text fontSize="36px" fontWeight="bold" color={text1Color}>
+//         {text1}
+//       </Text>
+//       <Text fontSize="36px" fontWeight="bold" color="palette.main">
+//         {text2}
+//       </Text>
+//     </HStack>
+//   )
+// }
 
-type LineProps = {
-  lineColor?: any
-}
-export const Line = ({ lineColor = "blue.800" }:LineProps) => {
-  return (
-    <HStack mt={6}>
-      <Box h="3px" w="60px" bgColor={lineColor} />
-      <Box h="16px" w="16px" borderWidth="4px" borderColor="palette.secondary" />
-      <Box h="3px" w="60px" bgColor={lineColor} />
-    </HStack>
-  )
-}
+// type LineProps = {
+//   lineColor?: any
+// }
+// export const Line = ({ lineColor = "blue.800" }:LineProps) => {
+//   return (
+//     <HStack mt={6}>
+//       <Box h="3px" w="60px" bgColor={lineColor} />
+//       <Box h="16px" w="16px" borderWidth="4px" borderColor="palette.secondary" />
+//       <Box h="3px" w="60px" bgColor={lineColor} />
+//     </HStack>
+//   )
+// }
 
 // type ExpertiseItemProps = {
 //   icon: any
@@ -108,11 +109,11 @@ const ExpertiseSection = () => {
       <Line />
       <ExpertisePanel /> */}
       <BlockTitle text1="Justice by" text2="Design" />
-      <Text fontSize="19px" mt={6} w="50%" textAlign="center">
-      
+      <Text fontSize="24px" mt={0} w="50%" textAlign="center" fontWeight="bold" color="palette.body2">
+      : กระบวนการยุติธรรมที่ทุกคนออกแบบได้
       </Text>
       <Line />
-      <Text fontSize="19px" mt={6} w="50%" textAlign="center">
+      <Text fontSize="19px" mt={6} w="70%" textAlign="center">
       ร่วมสร้างสรรค์การพิจารณาคดีในชั้นศาลผ่านกระบวนการคิดเชิงออกแบบ (Design Thinking) ไปพร้อม ๆ กับเพื่อนร่วมทีมที่มาจากภาคประชาชนผู้ใช้บริการศาลและภาคปฏิบัติ เพื่อนำเสนอ นวัตกรรมการดำเนินคดีในศาลรูปแบบใหม่ที่ยึดเอาความต้องการของประชาชนเป็นศูนย์กลาง (People-Centered) ภายใต้ Theme “Redesign Court for People-Centered Justice”
       </Text>
       

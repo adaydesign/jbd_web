@@ -113,7 +113,10 @@ const HeaderBottom = () => {
         w="full"
         align="center"
         px={6}
-      >
+      >        
+        <Button variant="ghost" colorScheme="yellow" as={Link}  to="/">
+          Home
+        </Button>
         <Button variant="ghost" colorScheme="yellow" as={Link}  to="/application">
           Apply Now!
         </Button>

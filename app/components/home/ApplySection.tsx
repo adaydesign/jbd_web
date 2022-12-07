@@ -1,21 +1,21 @@
 import { Button, Flex, HStack, Icon, Text, VStack } from "@chakra-ui/react"
-import { RiContactsFill, RiChatForwardFill } from "react-icons/ri"
+import { RiContactsFill, RiChatForwardFill, RiPhoneFill, RiFileTextFill } from "react-icons/ri"
 
 const ContactUs = () => {
   return (
     <Flex
-      flex={6}
+      flex={3}
       bgColor="rgba(189, 5, 30, 0.9)"
       direction="column"
       justify="center"
       px={10}
     >
       <HStack color="white" spacing={10}>
-        <Icon as={RiContactsFill} boxSize="60px" />
+        <Icon as={RiPhoneFill} boxSize="60px" />
         <VStack align="flex-start">
-          <Text fontSize="25px">Call Us:</Text>
-          <Text fontSize="32px" fontWeight="bold">
-            +(01) 2345 6789
+          <Text fontSize="24px">ติดต่อสอบถาม</Text>
+          <Text fontSize="19px" fontWeight="bold">
+          02 512 8499
           </Text>
         </VStack>
       </HStack>
@@ -24,18 +24,23 @@ const ContactUs = () => {
 }
 const ApplyNow = () => {
   return (
-    <Flex flex={8} bgColor="rgba(85, 87, 89, 0.97)" align="center">
+    <Flex flex={7} bgColor="rgba(85, 87, 89, 0.97)" >
+      <Icon as={RiFileTextFill} boxSize="60px" mt={10} ml={10} color="white" />
       <Flex px="60px" direction="column">
-        <Text fontSize="24px" fontWeight="bold" color="white"  mt={4}>
+        <Text fontSize="24px"  color="white"  mt={5}>
           สนใจเข้าร่วมโครงการ
         </Text>
-        <Text fontSize="19px" color="white" mt={4}>
-          สมัครเข้าร่วมโครงการได้ตั้งแต่วันที่ 15 ธ.ค. 65
+        <Text fontSize="19px" color="white" mt={2}>
+          รับสมัครเข้าร่วมโครงการตั้งแต่วันที่ 15 ธ.ค. 65
         </Text>
         <Text fontSize="19px" color="white" >
           ไม่มีค่าใช้จ่ายตลอดเข้าร่วมโครงการ
         </Text>
-        <Button
+
+      </Flex>
+
+
+      <Button
           rightIcon={<RiChatForwardFill />}
           colorScheme="menu"
           p={3}
@@ -43,11 +48,10 @@ const ApplyNow = () => {
           color="white"
           height="50px"
           w="fit-content"
-          mt={2}
+          mt={12}
         >
           <Text fontSize="24px">Apply Now</Text>
         </Button>
-      </Flex>
     </Flex>
   )
 }
@@ -58,7 +62,7 @@ const ApplySection = () => {
       w="full"
       bgImage={`url("/images/img01.jpg")`}
       backgroundSize="cover"
-      minH="35vh"
+      minH="25vh"
     >
       <ContactUs />
       <ApplyNow />

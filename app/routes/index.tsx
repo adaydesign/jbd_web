@@ -7,6 +7,7 @@ import {
   WhySection,
   AtAGlanceSection,
   AttendSection,
+  FooterContactSection,
 } from "~/components/home"
 
 export default function Index() {
@@ -19,6 +20,7 @@ export default function Index() {
       <AttendSection />
       <WorkingSection />
       <WhySection />
+      <FooterContactSection />
     </Flex>
   )
 }

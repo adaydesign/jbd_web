@@ -7,14 +7,14 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react"
-import { APP_DEV, APP_NAME } from "~/constants"
+import { APP_DEV, APP_NAME, APP_NAME_EN } from "~/constants"
 import { SocialIconPanel } from "./Header"
 
 const FooterTopPanel = () => {
   return (
     <Flex w="full" direction="column">
       <Heading color="palette.secondary">About Justice by Design</Heading>
-      <Box h="3px" w="160px" bgColor="green" my={6} />
+      <Box h="3px" w="400px" bgColor="palette.main" my={6} />
       <Text w="40%" fontSize="19px" color="white">
       Creating Justice Initiative through Design Thinking Process.
       </Text>
@@ -29,7 +29,7 @@ const FooterBottomPanel = () => {
       <SocialIconPanel />
       <VStack>
         <Text color="white">
-          Copyright©2022 <strong>{APP_NAME}</strong>
+          Copyright©2022 <strong>{APP_NAME_EN}</strong>
         </Text>
         <Text color="white">{APP_DEV}</Text>
       </VStack>
@@ -39,7 +39,7 @@ const FooterBottomPanel = () => {
 
 const Footer = () => {
   return (
-    <Flex w="full" bgColor="palette.footer" direction="column" px={16} pt={16} pb={8}>
+    <Flex w="full" bgColor="palette.footer" direction="column" px={16} pt={5} pb={8}>
       <FooterTopPanel />
       <Divider my={8} />
       <FooterBottomPanel />

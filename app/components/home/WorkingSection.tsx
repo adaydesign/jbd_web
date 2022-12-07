@@ -1,5 +1,6 @@
 import { Center, Flex, HStack, Image, SimpleGrid, Text, List, ListItem, ListIcon, OrderedList, UnorderedList, } from "@chakra-ui/react"
-import { BlockTitle, Line } from "./ExpertiseSection"
+// import { Line } from "./ExpertiseSection"
+import { BlockTitle,Line } from "~/components/common"
 
 // type ClientItemProps = {
 //   image: any
@@ -60,7 +61,7 @@ const WorkingSection = () => {
       w="full"
       display="flex"
       flexDirection="column"
-      py="100px"
+      py="70px"
       bgColor="palette.body1"
     >
       <BlockTitle text1="Details" text2="" text1Color="black" />

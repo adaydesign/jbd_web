@@ -13,41 +13,42 @@ import {
   RiTimeFill,
   RiUserVoiceFill,
 } from "react-icons/ri"
+import { BlockTitle,Line } from "~/components/common"
 
-type BlockTitleProps = {
-  text1: string
-  text2: string
-  text1Color?: any
-}
-export const BlockTitle = ({
-  text1,
-  text2,
-  text1Color = "black",
-}: BlockTitleProps) => {
-  return (
-    <HStack spacing={3}>
-      <Text fontSize="36px" fontWeight="bold" color={text1Color}>
-        {text1}
-      </Text>
-      <Text fontSize="36px" fontWeight="bold" color="palette.main">
-        {text2}
-      </Text>
-    </HStack>
-  )
-}
+// type BlockTitleProps = {
+//   text1: string
+//   text2: string
+//   text1Color?: any
+// }
+// export const BlockTitle = ({
+//   text1,
+//   text2,
+//   text1Color = "black",
+// }: BlockTitleProps) => {
+//   return (
+//     <HStack spacing={0}>
+//       <Text fontSize="36px" fontWeight="bold" color={text1Color}>
+//         {text1}
+//       </Text>
+//       <Text fontSize="36px" fontWeight="bold" color="palette.main">
+//         {text2}
+//       </Text>
+//     </HStack>
+//   )
+// }
 
-type LineProps = {
-  lineColor?: any
-}
-export const Line = ({ lineColor = "blue.800" }:LineProps) => {
-  return (
-    <HStack mt={6}>
-      <Box h="3px" w="60px" bgColor={lineColor} />
-      <Box h="16px" w="16px" borderWidth="4px" borderColor="palette.secondary" />
-      <Box h="3px" w="60px" bgColor={lineColor} />
-    </HStack>
-  )
-}
+// type LineProps = {
+//   lineColor?: any
+// }
+// export const Line = ({ lineColor = "blue.800" }:LineProps) => {
+//   return (
+//     <HStack mt={6}>
+//       <Box h="3px" w="60px" bgColor={lineColor} />
+//       <Box h="16px" w="16px" borderWidth="4px" borderColor="palette.secondary" />
+//       <Box h="3px" w="60px" bgColor={lineColor} />
+//     </HStack>
+//   )
+// }
 
 type AtAGlanceItemProps = {
   icon: any
@@ -56,7 +57,7 @@ type AtAGlanceItemProps = {
 }
 const AtAGlanceItem = ({ icon, title, desc }: AtAGlanceItemProps) => {
   return (
-    <Flex p={6} shadow="2xl" w="full">
+    <Flex p={3} shadow="2xl" w="full">
       <Flex
         direction="column"
         align="center"
@@ -94,7 +95,7 @@ const AtAGlancePanel = () => {
       <AtAGlanceItem
         icon={RiTimeFill}
         title="Saturday"
-        desc="9.00-16.00"
+        desc="9.00 - 16.00"
       />
     </SimpleGrid>
   )
