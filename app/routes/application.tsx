@@ -89,6 +89,7 @@ export const action: ActionFunction = async ({ request }) => {
 
 const Application = () => {
   const actionData = useActionData()
+  console.log("action-data")
   console.log(actionData)
 
   return (

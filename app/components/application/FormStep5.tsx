@@ -2,6 +2,7 @@ import {
   Button,
   Collapse,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   HStack,
   Input,
@@ -12,12 +13,47 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react"
+import { useMemo } from "react"
 import { Controller, useFormContext } from "react-hook-form"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
 const FormStep5ButtonControl = () => {
   const { setStep } = useFormStepContext()
+  const {
+    watch,
+    formState: { errors },
+  } = useFormContext()
+  const enable = useMemo(() => {
+    let join = false
+
+    if (watch("join") == "1") {
+      join = true
+    } else if (watch("join") == "2" && !errors.join_note) {
+      join = true
+    }
+
+    return (
+      watch("essay_1") &&
+      watch("essay_2") &&
+      watch("essay_3") &&
+      watch("essay_4") &&
+      !errors.essay_1 &&
+      !errors.essay_2 &&
+      !errors.essay_3 &&
+      !errors.essay_4 &&
+      join
+    )
+  }, [
+    watch("essay_1"),
+    watch("essay_2"),
+    watch("essay_3"),
+    watch("essay_4"),
+    watch("join"),
+    watch("join_note"),
+    errors,
+  ])
+
   const onChangeStepHandle = (v: number) => {
     setStep(v)
   }
@@ -25,17 +61,22 @@ const FormStep5ButtonControl = () => {
     <>
       <Button onClick={() => onChangeStepHandle(4)}>ก่อนหน้า</Button>
       <Spacer />
-      <Button onClick={() => onChangeStepHandle(6)}>ถัดไป</Button>
+      <Button onClick={() => onChangeStepHandle(6)} isDisabled={!enable}>
+        ถัดไป
+      </Button>
     </>
   )
 }
 
 const FormStep5 = () => {
   const { control, watch } = useFormContext()
+  const {
+    formState: { errors },
+  } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep5ButtonControl />}>
-      <HStack spacing={4}>
-        <FormControl isRequired>
+      <HStack spacing={4} align="flex-start">
+        <FormControl isRequired isInvalid={!!errors.essay_1}>
           <FormLabel>
             คุณรู้จักกระบวนการคิดเชิงออกแบบ (Design Thinking) หรือไม่ อย่างไร
             (ไม่เกิน 200 คำ)
@@ -43,13 +84,26 @@ const FormStep5 = () => {
           <Controller
             name="essay_1"
             control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "กรุณาระบุข้อมูล",
+              },
+              maxLength: {
+                value: 2000,
+                message: "ขนาดข้อความยาวเกินกำหนด 2000 ตัวอักษร",
+              },
+            }}
             render={({ field }) => <Textarea rows={5} {...field} />}
           />
+          <FormErrorMessage>
+            {errors.essay_1?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
       </HStack>
 
-      <HStack spacing={4} mt={4}>
-        <FormControl isRequired>
+      <HStack spacing={4} mt={4} align="flex-start">
+        <FormControl isRequired isInvalid={!!errors.essay_2}>
           <FormLabel>
             คุณเคยศึกษา/ มีประสบการณ์ใช้บริการ/
             ทำงานที่เกี่ยวข้องกับกระบวนพิจารณาในชั้นศาลหรือไม่ อย่างไร (ไม่เกิน
@@ -58,13 +112,26 @@ const FormStep5 = () => {
           <Controller
             name="essay_2"
             control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "กรุณาระบุข้อมูล",
+              },
+              maxLength: {
+                value: 2000,
+                message: "ขนาดข้อความยาวเกินกำหนด 2000 ตัวอักษร",
+              },
+            }}
             render={({ field }) => <Textarea rows={5} {...field} />}
           />
+          <FormErrorMessage>
+            {errors.essay_2?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
       </HStack>
 
-      <HStack spacing={4} mt={4}>
-        <FormControl isRequired>
+      <HStack spacing={4} mt={4} align="flex-start">
+        <FormControl isRequired isInvalid={!!errors.essay_3}>
           <FormLabel>
             คุณคิดว่าขั้นตอนการให้บริการของศาล หรือกระบวนพิจารณาในชั้นศาล
             มีส่วนใดที่ควรได้รับการ พัฒนามากที่สุด เพราะเหตุใด (ไม่เกิน 300 คำ)
@@ -72,13 +139,26 @@ const FormStep5 = () => {
           <Controller
             name="essay_3"
             control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "กรุณาระบุข้อมูล",
+              },
+              maxLength: {
+                value: 3000,
+                message: "ขนาดข้อความยาวเกินกำหนด 3000 ตัวอักษร",
+              },
+            }}
             render={({ field }) => <Textarea rows={5} {...field} />}
           />
+          <FormErrorMessage>
+            {errors.essay_3?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
       </HStack>
 
-      <HStack spacing={4} mt={4}>
-        <FormControl isRequired>
+      <HStack spacing={4} mt={4} align="flex-start">
+        <FormControl isRequired isInvalid={!!errors.essay_4}>
           <FormLabel>
             คุณคาดหวังว่าการเข้าร่วมหลักสูตร “Justice by Design:
             กระบวนการยุติธรรมที่ทุกคนออกแบบ ได้”
@@ -89,12 +169,25 @@ const FormStep5 = () => {
           <Controller
             name="essay_4"
             control={control}
+            rules={{
+              required: {
+                value: true,
+                message: "กรุณาระบุข้อมูล",
+              },
+              maxLength: {
+                value: 5000,
+                message: "ขนาดข้อความยาวเกินกำหนด 5000 ตัวอักษร",
+              },
+            }}
             render={({ field }) => <Textarea rows={5} {...field} />}
           />
+          <FormErrorMessage>
+            {errors.essay_4?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
       </HStack>
 
-      <VStack spacing={4} mt={4}>
+      <VStack spacing={4} mt={4} align="flex-start">
         <FormControl isRequired>
           <FormLabel>
             คุณสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่
@@ -112,12 +205,21 @@ const FormStep5 = () => {
               </RadioGroup>
             )}
           />
+          <FormErrorMessage>
+            {errors.join?.message?.toString()}
+          </FormErrorMessage>
         </FormControl>
         <Collapse in={watch("join") == "2"} style={{ width: "100%" }}>
-          <FormControl>
+          <FormControl isInvalid={!!errors.join_note}>
             <Controller
               name="join_note"
               control={control}
+              rules={{
+                maxLength: {
+                  value: 100,
+                  message: "ขนาดข้อความยาวเกินกำหนด 100 ตัวอักษร",
+                },
+              }}
               render={({ field }) => (
                 <Input
                   type="text"
@@ -126,9 +228,13 @@ const FormStep5 = () => {
                 />
               )}
             />
+            <FormErrorMessage>
+              {errors.join_note?.message?.toString()}
+            </FormErrorMessage>
           </FormControl>
         </Collapse>
       </VStack>
+      <pre>{JSON.stringify(errors, null, 2)}</pre>
     </FormLayout>
   )
 }
