@@ -39,16 +39,16 @@ const FormStep1 = () => {
       <HStack spacing={4}>
         <FormControl>
           <FormLabel>คำนำหน้า</FormLabel>
-
           <Controller
             name="title"
+            defaultValue={"-"}
             control={control}
             render={({ field }) => (
-              <Select defaultValue="ไม่ประสงค์ระบุ" {...field}>
+              <Select {...field}>
                 <option value="นาย">นาย</option>
                 <option value="นาง">นาง</option>
                 <option value="นางสาว">นางสาว</option>
-                <option value="ไม่ประสงค์ระบุ">ไม่ประสงค์ระบุ</option>
+                <option value="-">ไม่ประสงค์ระบุ</option>
               </Select>
             )}
           />

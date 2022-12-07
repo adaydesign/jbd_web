@@ -35,7 +35,7 @@ const FormStep5 = () => {
   return (
     <FormLayout buttonControl={<FormStep5ButtonControl />}>
       <HStack spacing={4}>
-        <FormControl>
+        <FormControl isRequired>
           <FormLabel>
             คุณรู้จักกระบวนการคิดเชิงออกแบบ (Design Thinking) หรือไม่ อย่างไร
             (ไม่เกิน 200 คำ)
@@ -49,7 +49,7 @@ const FormStep5 = () => {
       </HStack>
 
       <HStack spacing={4} mt={4}>
-        <FormControl>
+        <FormControl isRequired>
           <FormLabel>
             คุณเคยศึกษา/ มีประสบการณ์ใช้บริการ/
             ทำงานที่เกี่ยวข้องกับกระบวนพิจารณาในชั้นศาลหรือไม่ อย่างไร (ไม่เกิน
@@ -64,7 +64,7 @@ const FormStep5 = () => {
       </HStack>
 
       <HStack spacing={4} mt={4}>
-        <FormControl>
+        <FormControl isRequired>
           <FormLabel>
             คุณคิดว่าขั้นตอนการให้บริการของศาล หรือกระบวนพิจารณาในชั้นศาล
             มีส่วนใดที่ควรได้รับการ พัฒนามากที่สุด เพราะเหตุใด (ไม่เกิน 300 คำ)
@@ -78,7 +78,7 @@ const FormStep5 = () => {
       </HStack>
 
       <HStack spacing={4} mt={4}>
-        <FormControl>
+        <FormControl isRequired>
           <FormLabel>
             คุณคาดหวังว่าการเข้าร่วมหลักสูตร “Justice by Design:
             กระบวนการยุติธรรมที่ทุกคนออกแบบ ได้”
@@ -95,7 +95,7 @@ const FormStep5 = () => {
       </HStack>
 
       <VStack spacing={4} mt={4}>
-        <FormControl>
+        <FormControl isRequired>
           <FormLabel>
             คุณสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่
           </FormLabel>
