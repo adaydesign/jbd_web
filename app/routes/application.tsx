@@ -111,6 +111,23 @@ const SuccessPanel = () => {
   )
 }
 
+const NoticePanel = () => {
+  return (
+    <Flex w="full" p={10}>
+      <Center w="full" flexDirection="column" bgColor="palette.body3" p={6}>
+        <VStack mt={2}>
+          <Text color="red" fontWeight="bold">
+            โปรดกรอกข้อมูลตามความเป็นจริงและตรวจสอบความถูกต้องก่อนทำการยื่นสมัคร
+          </Text>
+          <Text>
+            **เมื่อกด “ยืนยันการสมัคร” แล้ว ข้อมูลดังกล่าวไม่สามารถแก้ไขได้
+          </Text>
+        </VStack>
+      </Center>
+    </Flex>
+  )
+}
+
 const Application = () => {
   const actionData = useActionData()
 
@@ -122,6 +139,7 @@ const Application = () => {
         {actionData && actionData?.success && <SuccessPanel />}
         {!actionData && <ApplicationForm />}
       </Flex>
+      <NoticePanel />
     </Flex>
   )
 }
