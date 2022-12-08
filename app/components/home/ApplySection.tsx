@@ -55,13 +55,13 @@ const ApplyNow = () => {
       <Icon as={RiFileTextFill} boxSize="60px" color="white" />
       <Flex px="60px" direction="column" my={{ base: 4, md: 0 }}>
         <Text fontSize="24px" color="white">
-          สนใจเข้าร่วมโครงการ
+          " สนใจเข้าร่วมหลักสูตร
         </Text>
-        <Text fontSize="19px" color="white" mt={2}>
-          รับสมัครเข้าร่วมโครงการตั้งแต่วันที่ 15 ธ.ค. 65
+        <Text fontSize="19px" color="white" mt={1} align="center">
+          สมัครได้ตั้งแต่วันที่ 15 ธ.ค. 65 ถึงวันที่ 15 ม.ค. 66
         </Text>
         <Text fontSize="19px" color="white">
-          ไม่มีค่าใช้จ่ายตลอดเข้าร่วมโครงการ
+          ไม่มีค่าใช้จ่ายตลอดหลักสูตร "
         </Text>
       </Flex>
 

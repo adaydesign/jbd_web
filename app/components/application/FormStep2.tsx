@@ -78,7 +78,7 @@ const FormStep2 = () => {
             rules={{
               required: {
                 value: true,
-                message: "กรุณาระบบข้อมูล",
+                message: "กรุณาระบุข้อมูล",
               },
               maxLength: {
                 value: 190,

@@ -94,7 +94,10 @@ const Application = () => {
 
   return (
     <Flex w="full" direction="column">
-      <PageHeader heading="Design Matters" text="Home - Design Matters" />
+      <PageHeader
+        heading='"We are waiting for YOU"'
+        text='"ระยะเวลายื่นใบสมัครตั้งแต่ 15 ธ.ค. 65 - 15 ม.ค. 66"'
+      />
       <Flex w="full" direction="column" p={{ base: 4, md: 16 }}>
         <TextHeader text1="Online" text2="Application Form" />
         {actionData && actionData?.success && <SuccessPanel />}
