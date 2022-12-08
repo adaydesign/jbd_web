@@ -42,9 +42,15 @@ const FormStep2ButtonControl = () => {
   }
   return (
     <>
-      <Button onClick={() => onChangeStepHandle(1)}>ก่อนหน้า</Button>
+      <Button onClick={() => onChangeStepHandle(1)} colorScheme="menu">
+        ก่อนหน้า
+      </Button>
       <Spacer />
-      <Button onClick={() => onChangeStepHandle(3)} isDisabled={!enable}>
+      <Button
+        onClick={() => onChangeStepHandle(3)}
+        isDisabled={!enable}
+        colorScheme="menu"
+      >
         ถัดไป
       </Button>
     </>

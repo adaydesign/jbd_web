@@ -45,9 +45,11 @@ const FormStep6ButtonControl = () => {
 
   return (
     <>
-      <Button onClick={onChangeStepHandle}>ก่อนหน้า</Button>
+      <Button onClick={onChangeStepHandle} colorScheme="menu">
+        ก่อนหน้า
+      </Button>
       <Spacer />
-      <Button type="submit" isDisabled={!enable}>
+      <Button type="submit" isDisabled={!enable} colorScheme="blue">
         ยืนยันการสมัคร
       </Button>
     </>

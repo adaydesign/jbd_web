@@ -59,9 +59,15 @@ const FormStep5ButtonControl = () => {
   }
   return (
     <>
-      <Button onClick={() => onChangeStepHandle(4)}>ก่อนหน้า</Button>
+      <Button onClick={() => onChangeStepHandle(4)} colorScheme="menu">
+        ก่อนหน้า
+      </Button>
       <Spacer />
-      <Button onClick={() => onChangeStepHandle(6)} isDisabled={!enable}>
+      <Button
+        onClick={() => onChangeStepHandle(6)}
+        isDisabled={!enable}
+        colorScheme="menu"
+      >
         ถัดไป
       </Button>
     </>

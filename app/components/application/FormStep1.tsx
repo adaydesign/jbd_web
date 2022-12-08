@@ -34,7 +34,11 @@ const FormStep1ButtonControl = () => {
   return (
     <>
       <Spacer />
-      <Button onClick={onChangeStepHandle} isDisabled={!enable}>
+      <Button
+        onClick={onChangeStepHandle}
+        isDisabled={!enable}
+        colorScheme="menu"
+      >
         ถัดไป
       </Button>
     </>
