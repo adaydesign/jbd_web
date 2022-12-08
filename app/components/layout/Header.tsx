@@ -10,6 +10,12 @@ import {
   Box,
   Center,
   Divider,
+  Show,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  Stack,
 } from "@chakra-ui/react"
 import { Link } from "@remix-run/react"
 import {
@@ -22,12 +28,17 @@ import {
   RiYoutubeLine,
   RiSearch2Line,
   RiGovernmentFill,
+  RiLayoutGridFill,
 } from "react-icons/ri"
+import { APP_COJ_URL } from "~/constants"
 
-const Logo = () => {
+type LogoProps = {
+  size?: string
+}
+const Logo = ({ size = "200px" }: LogoProps) => {
   return (
     <Link to="/">
-      <Image src="/images/logo_jbd_top.png" width="200" height="62" />
+      <Image src="/images/logo_jbd_top.png" width={size} />
     </Link>
   )
 }
@@ -37,16 +48,21 @@ type ContactItemProps = {
   text: string
   text2: string
   detail: string
-  
 }
-const ContactItem = ({ icon, text,text2, detail }: ContactItemProps) => {
+const ContactItem = ({ icon, text, text2, detail }: ContactItemProps) => {
   return (
     <Flex>
       <Icon as={icon} boxSize={9} color="palette.cojblue" mr={4} />
       <Flex direction="column">
-        <Text color="gray.600" fontSize="12">{text}</Text>
-        <Text color="gray.600" fontSize="12">{text2}</Text>
-        <Text fontWeight="bold"fontSize="14">{detail}</Text>
+        <Text color="gray.600" fontSize="12">
+          {text}
+        </Text>
+        <Text color="gray.600" fontSize="12">
+          {text2}
+        </Text>
+        <Text fontWeight="bold" fontSize="14">
+          {detail}
+        </Text>
       </Flex>
     </Flex>
   )
@@ -54,25 +70,20 @@ const ContactItem = ({ icon, text,text2, detail }: ContactItemProps) => {
 
 const Contact = () => {
   return (
-    <HStack spacing={6}>
+    <Stack spacing={6} direction={{ base: "column", md: "row" }}>
       <ContactItem
         icon={RiGovernmentFill}
         text="สำนักส่งเสริมงานตุลาการ "
         text2=""
         detail="02 512 8499"
       />
-      {/* <ContactItem
-        icon={RiChatHistoryFill}
-        text="Office Hours"
+      <ContactItem
+        icon={RiMailSendFill}
+        text="Email Us"
         text2=""
-        detail="9:00-17:00 [Sun:Closed]"
-      /> */}
-      <ContactItem 
-      icon={RiMailSendFill} 
-      text="Email Us" 
-      text2="" 
-      detail="oja@coj.go.th" />
-    </HStack>
+        detail="oja@coj.go.th"
+      />
+    </Stack>
   )
 }
 
@@ -97,7 +108,7 @@ const SocialIcon = ({ icon, url, color }: SocialIconProps) => {
 
 export const SocialIconPanel = () => {
   return (
-    <HStack spacing={4} mr={8}>
+    <HStack spacing={4} mr={{ base: 0, md: 8 }}>
       <SocialIcon icon={RiShareLine} url="" color="palette.main" />
       <SocialIcon icon={RiFacebookFill} url="" />
       <SocialIcon icon={RiTwitterFill} url="" />
@@ -105,115 +116,159 @@ export const SocialIconPanel = () => {
     </HStack>
   )
 }
-// type MainMenuProps = {
-//   url: string
-//   text: string
-//   // color?: any
-// }
 
-// const MainMenu = ({ url, text }: MainMenuProps) => {
-//   return (
-//     <Box >
-      
-//       <Text as={Link} to={url} textColor="white">{text}</Text>
+const MainMenuGroup = () => {
+  return (
+    <Flex
+      // justify="space-between"
+      bgColor="palette.main"
+      w="full"
+      align="center"
+      px={6}
+      py={{ base: 4, md: 0 }}
+      direction={{ base: "column", md: "row" }}
+    >
+      {/* <MainMenuPanel /> */}
+      <Box p={{ base: 4, md: 2 }}>
+        <Text as={Link} to={"/"} textColor="white" fontWeight="bold">
+          HOME
+        </Text>
+      </Box>
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text as={Link} to={"/application"} textColor="white" fontWeight="bold">
+          APPLY NOW
+        </Text>
+      </Box>
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text as={Link} to={"/details"} textColor="white" fontWeight="bold">
+          DETAILS
+        </Text>
+      </Box>
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text
+          as={Link}
+          to={"/program_journey"}
+          textColor="white"
+          fontWeight="bold"
+        >
+          PROGRAM JOURNEY
+        </Text>
+      </Box>
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text as={Link} to={"/contact"} textColor="white" fontWeight="bold">
+          CONTACT US
+        </Text>
+      </Box>
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
 
-//     </Box>
-
-//   )
-// }
-
-// const MainMenuPanel= () => {
-//   return (
-   
-//       <MainMenu url="/" text="Home" />
-   
-
-  
-      
- 
-//   )
-// }
-
-
+      <Spacer />
+      <Button borderRadius="50px" variant="" boxSize="50px">
+        <Icon as={RiSearch2Line} color="white" />
+      </Button>
+    </Flex>
+  )
+}
 const HeaderBottom = () => {
   return (
     <Flex mt={4}>
       <SocialIconPanel />
-      <Flex
-        // justify="space-between"
-        bgColor="palette.main"
-        w="full"
-        align="center"
-        px={6}
-      >        
-     {/* <MainMenuPanel /> */}
-     <Box mr={4}>
-     <Text as={Link} to={"/"} textColor="white" fontWeight="bold">HOME</Text>
-     </Box>
-     <Divider orientation='vertical'/>
-     <Box p={2}>
-     <Text as={Link} to={"/application"} textColor="white" fontWeight="bold">APPLY NOW</Text>
-     </Box>
-     <Divider orientation='vertical'/>
-     <Box p={2}>
-     <Text as={Link} to={"/details"} textColor="white" fontWeight="bold">DETAILS</Text>
-     </Box>
-     <Divider orientation='vertical'/>
-     <Box p={2}>
-     <Text as={Link} to={"/program_journey"} textColor="white" fontWeight="bold">PROGRAM JOURNEY</Text>
-     </Box>
-     <Divider orientation='vertical'/>
-     <Box p={2}>
-     <Text as={Link} to={"/contact"} textColor="white" fontWeight="bold">CONTACT US</Text>
-     </Box>
-     <Divider orientation='vertical'/>
-
-        {/* <Button variant="ghost" colorScheme="yellow" as={Link}  to="/">
-          Home
-        </Button>
-        <Button variant="ghost" colorScheme="yellow" as={Link}  to="/application">
-          Apply Now!
-        </Button>
-        <Button variant="ghost" colorScheme="yellow" as={Link} to="/details">
-          Details
-        </Button>
-        <Button variant="ghost" colorScheme="yellow" as={Link} to="/program_journey">
-          Program Journey
-        </Button>
-        <Button variant="ghost" colorScheme="yellow" as={Link} to="/contact">
-          Contact Us
-        </Button> */}
-
-    
-        <Spacer />
-        <Button borderRadius="50px" variant="" boxSize="50px">
-          <Icon as={RiSearch2Line} color="white" />
-        </Button>
-      </Flex>
+      <MainMenuGroup />
     </Flex>
   )
 }
 
-const CojLogo = () => {
+const COJLogo = () => {
   return (
-    <CKLink href="https://www.coj.go.th/" isExternal>
-      <Image src="/images/cojlogo2.png"  height="50px" mr={12}/>
+    <CKLink href={APP_COJ_URL} isExternal>
+      <Image
+        src="/images/cojlogo2.png"
+        height="50px"
+        mr={{ base: 0, md: 12 }}
+      />
     </CKLink>
   )
 }
 
-
-const Header = () => {
+const HeaderDesktop = () => {
   return (
-    <Flex w="full" direction="column" borderBottomColor="palette.main" borderBottomWidth="7px">
+    <Flex
+      w="full"
+      direction="column"
+      borderBottomColor="palette.main"
+      borderBottomWidth="7px"
+    >
       <Flex p={8} pb={0} align="center">
         <Logo />
         <Spacer />
-        <CojLogo />
+        <COJLogo />
         <Contact />
       </Flex>
       <HeaderBottom />
     </Flex>
+  )
+}
+
+const HeaderMobile = () => {
+  const sidebar = useDisclosure()
+
+  return (
+    <>
+      <Flex
+        w="full"
+        borderBottomColor="palette.main"
+        borderBottomWidth="3px"
+        p={4}
+        align="center"
+        position="fixed"
+        top={0}
+        backgroundColor="white"
+        shadow="lg"
+        zIndex={2}
+      >
+        <Logo size="72px" />
+        <Spacer />
+        <Button color="palette.main" variant="" onClick={sidebar.onOpen}>
+          <Icon as={RiLayoutGridFill} />
+        </Button>
+      </Flex>
+      <Drawer
+        isOpen={sidebar.isOpen}
+        onClose={sidebar.onClose}
+        placement="left"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <Flex w="full" direction="column" align="center" p={6}>
+            <Logo size="120px" />
+            <Divider my={2} />
+            <SocialIconPanel />
+            <Divider my={2} />
+            <MainMenuGroup />
+            <Box boxSize="20px" />
+            <COJLogo />
+            <Box boxSize="20px" />
+            <Contact />
+          </Flex>
+        </DrawerContent>
+      </Drawer>
+    </>
+  )
+}
+
+const Header = () => {
+  return (
+    <>
+      <Show below="md">
+        <HeaderMobile />
+      </Show>
+      <Show above="md">
+        <HeaderDesktop />
+      </Show>
+    </>
   )
 }
 

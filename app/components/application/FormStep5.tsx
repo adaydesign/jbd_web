@@ -81,7 +81,11 @@ const FormStep5 = () => {
   } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep5ButtonControl />}>
-      <HStack spacing={4} align="flex-start">
+      <Stack
+        spacing={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired isInvalid={!!errors.essay_1}>
           <FormLabel>
             คุณรู้จักกระบวนการคิดเชิงออกแบบ (Design Thinking) หรือไม่ อย่างไร
@@ -106,9 +110,14 @@ const FormStep5 = () => {
             {errors.essay_1?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired isInvalid={!!errors.essay_2}>
           <FormLabel>
             คุณเคยศึกษา/ มีประสบการณ์ใช้บริการ/
@@ -134,9 +143,14 @@ const FormStep5 = () => {
             {errors.essay_2?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired isInvalid={!!errors.essay_3}>
           <FormLabel>
             คุณคิดว่าขั้นตอนการให้บริการของศาล หรือกระบวนพิจารณาในชั้นศาล
@@ -161,9 +175,14 @@ const FormStep5 = () => {
             {errors.essay_3?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired isInvalid={!!errors.essay_4}>
           <FormLabel>
             คุณคาดหวังว่าการเข้าร่วมหลักสูตร “Justice by Design:
@@ -191,7 +210,7 @@ const FormStep5 = () => {
             {errors.essay_4?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
       <VStack spacing={4} mt={4} align="flex-start">
         <FormControl isRequired>
@@ -204,7 +223,7 @@ const FormStep5 = () => {
             defaultValue="1"
             render={({ field }) => (
               <RadioGroup {...field}>
-                <Stack direction="row">
+                <Stack direction={{ base: "column", md: "row" }}>
                   <Radio value="1">สามารถเข้าร่วมได้ทุกครั้ง</Radio>
                   <Radio value="2">สามารถเข้าร่วมได้บางครั้ง</Radio>
                 </Stack>

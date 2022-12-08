@@ -1,20 +1,21 @@
-import { Box, Button, Center, Flex, Icon, Text, VStack } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import {
-  ActionArgs,
   ActionFunction,
-  NodeOnDiskFile,
   unstable_composeUploadHandlers,
   unstable_createFileUploadHandler,
   unstable_createMemoryUploadHandler,
   unstable_parseMultipartFormData,
 } from "@remix-run/node"
-import { ApplicationForm } from "~/components/application"
+import {
+  ApplicationForm,
+  NoticePanel,
+  SuccessPanel,
+} from "~/components/application"
 import { PageHeader, TextHeader } from "~/components/common"
 import { APP_UPLOAD_DOC_PATH } from "~/constants"
 import { v4 as uuidv4 } from "uuid"
 import { createApplication } from "~/models/application"
-import { Link, useActionData } from "@remix-run/react"
-import { RiStarLine } from "react-icons/ri"
+import { useActionData } from "@remix-run/react"
 
 export const action: ActionFunction = async ({ request }) => {
   const uploadHandler = unstable_composeUploadHandlers(
@@ -88,53 +89,13 @@ export const action: ActionFunction = async ({ request }) => {
   }
 }
 
-const SuccessPanel = () => {
-  return (
-    <Flex w="full" p={10} bgColor="green.50">
-      <Center w="full" flexDirection="column">
-        <Icon as={RiStarLine} boxSize="60px" color="green.700" />
-        <VStack mt={2}>
-          <Text fontSize="20px" color="green" fontWeight="bold">
-            ท่านได้ส่งใบสมัครเข้าร่วมโครงการเรียบร้อยแล้ว
-            เราจะทำการแจ้งผลการสมัครภายหลัง
-          </Text>
-          <Text fontSize="20px">
-            Thank you for submitting application, we will be in touch shortly.
-          </Text>
-          <Box h="100px" />
-          <Link to="/">
-            <Button colorScheme="menu">กลับหน้าแรก</Button>
-          </Link>
-        </VStack>
-      </Center>
-    </Flex>
-  )
-}
-
-const NoticePanel = () => {
-  return (
-    <Flex w="full" p={10}>
-      <Center w="full" flexDirection="column" bgColor="palette.body3" p={6}>
-        <VStack mt={2}>
-          <Text color="red" fontWeight="bold">
-            โปรดกรอกข้อมูลตามความเป็นจริงและตรวจสอบความถูกต้องก่อนทำการยื่นสมัคร
-          </Text>
-          <Text>
-            **เมื่อกด “ยืนยันการสมัคร” แล้ว ข้อมูลดังกล่าวไม่สามารถแก้ไขได้
-          </Text>
-        </VStack>
-      </Center>
-    </Flex>
-  )
-}
-
 const Application = () => {
   const actionData = useActionData()
 
   return (
     <Flex w="full" direction="column">
       <PageHeader heading="Design Matters" text="Home - Design Matters" />
-      <Flex w="full" direction="column" p={16}>
+      <Flex w="full" direction="column" p={{ base: 4, md: 16 }}>
         <TextHeader text1="Online" text2="Application Form" />
         {actionData && actionData?.success && <SuccessPanel />}
         {!actionData && <ApplicationForm />}

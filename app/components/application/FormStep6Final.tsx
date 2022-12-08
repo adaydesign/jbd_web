@@ -64,7 +64,7 @@ const FormStep6Final = () => {
 
   return (
     <FormLayout buttonControl={<FormStep6ButtonControl />}>
-      <HStack spacing={4}>
+      <Stack spacing={4} direction={{ base: "column", md: "row" }}>
         <FormControl>
           <FormLabel>ช่องทางออนไลน์</FormLabel>
           <Stack direction="column">
@@ -97,7 +97,7 @@ const FormStep6Final = () => {
             />
           </Stack>
         </FormControl>
-      </HStack>
+      </Stack>
 
       <VStack spacing={4} mt={4}>
         <FormControl>

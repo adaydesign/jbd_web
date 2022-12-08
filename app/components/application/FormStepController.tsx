@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Text } from "@chakra-ui/react"
+import { Box, Flex, HStack, Show, Text } from "@chakra-ui/react"
 import { useMemo } from "react"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 
@@ -26,10 +26,30 @@ const StepItem = ({ title, itemStep }: StepItemProps) => {
     // not
     return "gray.300"
   }, [step])
+
+  const mobileTitle = useMemo(() => {
+    // current
+    if (itemStep == step) return title
+    // pass & not
+    return title.substring(0, 1)
+  }, [step])
+
+  const mobileW = useMemo(() => {
+    // current
+    if (itemStep == step) return "100px"
+    // pass & not
+    return ""
+  }, [step])
+
   return (
-    <Box w="100px" borderBottomColor={borderColor} borderBottomWidth="3px">
+    <Box
+      w={{ base: mobileW, md: "100px" }}
+      borderBottomColor={borderColor}
+      borderBottomWidth="3px"
+    >
       <Text color="gray" textAlign="center">
-        {title}
+        <Show below="md">{mobileTitle}</Show>
+        <Show above="md">{title}</Show>
       </Text>
     </Box>
   )

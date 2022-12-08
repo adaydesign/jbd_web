@@ -6,6 +6,7 @@ import {
   HStack,
   Input,
   Spacer,
+  Stack,
 } from "@chakra-ui/react"
 import { useMemo } from "react"
 import { Controller, useFormContext } from "react-hook-form"
@@ -64,7 +65,11 @@ const FormStep2 = () => {
   } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep2ButtonControl />}>
-      <HStack spacing={4} align="flex-start">
+      <Stack
+        spacing={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired isInvalid={!!errors.address}>
           <FormLabel>ที่อยู่ที่ประสงค์ใช้ติดต่อ</FormLabel>
           <Controller
@@ -86,9 +91,14 @@ const FormStep2 = () => {
             {errors.address?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired isInvalid={!!errors.tel}>
           <FormLabel>หมายเลขโทรศัพท์ที่ประสงค์ใช้ติดต่อ</FormLabel>
           <Controller
@@ -129,9 +139,9 @@ const FormStep2 = () => {
             {errors.emer_tel?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4}>
+      <Stack spacing={4} mt={4} direction={{ base: "column", md: "row" }}>
         <FormControl isRequired isInvalid={!!errors.email}>
           <FormLabel>Email ที่ประสงค์ใช้ติดต่อ</FormLabel>
           <Controller
@@ -158,7 +168,7 @@ const FormStep2 = () => {
             {errors.email?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
     </FormLayout>
   )
 }

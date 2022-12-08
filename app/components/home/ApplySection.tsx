@@ -1,61 +1,84 @@
-import { Button, Flex, HStack, Icon, Text, VStack } from "@chakra-ui/react"
-import { RiContactsFill, RiChatForwardFill, RiPhoneFill, RiFileTextFill } from "react-icons/ri"
+import {
+  Button,
+  Flex,
+  HStack,
+  Icon,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react"
+import {
+  RiContactsFill,
+  RiChatForwardFill,
+  RiPhoneFill,
+  RiFileTextFill,
+} from "react-icons/ri"
 import { Link } from "@remix-run/react"
 
 const ContactUs = () => {
   return (
     <Flex
-      flex={3}
+      flex={{ base: 1, md: 5 }}
       bgColor="rgba(189, 5, 30, 0.9)"
       direction="column"
+      align="center"
       justify="center"
-      px={10}
+      p={{ base: 6, md: 0 }}
     >
-      <HStack color="white" spacing={10}>
+      <Stack
+        color="white"
+        spacing={{ base: 2, md: 10 }}
+        direction={{ base: "column", md: "row" }}
+        align="center"
+      >
         <Icon as={RiPhoneFill} boxSize="60px" />
         <VStack align="flex-start">
           <Text fontSize="24px">ติดต่อสอบถาม</Text>
           <Text fontSize="19px" fontWeight="bold">
-          02 512 8499
+            02 512 8499
           </Text>
         </VStack>
-      </HStack>
+      </Stack>
     </Flex>
   )
 }
 const ApplyNow = () => {
   return (
-    <Flex flex={7} bgColor="rgba(85, 87, 89, 0.97)"  justify="center" align="center">
+    <Flex
+      flex={{ base: 1, md: 7 }}
+      bgColor="rgba(85, 87, 89, 0.97)"
+      justify="center"
+      align="center"
+      direction={{ base: "column", md: "row" }}
+      p={{ base: 6, md: 0 }}
+    >
       <Icon as={RiFileTextFill} boxSize="60px" color="white" />
-      <Flex px="60px" direction="column">
-        <Text fontSize="24px"  color="white"  >
+      <Flex px="60px" direction="column" my={{ base: 4, md: 0 }}>
+        <Text fontSize="24px" color="white">
           สนใจเข้าร่วมโครงการ
         </Text>
         <Text fontSize="19px" color="white" mt={2}>
           รับสมัครเข้าร่วมโครงการตั้งแต่วันที่ 15 ธ.ค. 65
         </Text>
-        <Text fontSize="19px" color="white" >
+        <Text fontSize="19px" color="white">
           ไม่มีค่าใช้จ่ายตลอดเข้าร่วมโครงการ
         </Text>
-
       </Flex>
 
-
       <Button
-          rightIcon={<RiChatForwardFill />}
-          colorScheme="menu"
-          p={5}
-          borderRadius="xl"
-          color="white"
-          height="50px"
-          w="fit-content"
-          mt={0}
-          as={Link} 
-          to={"/application"} 
-          
-        >
-          <Text fontSize="24px">Apply Now</Text>
-        </Button>
+        rightIcon={<RiChatForwardFill />}
+        colorScheme="menu"
+        p={5}
+        borderRadius="xl"
+        color="white"
+        height="50px"
+        w="fit-content"
+        mt={0}
+        as={Link}
+        to={"/application"}
+      >
+        <Text fontSize="24px">Apply Now</Text>
+      </Button>
     </Flex>
   )
 }
@@ -67,9 +90,8 @@ const ApplySection = () => {
       bgImage={`url("/images/img01.jpg")`}
       backgroundSize="cover"
       minH="25vh"
-      
+      direction={{ base: "column", md: "row" }}
     >
-      
       <ContactUs />
       <ApplyNow />
     </Flex>

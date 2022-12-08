@@ -16,7 +16,7 @@ const FooterTopPanel = () => {
       <Heading color="palette.secondary">About Justice by Design</Heading>
       <Box h="3px" w="400px" bgColor="palette.main" my={6} />
       <Text w="40%" fontSize="19px" color="white">
-      Creating Justice Initiative through Design Thinking Process.
+        Creating Justice Initiative through Design Thinking Process.
       </Text>
     </Flex>
   )
@@ -24,9 +24,16 @@ const FooterTopPanel = () => {
 
 const FooterBottomPanel = () => {
   return (
-    <Flex w="full" justify="space-between">
+    <Flex
+      w="full"
+      justify={{ base: "center", md: "space-between" }}
+      direction={{ base: "column", md: "row" }}
+      align="center"
+    >
       <Image src="/images/Logo_jbd_footer.png" width="209" height="50" />
+      <Box boxSize="20px" display={{ base: "block", md: "none" }} />
       <SocialIconPanel />
+      <Box boxSize="20px" display={{ base: "block", md: "none" }} />
       <VStack>
         <Text color="white">
           Copyright©2022 <strong>{APP_NAME_EN}</strong>
@@ -39,7 +46,14 @@ const FooterBottomPanel = () => {
 
 const Footer = () => {
   return (
-    <Flex w="full" bgColor="palette.footer" direction="column" px={16} pt={5} pb={8}>
+    <Flex
+      w="full"
+      bgColor="palette.footer"
+      direction="column"
+      px={16}
+      pt={5}
+      pb={8}
+    >
       <FooterTopPanel />
       <Divider my={8} />
       <FooterBottomPanel />

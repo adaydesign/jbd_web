@@ -7,6 +7,7 @@ import {
   Input,
   Select,
   Spacer,
+  Stack,
 } from "@chakra-ui/react"
 import { useEffect, useMemo } from "react"
 import { Controller, useFormContext, useWatch } from "react-hook-form"
@@ -62,7 +63,11 @@ const FormStep1 = () => {
   }, [watch("birth_date")])
   return (
     <FormLayout buttonControl={<FormStep1ButtonControl />}>
-      <HStack spacing={4} align="flex-start">
+      <Stack
+        spacing={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isRequired>
           <FormLabel>คำนำหน้า</FormLabel>
           <Controller
@@ -127,9 +132,14 @@ const FormStep1 = () => {
             {errors.last_name?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl>
           <FormLabel>วัน เดือน ปีเกิด</FormLabel>
           <Controller
@@ -154,7 +164,7 @@ const FormStep1 = () => {
           />
           <FormErrorMessage>{errors.age?.message?.toString()}</FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
     </FormLayout>
   )
 }

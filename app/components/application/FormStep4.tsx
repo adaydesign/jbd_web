@@ -7,6 +7,7 @@ import {
   HStack,
   Input,
   Spacer,
+  Stack,
 } from "@chakra-ui/react"
 import { useMemo } from "react"
 import { Controller, useFormContext } from "react-hook-form"
@@ -62,7 +63,11 @@ const FormStep4 = () => {
   } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep4ButtonControl />}>
-      <HStack spacing={4} align="flex-start">
+      <Stack
+        spacing={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isInvalid={!!errors.position}>
           <FormLabel>ตำแหน่ง</FormLabel>
           <Controller
@@ -80,9 +85,14 @@ const FormStep4 = () => {
             {errors.position?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isInvalid={!!errors.org}>
           <FormLabel>องค์กร</FormLabel>
           <Controller
@@ -118,9 +128,14 @@ const FormStep4 = () => {
             {errors.work_age?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isInvalid={!!errors.working_desc}>
           <FormLabel>
             กรุณาระบุข้อมูลโดยสังเขปเกี่ยวกับลักษณะงานที่รับผิดชอบ
@@ -140,9 +155,14 @@ const FormStep4 = () => {
             {errors.working_desc?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl>
           <Controller
             name="study"
@@ -154,7 +174,7 @@ const FormStep4 = () => {
             )}
           />
         </FormControl>
-      </HStack>
+      </Stack>
     </FormLayout>
   )
 }

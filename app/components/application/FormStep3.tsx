@@ -7,6 +7,7 @@ import {
   HStack,
   Input,
   Spacer,
+  Stack,
 } from "@chakra-ui/react"
 import { useMemo } from "react"
 import { Controller, useFormContext } from "react-hook-form"
@@ -51,7 +52,11 @@ const FormStep3 = () => {
   } = useFormContext()
   return (
     <FormLayout buttonControl={<FormStep3ButtonControl />}>
-      <HStack spacing={4} align="flex-start">
+      <Stack
+        spacing={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isInvalid={!!errors.edu_1}>
           <FormLabel>
             กรณีสำเร็จการศึกษา กรุณาระบุ หลักสูตรและปีที่สำเร็จการศึกษา
@@ -71,9 +76,14 @@ const FormStep3 = () => {
             {errors.edu_1?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl isInvalid={!!errors.edu_2}>
           <FormLabel>
             กรณีอยู่ระหว่างการศึกษา กรุณาระบุ มหาวิทยาลัย คณะ สำนักวิชา สาขา
@@ -94,9 +104,14 @@ const FormStep3 = () => {
             {errors.edu_2?.message?.toString()}
           </FormErrorMessage>
         </FormControl>
-      </HStack>
+      </Stack>
 
-      <HStack spacing={4} mt={4} align="flex-start">
+      <Stack
+        spacing={4}
+        mt={4}
+        align="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
         <FormControl>
           <FormLabel>
             กรุณาแนบ CV / Resume ภาษาไทยหรือภาษาอังกฤษ (หากมี)
@@ -107,7 +122,7 @@ const FormStep3 = () => {
             และใช้เฉพาะไฟล์ PDF ขนาดไม่เกิน 5 MB เท่านั้น
           </FormHelperText>
         </FormControl>
-      </HStack>
+      </Stack>
     </FormLayout>
   )
 }
