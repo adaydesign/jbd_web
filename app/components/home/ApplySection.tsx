@@ -35,7 +35,7 @@ const ApplyNow = () => {
         " สนใจเข้าร่วมหลักสูตร
         </Text>
         <Text fontSize="19px" color="white" mt={1} align="center">
-          สมัครได้ตั้งแต่วันที่ 15 ธ.ค. 65 ถึง วันนี้ 15 ม.ค. 66
+          สมัครได้ตั้งแต่วันที่ 15 ธ.ค. 65 ถึงวันที่ 15 ม.ค. 66
         </Text>
         <Text fontSize="19px" color="white" mt={1} align="center">
           ไม่มีค่าใช้จ่ายตลอดหลักสูตร "
