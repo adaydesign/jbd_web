@@ -28,14 +28,17 @@ const ApplyNow = () => {
     <Flex flex={7} bgColor="rgba(85, 87, 89, 0.97)"  justify="center" align="center">
       <Icon as={RiFileTextFill} boxSize="60px" color="white" />
       <Flex px="60px" direction="column">
-        <Text fontSize="24px"  color="white"  >
-          สนใจเข้าร่วมโครงการ
+        {/* <Text fontSize="24px"  color="white"  >
+          
+        </Text> */}
+        <Text fontSize="19px" color="white" align="center">
+        " สนใจเข้าร่วมหลักสูตร
         </Text>
-        <Text fontSize="19px" color="white" mt={2}>
-          รับสมัครเข้าร่วมโครงการตั้งแต่วันที่ 15 ธ.ค. 65
+        <Text fontSize="19px" color="white" mt={1} align="center">
+          สมัครได้ตั้งแต่วันที่ 15 ธ.ค. 65 ถึง วันนี้ 15 ม.ค. 66
         </Text>
-        <Text fontSize="19px" color="white" >
-          ไม่มีค่าใช้จ่ายตลอดเข้าร่วมโครงการ
+        <Text fontSize="19px" color="white" mt={1} align="center">
+          ไม่มีค่าใช้จ่ายตลอดหลักสูตร "
         </Text>
 
       </Flex>
