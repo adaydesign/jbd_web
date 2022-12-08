@@ -1,7 +1,8 @@
-import { Flex, Heading } from "@chakra-ui/react"
+import { Flex, Heading, Text } from "@chakra-ui/react"
 import React from "react"
 import { ApplicationForm } from "~/components/application"
 import { PageHeader, TextHeader } from "~/components/common"
+import { FooterContactSection } from "~/components/home"
 
 const Contact = () => {
   return (
@@ -10,7 +11,12 @@ const Contact = () => {
       <Flex w="full" direction="column" p={16}>
         <TextHeader text1="Contact" text2="Us" />
         {/* <ApplicationForm /> */}
+        <FooterContactSection />
+       
       </Flex>
+
+
+  
     </Flex>
   )
 }

@@ -206,7 +206,7 @@ const FormStep5 = () => {
               <RadioGroup {...field}>
                 <Stack direction="row">
                   <Radio value="1">สามารถเข้าร่วมได้ทุกครั้ง</Radio>
-                  <Radio value="2">ไม่สามารถเข้าร่วมได้ทุกครั้ง</Radio>
+                  <Radio value="2">สามารถเข้าร่วมได้บางครั้ง</Radio>
                 </Stack>
               </RadioGroup>
             )}
@@ -229,7 +229,7 @@ const FormStep5 = () => {
               render={({ field }) => (
                 <Input
                   type="text"
-                  placeholder="กรุณาระบบเหตุผลที่ไม่สามารถเข้าร่วมได้ทุกครั้ง"
+                  placeholder="กรุณาระบบเหตุผลที่สามารถเข้าร่วมบางครั้ง"
                   {...field}
                 />
               )}

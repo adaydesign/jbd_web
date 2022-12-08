@@ -7,7 +7,7 @@ type TextHeaderProps = {
 
 const TextHeader = ({ text1, text2 }: TextHeaderProps) => {
   return (
-    <Flex w="full" py={8} direction="column">
+    <Flex w="full" mb={8} direction="column">
       <HStack>
         <Heading mr={2}>{text1}</Heading>
         <Heading color="palette.main">{text2}</Heading>

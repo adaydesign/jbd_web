@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react"
 import {
   RiCalendarTodoFill,
+  RiFileList3Line,
   RiTimeFill,
   RiUserVoiceFill,
 } from "react-icons/ri"
@@ -89,13 +90,13 @@ const AtAGlancePanel = () => {
       />
       <AtAGlanceItem
         icon={RiCalendarTodoFill}
-        title="Feb 5,11,18,25 & Mar 11,18,25"
-        desc="Time are subject to change"
+        title="Saturday (9.00 - 12.00)"
+        desc="Feb 5,11,18,25 & Mar 11,18,25,31"
       />
       <AtAGlanceItem
-        icon={RiTimeFill}
-        title="Saturday"
-        desc="9.00 - 16.00"
+        icon={RiFileList3Line}
+        title="5 Teaching Sessions"
+        desc="1 Group Project"
       />
     </SimpleGrid>
   )

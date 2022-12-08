@@ -6,7 +6,8 @@ const Text1 = () => {
   return (
     <Flex p={3} bgColor="palette.footer" w="fit-content">
       <Text color="white" fontSize="25px">
-      Call for Applications for COJ Fellowship Program
+      {/* Call for Applications for COJ Fellowship Program */}
+      Justice by Design: กระบวนการยุติธรรมที่ทุกคนออกแบบได้
       </Text>
     </Flex>
     
@@ -67,7 +68,7 @@ const HeroSection = () => {
     <Flex
       w="full"
       minH="70vh"
-      bgImage={`url("/images/img03.jpg")`}
+      bgImage={`url("/images/img003.jpg")`}
       backgroundSize="cover"
       justify="flex-end"
     >
@@ -87,7 +88,7 @@ const HeroSection = () => {
   <Text1HL />
   </HStack>
         <Text2 />
-        <ButtonStart />
+        {/* <ButtonStart /> */}
 </Flex>
         
       </Flex>

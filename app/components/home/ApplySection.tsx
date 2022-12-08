@@ -44,7 +44,7 @@ const ApplyNow = () => {
       <Button
           rightIcon={<RiChatForwardFill />}
           colorScheme="menu"
-          p={4}
+          p={5}
           borderRadius="xl"
           color="white"
           height="50px"
