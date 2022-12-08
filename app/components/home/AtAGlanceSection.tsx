@@ -57,7 +57,7 @@ type AtAGlanceItemProps = {
 }
 const AtAGlanceItem = ({ icon, title, desc }: AtAGlanceItemProps) => {
   return (
-    <Flex p={3} shadow="2xl" w="full">
+    <Flex p={2} shadow="2xl" w="full">
       <Flex
         direction="column"
         align="center"

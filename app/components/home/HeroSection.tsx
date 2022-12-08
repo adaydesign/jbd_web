@@ -1,5 +1,6 @@
 import { Button, Flex, Text, VStack, HStack } from "@chakra-ui/react"
 import { RiChatForwardFill } from "react-icons/ri"
+import { Link } from "@remix-run/react"
 
 const Text1 = () => {
   return (
@@ -52,6 +53,8 @@ const ButtonStart = () => {
         borderRadius="xl"
         color="white"
         height="60px"
+        as={Link} 
+        to={"/application"} 
       >
         <Text fontSize="25px">Apply Now!</Text>
       </Button>

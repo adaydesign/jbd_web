@@ -1,5 +1,6 @@
 import { Button, Flex, HStack, Icon, Text, VStack } from "@chakra-ui/react"
 import { RiContactsFill, RiChatForwardFill, RiPhoneFill, RiFileTextFill } from "react-icons/ri"
+import { Link } from "@remix-run/react"
 
 const ContactUs = () => {
   return (
@@ -24,10 +25,10 @@ const ContactUs = () => {
 }
 const ApplyNow = () => {
   return (
-    <Flex flex={7} bgColor="rgba(85, 87, 89, 0.97)" >
-      <Icon as={RiFileTextFill} boxSize="60px" mt={10} ml={10} color="white" />
+    <Flex flex={7} bgColor="rgba(85, 87, 89, 0.97)"  justify="center" align="center">
+      <Icon as={RiFileTextFill} boxSize="60px" color="white" />
       <Flex px="60px" direction="column">
-        <Text fontSize="24px"  color="white"  mt={5}>
+        <Text fontSize="24px"  color="white"  >
           สนใจเข้าร่วมโครงการ
         </Text>
         <Text fontSize="19px" color="white" mt={2}>
@@ -43,12 +44,15 @@ const ApplyNow = () => {
       <Button
           rightIcon={<RiChatForwardFill />}
           colorScheme="menu"
-          p={3}
+          p={4}
           borderRadius="xl"
           color="white"
           height="50px"
           w="fit-content"
-          mt={12}
+          mt={0}
+          as={Link} 
+          to={"/application"} 
+          
         >
           <Text fontSize="24px">Apply Now</Text>
         </Button>
