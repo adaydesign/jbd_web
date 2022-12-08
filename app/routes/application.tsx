@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react"
+import { Box, Button, Center, Flex, Icon, Text, VStack } from "@chakra-ui/react"
 import {
   ActionArgs,
   ActionFunction,
@@ -13,7 +13,8 @@ import { PageHeader, TextHeader } from "~/components/common"
 import { APP_UPLOAD_DOC_PATH } from "~/constants"
 import { v4 as uuidv4 } from "uuid"
 import { createApplication } from "~/models/application"
-import { useActionData } from "@remix-run/react"
+import { Link, useActionData } from "@remix-run/react"
+import { RiStarLine } from "react-icons/ri"
 
 export const action: ActionFunction = async ({ request }) => {
   const uploadHandler = unstable_composeUploadHandlers(
@@ -87,17 +88,39 @@ export const action: ActionFunction = async ({ request }) => {
   }
 }
 
+const SuccessPanel = () => {
+  return (
+    <Flex w="full" p={10} bgColor="green.50">
+      <Center w="full" flexDirection="column">
+        <Icon as={RiStarLine} boxSize="60px" color="green.700" />
+        <VStack mt={2}>
+          <Text fontSize="20px" color="green" fontWeight="bold">
+            ท่านได้ส่งใบสมัครเข้าร่วมโครงการเรียบร้อยแล้ว
+            เราจะทำการแจ้งผลการสมัครภายหลัง
+          </Text>
+          <Text fontSize="20px">
+            Thank you for submitting application, we will be in touch shortly.
+          </Text>
+          <Box h="100px" />
+          <Link to="/">
+            <Button colorScheme="menu">กลับหน้าแรก</Button>
+          </Link>
+        </VStack>
+      </Center>
+    </Flex>
+  )
+}
+
 const Application = () => {
   const actionData = useActionData()
-  console.log("action-data")
-  console.log(actionData)
 
   return (
     <Flex w="full" direction="column">
       <PageHeader heading="Design Matters" text="Home - Design Matters" />
       <Flex w="full" direction="column" p={16}>
         <TextHeader text1="Online" text2="Application Form" />
-        <ApplicationForm />
+        {actionData && actionData?.success && <SuccessPanel />}
+        {!actionData && <ApplicationForm />}
       </Flex>
     </Flex>
   )

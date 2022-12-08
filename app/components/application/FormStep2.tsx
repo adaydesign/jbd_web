@@ -153,7 +153,6 @@ const FormStep2 = () => {
           </FormErrorMessage>
         </FormControl>
       </HStack>
-      <pre>{JSON.stringify(errors, null, 2)}</pre>
     </FormLayout>
   )
 }

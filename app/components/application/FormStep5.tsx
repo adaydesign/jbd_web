@@ -234,7 +234,6 @@ const FormStep5 = () => {
           </FormControl>
         </Collapse>
       </VStack>
-      <pre>{JSON.stringify(errors, null, 2)}</pre>
     </FormLayout>
   )
 }

@@ -8,8 +8,8 @@ import {
   Select,
   Spacer,
 } from "@chakra-ui/react"
-import { useMemo } from "react"
-import { Controller, useFormContext } from "react-hook-form"
+import { useEffect, useMemo } from "react"
+import { Controller, useFormContext, useWatch } from "react-hook-form"
 import { useFormStepContext } from "~/contexts/FormStepContext"
 import FormLayout from "./FormLayout"
 
@@ -42,10 +42,20 @@ const FormStep1ButtonControl = () => {
 }
 
 const FormStep1 = () => {
-  const { control } = useFormContext()
+  const { control, watch, setValue } = useFormContext()
   const {
     formState: { errors },
   } = useFormContext()
+
+  useEffect(() => {
+    const bd = watch("birth_date")
+    if (bd) {
+      const cy = new Date().getFullYear()
+      const bdy = new Date(bd).getFullYear()
+      const y = Math.abs(cy - bdy)
+      setValue("age", y)
+    }
+  }, [watch("birth_date")])
   return (
     <FormLayout buttonControl={<FormStep1ButtonControl />}>
       <HStack spacing={4} align="flex-start">
@@ -82,8 +92,8 @@ const FormStep1 = () => {
                 message: "กรุณาระบบข้อมูล",
               },
               maxLength: {
-                value: 150,
-                message: "ขนาดข้อความยาวเกินกำหนด 150 ตัวอักษร",
+                value: 100,
+                message: "ขนาดข้อความยาวเกินกำหนด 100 ตัวอักษร",
               },
             }}
             render={({ field }) => <Input type="text" {...field} />}
@@ -103,8 +113,8 @@ const FormStep1 = () => {
                 message: "กรุณาระบบข้อมูล",
               },
               maxLength: {
-                value: 150,
-                message: "ขนาดข้อความยาวเกินกำหนด 150 ตัวอักษร",
+                value: 100,
+                message: "ขนาดข้อความยาวเกินกำหนด 100 ตัวอักษร",
               },
             }}
             render={({ field }) => <Input type="text" {...field} />}
@@ -141,7 +151,6 @@ const FormStep1 = () => {
           <FormErrorMessage>{errors.age?.message?.toString()}</FormErrorMessage>
         </FormControl>
       </HStack>
-      <pre>{JSON.stringify(errors, null, 2)}</pre>
     </FormLayout>
   )
 }
