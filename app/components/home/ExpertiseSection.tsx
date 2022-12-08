@@ -113,7 +113,7 @@ const ExpertiseSection = () => {
       : กระบวนการยุติธรรมที่ทุกคนออกแบบได้
       </Text>
       <Line />
-      <Text fontSize="19px" mt={6} w="70%" textAlign="center">
+      <Text fontSize="19px" mt={6} w="70%" lineHeight="9" align="center" >
       ร่วมสร้างสรรค์การพิจารณาคดีในชั้นศาลผ่านกระบวนการคิดเชิงออกแบบ (Design Thinking) ไปพร้อม ๆ กับเพื่อนร่วมทีมที่มาจากภาคประชาชนผู้ใช้บริการศาลและภาคปฏิบัติ เพื่อนำเสนอ นวัตกรรมการดำเนินคดีในศาลรูปแบบใหม่ที่ยึดเอาความต้องการของประชาชนเป็นศูนย์กลาง (People-Centered) ภายใต้ Theme “Redesign Court for People-Centered Justice”
       </Text>
       

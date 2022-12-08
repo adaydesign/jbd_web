@@ -7,6 +7,9 @@ import {
   Spacer,
   Text,
   Link as CKLink,
+  Box,
+  Center,
+  Divider,
 } from "@chakra-ui/react"
 import { Link } from "@remix-run/react"
 import {
@@ -75,7 +78,7 @@ const Contact = () => {
 
 type SocialIconProps = {
   icon: any
-  url: String
+  url: string
   color?: any
 }
 const SocialIcon = ({ icon, url, color }: SocialIconProps) => {
@@ -102,6 +105,35 @@ export const SocialIconPanel = () => {
     </HStack>
   )
 }
+// type MainMenuProps = {
+//   url: string
+//   text: string
+//   // color?: any
+// }
+
+// const MainMenu = ({ url, text }: MainMenuProps) => {
+//   return (
+//     <Box >
+      
+//       <Text as={Link} to={url} textColor="white">{text}</Text>
+
+//     </Box>
+
+//   )
+// }
+
+// const MainMenuPanel= () => {
+//   return (
+   
+//       <MainMenu url="/" text="Home" />
+   
+
+  
+      
+ 
+//   )
+// }
+
 
 const HeaderBottom = () => {
   return (
@@ -114,7 +146,29 @@ const HeaderBottom = () => {
         align="center"
         px={6}
       >        
-        <Button variant="ghost" colorScheme="yellow" as={Link}  to="/">
+     {/* <MainMenuPanel /> */}
+     <Box mr={4}>
+     <Text as={Link} to={"/"} textColor="white" fontWeight="bold">HOME</Text>
+     </Box>
+     <Divider orientation='vertical'/>
+     <Box p={2}>
+     <Text as={Link} to={"/application"} textColor="white" fontWeight="bold">APPLY NOW</Text>
+     </Box>
+     <Divider orientation='vertical'/>
+     <Box p={2}>
+     <Text as={Link} to={"/details"} textColor="white" fontWeight="bold">DETAILS</Text>
+     </Box>
+     <Divider orientation='vertical'/>
+     <Box p={2}>
+     <Text as={Link} to={"/program_journey"} textColor="white" fontWeight="bold">PROGRAM JOURNEY</Text>
+     </Box>
+     <Divider orientation='vertical'/>
+     <Box p={2}>
+     <Text as={Link} to={"/contact"} textColor="white" fontWeight="bold">CONTACT US</Text>
+     </Box>
+     <Divider orientation='vertical'/>
+
+        {/* <Button variant="ghost" colorScheme="yellow" as={Link}  to="/">
           Home
         </Button>
         <Button variant="ghost" colorScheme="yellow" as={Link}  to="/application">
@@ -128,7 +182,9 @@ const HeaderBottom = () => {
         </Button>
         <Button variant="ghost" colorScheme="yellow" as={Link} to="/contact">
           Contact Us
-        </Button>
+        </Button> */}
+
+    
         <Spacer />
         <Button borderRadius="50px" variant="" boxSize="50px">
           <Icon as={RiSearch2Line} color="white" />
