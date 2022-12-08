@@ -67,7 +67,9 @@ const ApplySection = () => {
       bgImage={`url("/images/img01.jpg")`}
       backgroundSize="cover"
       minH="25vh"
+      
     >
+      
       <ContactUs />
       <ApplyNow />
     </Flex>

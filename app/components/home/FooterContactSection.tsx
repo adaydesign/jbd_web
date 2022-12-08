@@ -65,7 +65,12 @@ const FooterContactItem = ({ icon, title, desc, desc2, desc3 }: FooterContactIte
 const FooterContactPanel = () => {
   return (
     
-    <SimpleGrid columns={3} spacing={14} mt={6} pb={10} w="85%">
+    <SimpleGrid 
+    columns={{
+      base: 1,
+      md: 3,
+    }}
+    spacing={14} mt={6} pb={10} w="85%">
       <FooterContactItem
         icon={RiRoadMapFill}
         title="สำนักส่งเสริมงานตุลาการ"

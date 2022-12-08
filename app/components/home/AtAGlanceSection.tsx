@@ -82,7 +82,12 @@ const AtAGlanceItem = ({ icon, title, desc }: AtAGlanceItemProps) => {
 const AtAGlancePanel = () => {
   return (
     
-    <SimpleGrid columns={3} spacing={14} mt={6} pb={30} w="90%">
+    <SimpleGrid 
+    columns={{
+      base: 1,
+      md: 3,
+    }} 
+    spacing={14} mt={6} pb={30} w="90%">
       <AtAGlanceItem
         icon={RiUserVoiceFill}
         title="Design Thinking Bootcamp"
