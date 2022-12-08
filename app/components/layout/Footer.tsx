@@ -13,7 +13,7 @@ import { SocialIconPanel } from "./Header"
 const FooterTopPanel = () => {
   return (
     <Flex w="full" direction="column">
-      <Heading color="palette.secondary">About Justice by Design</Heading>
+      <Heading color="palette.secondary">Justice by Design</Heading>
       <Box h="3px" w="400px" bgColor="palette.main" my={6} />
       <Text w="40%" fontSize="19px" color="white">
       Creating Justice Initiative through Design Thinking Process.
