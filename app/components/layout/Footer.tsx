@@ -55,7 +55,7 @@ const Footer = () => {
       w="full"
       bgColor="palette.footer"
       direction="column"
-      px={16}
+      px={{ base: 8, md: 16 }}
       pt={5}
       pb={8}
     >

@@ -22,7 +22,7 @@ const WhySection = () => {
       flexDirection="column"
       py="70px"
       bgColor="palette.container"
-      px={{ base: 16, md: 0 }}
+      px={{ base: 8, md: 0 }}
     >
       <BlockTitle text1="Why" text2="Justice x Design ?" text1Color="black" />
 
@@ -43,10 +43,12 @@ const WhySection = () => {
           textAlign="left"
         >
           <ListItem mb={2}>
-            เรียนรู้กระบวนการคิดเชิงออกแบบ (Design Thinking) จากทีมวิทยากรและ Coach ที่มีประสบการณ์จริง
+            เรียนรู้กระบวนการคิดเชิงออกแบบ (Design Thinking) จากทีมวิทยากรและ
+            Coach ที่มีประสบการณ์จริง
           </ListItem>
           <ListItem mb={2}>
-            เข้าใจ Pain Point ของการดำเนินคดีในชั้นศาลจากมุมมองของประชาชนผู้ใช้บริการและผู้ปฏิบัติงานในศาล
+            เข้าใจ Pain Point
+            ของการดำเนินคดีในชั้นศาลจากมุมมองของประชาชนผู้ใช้บริการและผู้ปฏิบัติงานในศาล
           </ListItem>
           <ListItem mb={2}>
             ลงสำรวจและสังเกตการณ์กระบวนการในชั้นศาลเพื่อให้เห็นสภาพปัญหาจริงในการดำเนินคดีชั้นศาล

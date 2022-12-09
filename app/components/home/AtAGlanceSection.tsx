@@ -14,42 +14,7 @@ import {
   RiTimeFill,
   RiUserVoiceFill,
 } from "react-icons/ri"
-import { BlockTitle,Line } from "~/components/common"
-
-// type BlockTitleProps = {
-//   text1: string
-//   text2: string
-//   text1Color?: any
-// }
-// export const BlockTitle = ({
-//   text1,
-//   text2,
-//   text1Color = "black",
-// }: BlockTitleProps) => {
-//   return (
-//     <HStack spacing={0}>
-//       <Text fontSize="36px" fontWeight="bold" color={text1Color}>
-//         {text1}
-//       </Text>
-//       <Text fontSize="36px" fontWeight="bold" color="palette.main">
-//         {text2}
-//       </Text>
-//     </HStack>
-//   )
-// }
-
-// type LineProps = {
-//   lineColor?: any
-// }
-// export const Line = ({ lineColor = "blue.800" }:LineProps) => {
-//   return (
-//     <HStack mt={6}>
-//       <Box h="3px" w="60px" bgColor={lineColor} />
-//       <Box h="16px" w="16px" borderWidth="4px" borderColor="palette.secondary" />
-//       <Box h="3px" w="60px" bgColor={lineColor} />
-//     </HStack>
-//   )
-// }
+import { BlockTitle, Line } from "~/components/common"
 
 type AtAGlanceItemProps = {
   icon: any
@@ -81,13 +46,16 @@ const AtAGlanceItem = ({ icon, title, desc }: AtAGlanceItemProps) => {
 
 const AtAGlancePanel = () => {
   return (
-    
-    <SimpleGrid 
-    columns={{
-      base: 1,
-      md: 3,
-    }} 
-    spacing={14} mt={6} pb={30} w="90%">
+    <SimpleGrid
+      columns={{
+        base: 1,
+        md: 3,
+      }}
+      spacing={14}
+      mt={6}
+      pb={30}
+      w="90%"
+    >
       <AtAGlanceItem
         icon={RiUserVoiceFill}
         title="Design Thinking Bootcamp"
@@ -109,13 +77,16 @@ const AtAGlancePanel = () => {
 
 const AtAGlanceSection = () => {
   return (
-    <Center w="full" display="flex" flexDirection="column" py="50px" bgColor="palette.container">
-     
-      <BlockTitle text1="At-a-" text2="Glance"/>
+    <Center
+      w="full"
+      display="flex"
+      flexDirection="column"
+      py="50px"
+      bgColor="palette.container"
+    >
+      <BlockTitle text1="At-a-" text2="Glance" />
       <Line />
       <AtAGlancePanel />
-
-      
     </Center>
   )
 }
