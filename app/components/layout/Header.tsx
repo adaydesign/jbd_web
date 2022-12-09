@@ -117,7 +117,10 @@ export const SocialIconPanel = () => {
   )
 }
 
-const MainMenuGroup = () => {
+type MainMenuGroupProps = {
+  onClose?: any
+}
+const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
   return (
     <Flex
       // justify="space-between"
@@ -130,19 +133,37 @@ const MainMenuGroup = () => {
     >
       {/* <MainMenuPanel /> */}
       <Box p={{ base: 4, md: 2 }}>
-        <Text as={Link} to={"/"} textColor="white" fontWeight="bold">
+        <Text
+          as={Link}
+          to={"/"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
           HOME
         </Text>
       </Box>
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
-        <Text as={Link} to={"/application"} textColor="white" fontWeight="bold">
+        <Text
+          as={Link}
+          to={"/application"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
           APPLY NOW
         </Text>
       </Box>
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
-        <Text as={Link} to={"/details"} textColor="white" fontWeight="bold">
+        <Text
+          as={Link}
+          to={"/details"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
           DETAILS
         </Text>
       </Box>
@@ -153,13 +174,20 @@ const MainMenuGroup = () => {
           to={"/program_journey"}
           textColor="white"
           fontWeight="bold"
+          onClick={onClose}
         >
           PROGRAM JOURNEY
         </Text>
       </Box>
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
-        <Text as={Link} to={"/contact"} textColor="white" fontWeight="bold">
+        <Text
+          as={Link}
+          to={"/contact"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
           CONTACT US
         </Text>
       </Box>
@@ -247,7 +275,7 @@ const HeaderMobile = () => {
             <Divider my={2} />
             <SocialIconPanel />
             <Divider my={2} />
-            <MainMenuGroup />
+            <MainMenuGroup onClose={sidebar.onClose} />
             <Box boxSize="20px" />
             <COJLogo />
             <Box boxSize="20px" />
