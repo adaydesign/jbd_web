@@ -54,7 +54,7 @@ const HeroSection = () => {
       minH="70vh"
       bgImage={`url("/images/img003.jpg")`}
       backgroundSize="cover"
-      backgroundPosition={{ base: "center", md: "left" }}
+      backgroundPosition="center"
       justify="flex-end"
     >
       <Flex
