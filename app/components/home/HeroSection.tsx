@@ -59,7 +59,7 @@ const HeroSection = () => {
     >
       <Flex
         w="full"
-        bgColor="blackAlpha.200"
+        bgColor={{ base: "blackAlpha.800", md: "blackAlpha.600" }}
         direction="column"
         justify="center"
         align="flex-end"

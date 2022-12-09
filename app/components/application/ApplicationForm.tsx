@@ -19,7 +19,7 @@ const ApplicationForm = () => {
   })
 
   useEffect(() => {
-    if (divRef) {
+    if (divRef && step > 1) {
       divRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "center",
