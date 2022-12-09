@@ -6,5 +6,6 @@ import WhySection from "./WhySection";
 import AtAGlanceSection from "./AtAGlanceSection";
 import AttendSection from "./AttendSection";
 import FooterContactSection from "./FooterContactSection";
+import OurChallengeSection from "./OurChallengeSection";
 
-export { HeroSection, ApplySection, ExpertiseSection,WorkingSection,WhySection,AtAGlanceSection,AttendSection,FooterContactSection}
+export { HeroSection, ApplySection, ExpertiseSection,WorkingSection,WhySection,AtAGlanceSection,AttendSection,FooterContactSection,OurChallengeSection}

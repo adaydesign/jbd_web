@@ -8,6 +8,7 @@ import {
   AtAGlanceSection,
   AttendSection,
   FooterContactSection,
+  OurChallengeSection,
 } from "~/components/home"
 
 export default function Index() {
@@ -19,6 +20,7 @@ export default function Index() {
       <ExpertiseSection />
       <AttendSection />
       <WorkingSection />
+      <OurChallengeSection />
       <WhySection />
       <FooterContactSection />
     </Flex>

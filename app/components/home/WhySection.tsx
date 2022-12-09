@@ -21,7 +21,7 @@ const WhySection = () => {
       display="flex"
       flexDirection="column"
       py="70px"
-      bgColor="palette.container"
+      bgColor="palette.body1"
       px={{ base: 8, md: 0 }}
     >
       <BlockTitle text1="Why" text2="Justice x Design ?" text1Color="black" />

@@ -64,7 +64,7 @@ const AtAGlancePanel = () => {
       <AtAGlanceItem
         icon={RiCalendarTodoFill}
         title="Saturday (9.00 - 12.00)"
-        desc="Feb 5,11,18,25 & Mar 11,18,25,31"
+        desc="Feb 5,11,18,25 & Mar 11,18,25 & Apr 1"
       />
       <AtAGlanceItem
         icon={RiFileList3Line}

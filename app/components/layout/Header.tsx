@@ -171,6 +171,18 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
       <Box p={{ base: 4, md: 2 }}>
         <Text
           as={Link}
+          to={"/our_challenge"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
+          OUR CHALLENGE
+        </Text>
+      </Box>
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text
+          as={Link}
           to={"/program_journey"}
           textColor="white"
           fontWeight="bold"
@@ -221,6 +233,19 @@ const COJLogo = () => {
   )
 }
 
+const LukkidLogo = () => {
+  return (
+    <CKLink href="https://www.lukkidgroup.com/" isExternal>
+      <Image
+        src="/images/lukkid.png"
+        height="50px"
+        mr={{ base: 0, md: 12 }}
+      />
+    </CKLink>
+  )
+}
+
+
 const HeaderDesktop = () => {
   return (
     <Flex
@@ -233,6 +258,7 @@ const HeaderDesktop = () => {
         <Logo />
         <Spacer />
         <COJLogo />
+        <LukkidLogo />
         <Contact />
       </Flex>
       <HeaderBottom />
@@ -285,6 +311,9 @@ const HeaderMobile = () => {
             <Spacer minH="80px" />
             <COJLogo />
             <Spacer minH="30px" />
+            <LukkidLogo />
+            <Spacer minH="30px" />
+          
             <Contact />
           </Flex>
         </DrawerContent>
