@@ -270,13 +270,19 @@ const HeaderMobile = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <Flex w="full" direction="column" align="center" p={6}>
+          <Flex
+            w="full"
+            direction="column"
+            align="center"
+            p={6}
+            overflowY="auto"
+          >
             <Logo size="120px" />
             <Divider my={2} />
             <SocialIconPanel />
             <Divider my={2} />
             <MainMenuGroup onClose={sidebar.onClose} />
-            <Box boxSize="20px" />
+            <Spacer minH="80px" />
             <COJLogo />
             <Box boxSize="20px" />
             <Contact />
