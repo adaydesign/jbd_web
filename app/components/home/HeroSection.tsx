@@ -47,25 +47,6 @@ const Text2 = () => {
   )
 }
 
-const ButtonStart = () => {
-  return (
-    <Flex w="fit-content" mt={6}>
-      <Button
-        rightIcon={<RiChatForwardFill />}
-        colorScheme="menu"
-        p={3}
-        borderRadius="xl"
-        color="white"
-        height="60px"
-        as={Link}
-        to={"/application"}
-      >
-        <Text fontSize="25px">Apply Now!</Text>
-      </Button>
-    </Flex>
-  )
-}
-
 const HeroSection = () => {
   return (
     <Flex
@@ -73,6 +54,7 @@ const HeroSection = () => {
       minH="70vh"
       bgImage={`url("/images/img003.jpg")`}
       backgroundSize="cover"
+      backgroundPosition={{ base: "center", md: "left" }}
       justify="flex-end"
     >
       <Flex

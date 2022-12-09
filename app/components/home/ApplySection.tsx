@@ -53,7 +53,11 @@ const ApplyNow = () => {
       p={{ base: 6, md: 0 }}
     >
       <Icon as={RiFileTextFill} boxSize="60px" color="white" />
-      <Flex px="60px" direction="column" my={{ base: 4, md: 0 }}>
+      <Flex
+        px={{ base: 2, md: "60px" }}
+        direction="column"
+        my={{ base: 4, md: 0 }}
+      >
         <Text fontSize="24px" color="white">
           " สนใจเข้าร่วมหลักสูตร
         </Text>

@@ -284,7 +284,7 @@ const HeaderMobile = () => {
             <MainMenuGroup onClose={sidebar.onClose} />
             <Spacer minH="80px" />
             <COJLogo />
-            <Box boxSize="20px" />
+            <Spacer minH="30px" />
             <Contact />
           </Flex>
         </DrawerContent>
