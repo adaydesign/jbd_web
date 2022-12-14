@@ -38,7 +38,7 @@ const AtAGlanceItem = ({ icon, title, desc }: AtAGlanceItemProps) => {
         <Text fontSize="20px" fontWeight="bold" textAlign="center">
           {title}
         </Text>
-        <Text fontSize="19px">{desc}</Text>
+        <Text fontSize="18px">{desc}</Text>
       </Flex>
     </Flex>
   )
