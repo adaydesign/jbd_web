@@ -28,7 +28,7 @@ const ProgramJourneyPage = () => {
       
  
       <Center>
-      <Image src="/images/projourney.jpg" />
+      <Image src="/images/program_journey.png" />
       </Center>
 
       {/* <ClientPanel /> */}

@@ -1,4 +1,4 @@
-import { Button, Flex, Text, VStack, HStack, Stack } from "@chakra-ui/react"
+import { Button, Flex, Text, VStack, HStack, Stack, Spacer } from "@chakra-ui/react"
 import { RiChatForwardFill } from "react-icons/ri"
 import { Link } from "@remix-run/react"
 
@@ -36,13 +36,16 @@ const Text2 = () => {
         </Text>
       </Stack>
 
-      <Text fontSize="19px" bgColor="blackAlpha.400" textAlign="right">
+
+<Flex justify="end">
+      <Text fontSize="19px" bgColor="blackAlpha.400" textAlign="justify" p={3} w="90%">
         ร่วมสร้างกระบวนการยุติธรรมที่ยึดความต้องการ ทัศนคติ
         และความคาดหวังของประชาชนเป็นศูนย์กลาง (People-Centered)
         ในการพัฒนาคุณภาพการให้บริการของศาลยุติธรรม
         เพื่อลดช่องว่างของกระบวนการยุติธรรมแบบดั้งเดิมที่ยึดองค์กรผู้ให้บริการเป็นศูนย์กลาง
         (Institution-Focused)
       </Text>
+      </Flex>
     </Flex>
   )
 }

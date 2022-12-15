@@ -1,11 +1,11 @@
 import { Flex, Heading, HStack, Text } from "@chakra-ui/react"
 
-type PageHeaderProps = {
+type PageHeaderProps2 = {
   heading: String
   text: String
 }
 
-const PageHeader = ({ heading, text }: PageHeaderProps) => {
+const PageHeader2 = ({ heading, text }: PageHeaderProps2) => {
   return (
     <Flex w="full" h="35vh" bgImage="/images/breadcrumb.jpg" bgSize="cover">
       <Flex w="full" bgColor="blackAlpha.700" align="center">
@@ -21,7 +21,7 @@ const PageHeader = ({ heading, text }: PageHeaderProps) => {
             pl="30px"
             py={4}
           >
-            <Text fontSize="20px" fontWeight="bold" color="white">
+            <Text fontSize="13px"  color="white">
               {text}
             </Text>
           </Flex>
@@ -32,4 +32,4 @@ const PageHeader = ({ heading, text }: PageHeaderProps) => {
 }
 
 
-export default PageHeader
+export default PageHeader2

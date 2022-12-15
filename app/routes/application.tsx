@@ -11,7 +11,7 @@ import {
   NoticePanel,
   SuccessPanel,
 } from "~/components/application"
-import { PageHeader, TextHeader } from "~/components/common"
+import { PageHeader2, TextHeader } from "~/components/common"
 import { APP_UPLOAD_DOC_PATH } from "~/constants"
 import { v4 as uuidv4 } from "uuid"
 import { createApplication } from "~/models/application"
@@ -94,9 +94,9 @@ const Application = () => {
 
   return (
     <Flex w="full" direction="column">
-      <PageHeader
+      <PageHeader2
         heading='"We are waiting for YOU"'
-        text='"ระยะเวลายื่นใบสมัครตั้งแต่ 15 ธ.ค. 65 - 15 ม.ค. 66"'
+        text ='" สมัครได้ตั้งแต่วันนี้ ถึงวันที่ 15 ม.ค. 2566 รับจำนวนจำกัด! พิจารณาคัดเลือกผู้เข้าร่วมอบรมจากข้อมูลที่กรอกในใบสมัคร ประกาศผลภายในวันที่ 20 ม.ค. 2566 การคัดเลือกผู้เข้าร่วมอบรมโดยคณะกรรมการให้ถือเป็นที่สุด "'
       />
       <Flex w="full" direction="column" p={{ base: 4, md: 16 }}>
         <TextHeader text1="Online" text2="Application Form" />

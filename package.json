@@ -14,6 +14,7 @@
     "@remix-run/node": "^1.8.0",
     "@remix-run/react": "^1.8.0",
     "@remix-run/serve": "^1.8.0",
+    "@tanstack/react-table": "^8.7.2",
     "framer-motion": "^7.6.18",
     "isbot": "^3.6.5",
     "react": "^18.2.0",

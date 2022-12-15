@@ -58,15 +58,19 @@ const ApplyNow = () => {
         direction="column"
         my={{ base: 4, md: 0 }}
       >
-        <Text fontSize="24px" color="white">
-          " สนใจเข้าร่วมหลักสูตร
+        <Text fontSize="19px" color="white" align="center">
+         สนใจเข้าร่วมหลักสูตร 
         </Text>
-        <Text fontSize="19px" color="white" mt={1} align="center">
-          สมัครได้ตั้งแต่วันที่ 15 ธ.ค. 65 ถึงวันที่ 15 ม.ค. 66
+        <Text fontSize="15px" color="white" mt={2} align="center" >
+        " ยื่นใบสมัครได้ตั้งแต่วันนี้ ถึงวันที่ 15 ม.ค. 66  
         </Text>
-        <Text fontSize="19px" color="white">
-          ไม่มีค่าใช้จ่ายตลอดหลักสูตร "
+        <Text fontSize="14px" color="white" mt={1} align="center">
+        ไม่มีค่าใช้จ่ายในการร่วมหลักสูตร รับผู้เข้าร่วมอบรมจำนวนจำกัด
         </Text>
+        <Text fontSize="15px" color="white" mt={1} align="center">
+          ประกาศผลการคัดเลือกภายในวันที่ 20 ม.ค. 66 "
+        </Text>  
+
       </Flex>
 
       <Button
