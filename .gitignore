@@ -6,5 +6,3 @@ node_modules
 /public/upload
 .env
 /prisma/migrations
-
-app/components/admin
