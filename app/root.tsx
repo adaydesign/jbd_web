@@ -1,5 +1,7 @@
-import { ChakraProvider } from "@chakra-ui/react"
-import type { LinksFunction, MetaFunction } from "@remix-run/node"
+// root.tsx
+import React, { useContext, useEffect } from 'react'
+import { withEmotionCache } from '@emotion/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import {
   Links,
   LiveReload,
@@ -7,27 +9,27 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react"
+} from '@remix-run/react'
+import { MetaFunction, LinksFunction } from '@remix-run/node' // Depends on the runtime you choose
+
+import { ServerStyleContext, ClientStyleContext } from './context'
+import { APP_NAME } from './constants'
 import { theme } from "~/styles/theme"
-import PublicLayout from "./layouts/PublicLayout"
-import { APP_NAME } from "./constants"
+import PublicLayout from './layouts/PublicLayout'
 
 export const meta: MetaFunction = () => ({
-  charset: "utf-8",
+  charset: 'utf-8',
   title: APP_NAME,
-  viewport: "width=device-width,initial-scale=1",
-})
+  viewport: 'width=device-width,initial-scale=1',
+});
 
-export const links = () => {
+export let links: LinksFunction = () => {
   return [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
     {
-      rel: "preconnect",
-      href: "https://fonts.googleapis.com",
-    },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossOrigin: "true",
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'
     },
     {
       rel: "stylesheet",
@@ -36,33 +38,60 @@ export const links = () => {
   ]
 }
 
-type DocumentProps = {
-  children?: React.ReactNode
+interface DocumentProps {
+  children: React.ReactNode;
 }
 
-const Document = ({ children }: DocumentProps) => {
-  return (
-    <html lang="en">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
+const Document = withEmotionCache(
+  ({ children }: DocumentProps, emotionCache) => {
+    const serverStyleData = useContext(ServerStyleContext);
+    const clientStyleData = useContext(ClientStyleContext);
+
+    // Only executed on client
+    useEffect(() => {
+      // re-link sheet container
+      emotionCache.sheet.container = document.head;
+      // re-inject tags
+      const tags = emotionCache.sheet.tags;
+      emotionCache.sheet.flush();
+      tags.forEach((tag) => {
+        (emotionCache.sheet as any)._insertTag(tag);
+      });
+      // reset cache to reapply global styles
+      clientStyleData?.reset();
+    }, []);
+
+    return (
+      <html lang="en">
+        <head>
+          <Meta />
+          <Links />
+          {serverStyleData?.map(({ key, ids, css }) => (
+            <style
+              key={key}
+              data-emotion={`${key} ${ids.join(' ')}`}
+              dangerouslySetInnerHTML={{ __html: css }}
+            />
+          ))}
+        </head>
+        <body>
         <ChakraProvider theme={theme}>{children}</ChakraProvider>
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  )
-}
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </body>
+      </html>
+    );
+  }
+);
+
 
 export default function App() {
-  return (
-    <Document>
-      <PublicLayout>
-        <Outlet />
-      </PublicLayout>
-    </Document>
-  )
-}
+    return (
+      <Document>
+        <PublicLayout>
+          <Outlet />
+        </PublicLayout>
+      </Document>
+    )
+  }
