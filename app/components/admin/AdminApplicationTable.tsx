@@ -25,6 +25,7 @@ import {
   FaFileDownload,
   FaFilePdf,
   FaPaperclip,
+  FaPrint,
   FaRegFilePdf,
   FaTrash,
 } from "react-icons/fa";
@@ -101,7 +102,7 @@ function AdminApplicationTable({ data }: AdminApplicationTableProps) {
               }
                 }>
                 <Icon
-                  as={FaRegFilePdf}
+                  as={FaPrint}
                   cursor="pointer"
                   color="palette.main"
                   // ml="6px"
