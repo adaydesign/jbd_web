@@ -22,7 +22,7 @@ import {
   Tr,
   Td,
 } from "@chakra-ui/react"
-import React, { useRef } from "react"
+import { useRef } from "react"
 import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext"
 import { useReactToPrint } from "react-to-print"
 
@@ -54,7 +54,10 @@ function ModalForm() {
             {/* <Table w="full">
               <Tbody>
               <Tr><Td display="flex"  p="50px"> */}
-            <Flex direction="column">
+            <Flex
+              direction="column"
+              css={{ "@page": { size: "A4", margin: "15mm 15mm" } }}
+            >
               <Text textAlign="center" fontWeight="bold" fontSize="24px">
                 APPLICATION FORM
               </Text>
