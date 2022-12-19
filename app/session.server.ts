@@ -52,6 +52,8 @@ export const requireEditorRole = async (request: any) => {
   const session = await getUserSession(request)
   console.log("requireEditorRole")
   console.dir(session)
+  console.log("session?.get (is_editor) > ")
+  console.log(session?.get("is_editor"))
   const isEditor = session?.get("is_editor")
   return isEditor
 }
@@ -95,6 +97,7 @@ export const createUserSession = async (authenData: any, redirectTo: any) => {
   session.set("user_username", authenData.user_username)
   // role
   const editor = isEditor(authenData)
+  console.log("Editor > "+ editor)
   session.set("is_editor", editor)
   session.set("role_name", editor ? "admin" : "user") // fix
 
