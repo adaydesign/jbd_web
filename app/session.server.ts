@@ -80,6 +80,7 @@ const isEditor = (data: any) => {
 }
 
 export const createUserSession = async (authenData: any, redirectTo: any) => {
+  console.log('create session...')
   const session = await storage.getSession()
   session.set("office_code", authenData.office_code)
   session.set("office_id", authenData.office_id)

@@ -10,8 +10,10 @@ export const loader: LoaderFunction = async ({ params }) => {
   const authenData = queryString.parse(base64ToString)
 
   // if invalid app ID
-  if (authenData.program_id != APP_ID) {
-    redirect("/?action=invalid")
+  if (authenData.program_id != APP_ID || 
+    (authenData.office_code != "0000011" && authenData.office_code != "0000022") || 
+    (authenData.role_id != "3" && authenData.role_id != "5")) {
+    return redirect("/?action=invalid")
   }
 
   return createUserSession(authenData, "/_")
