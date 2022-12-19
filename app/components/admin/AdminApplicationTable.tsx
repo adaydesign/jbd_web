@@ -3,9 +3,11 @@ import {
   Button,
   Flex,
   Icon,
+  Link,
   Table,
   TableContainer,
   Tbody,
+  Td,
   Text,
   Th,
   Thead,
@@ -21,16 +23,14 @@ import {
 } from "@tanstack/react-table";
 import React, { useMemo, useState } from "react";
 import {
-  FaEdit,
-  FaFileDownload,
-  FaFilePdf,
+ 
   FaPaperclip,
   FaPrint,
-  FaRegFilePdf,
-  FaTrash,
+ 
 } from "react-icons/fa";
+import { APP_DOC_PATH } from "~/constants";
 import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext";
-import ModalForm from "./ModalForm";
+
 
 type AdminApplicationTableProps = {
   data: [];
@@ -56,21 +56,21 @@ function AdminApplicationTable({ data }: AdminApplicationTableProps) {
         accessorKey: "last_name",
         cell: (info: any) => info.getValue(),
       },
-      {
-        header: "อายุ (ปี)",
-        accessorKey: "age",
-        cell: (info: any) => info.getValue(),
-      },
+      // {
+      //   header: "อายุ (ปี)",
+      //   accessorKey: "age",
+      //   cell: (info: any) => info.getValue(),
+      // },
       {
         header: "ตำแหน่ง",
         accessorKey: "position",
         cell: (info: any) => info.getValue(),
       },
-      {
-        header: "เบอร์ติดต่อ",
-        accessorKey: "tel",
-        cell: (info: any) => info.getValue(),
-      },
+      // {
+      //   header: "เบอร์ติดต่อ",
+      //   accessorKey: "tel",
+      //   cell: (info: any) => info.getValue(),
+      // },
 
       {
         header: "เข้าร่วม",
@@ -90,13 +90,21 @@ function AdminApplicationTable({ data }: AdminApplicationTableProps) {
         accessorKey: "",
         cell: (info: any) => {
           return (
-            <>
+           
+            <Flex justify="flex-end">
+        {info.row.original.cv_file && (
+           <Button as={Link} href={APP_DOC_PATH+info.row.original.cv_file} isExternal>            
+
               <Icon
                 as={FaPaperclip}
                 cursor="pointer"
                 color="palette.secondary"
               />
-              <Button onClick={() => {
+
+</Button>
+        )}
+       
+              <Button ml="2" onClick={() => {
                 onOpen()
                 setSelectData(info.row.original)
               }
@@ -108,7 +116,7 @@ function AdminApplicationTable({ data }: AdminApplicationTableProps) {
                   // ml="6px"
                 />
               </Button>
-            </>
+            </Flex>
           );
         },
       },
@@ -145,13 +153,14 @@ function AdminApplicationTable({ data }: AdminApplicationTableProps) {
           </Thead>
           <Tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
+              <Tr key={row.id} >
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
+                  <Td key={cell.id} whiteSpace="normal">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
+                    
+                  </Td>
                 ))}
-              </tr>
+              </Tr>
             ))}
           </Tbody>
         </Table>
