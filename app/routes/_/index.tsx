@@ -12,7 +12,10 @@ import { requireEditorRole } from "~/session.server"
 export const loader: LoaderFunction = async ({ request }) => {
   // require EDITOR role
   const isEditor = await requireEditorRole(request)
-  if (!isEditor) return redirect("/?action=invalid")
+  if (!isEditor) {
+    console.log("- not permission x")
+    return redirect("/?action=invalid")
+  }
 
   const data = await getAllApplications()
   return data

@@ -50,6 +50,8 @@ export const requireUserId = async (
 
 export const requireEditorRole = async (request: any) => {
   const session = await getUserSession(request)
+  console.log("requireEditorRole")
+  console.dir(session)
   const isEditor = session?.get("is_editor")
   return isEditor
 }
