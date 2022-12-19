@@ -21,22 +21,22 @@ import {
   Thead,
   Tr,
   Td,
-} from "@chakra-ui/react";
-import React, { useRef } from "react";
-import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext";
-import { useReactToPrint } from "react-to-print";
+} from "@chakra-ui/react"
+import React, { useRef } from "react"
+import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext"
+import { useReactToPrint } from "react-to-print"
 
 function ModalForm() {
-  const { selectData, onClose, isOpen } = useSelectedApplicationContext();
-  console.log(selectData);
+  const { selectData, onClose, isOpen } = useSelectedApplicationContext()
+  //console.log(selectData);
 
   if (!selectData) {
-    return <>-</>;
+    return <>-</>
   }
-  const componentRef = useRef(null);
+  const componentRef = useRef(null)
   const handlePrint = useReactToPrint({
     content: () => componentRef?.current,
-  });
+  })
 
   return (
     <>
@@ -68,7 +68,12 @@ function ModalForm() {
               {/* <Divider /> */}
 
               <Flex direction="column">
-                <Text fontWeight="bold" fontSize="19px" py={2} textDecorationLine="underline">
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  py={2}
+                  textDecorationLine="underline"
+                >
                   ประวัติส่วนตัว (Personal Information)
                 </Text>
 
@@ -98,7 +103,12 @@ function ModalForm() {
               </Flex>
 
               <Flex direction="column" mb={2}>
-                <Text fontWeight="bold" fontSize="19px" textDecorationLine="underline" mb={2}>
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  textDecorationLine="underline"
+                  mb={2}
+                >
                   ข้อมูลเกี่ยวกับการติดต่อ (Contact Information)
                 </Text>
                 <Text>ที่อยู่ที่ประสงค์ใช้ติดต่อ : {selectData.address}</Text>
@@ -110,7 +120,12 @@ function ModalForm() {
               </Flex>
 
               <Flex direction="column" mb={2}>
-                <Text fontWeight="bold" fontSize="19px" textDecorationLine="underline" mb={2}>
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  textDecorationLine="underline"
+                  mb={2}
+                >
                   ข้อมูลประวัติการศึกษา (Education Background)
                 </Text>
                 <Text>
@@ -124,7 +139,12 @@ function ModalForm() {
               </Flex>
 
               <Flex direction="column" w="full" mb={2}>
-                <Text fontWeight="bold" fontSize="19px" mb={2} textDecorationLine="underline">
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  mb={2}
+                  textDecorationLine="underline"
+                >
                   ข้อมูลเกี่ยวกับการประกอบอาชีพ (Working Experiences)
                 </Text>
                 <Text>ตำแหน่ง : {selectData.position} </Text>
@@ -140,7 +160,12 @@ function ModalForm() {
                 </Text>
               </Flex>
               <Flex direction="column" w="full" mb={2}>
-                <Text fontWeight="bold" fontSize="19px" textDecorationLine="underline" mb={2}>
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  textDecorationLine="underline"
+                  mb={2}
+                >
                   ข้อมูลเกี่ยวกับการประกอบอาชีพ (Working Experiences)
                 </Text>
                 <Text>ตำแหน่ง : {selectData.position} </Text>
@@ -156,7 +181,12 @@ function ModalForm() {
                 </Text>
               </Flex>
               <Flex direction="column" mb={2}>
-                <Text fontWeight="bold" fontSize="19px" textDecorationLine="underline" mb={2}>
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  textDecorationLine="underline"
+                  mb={2}
+                >
                   Essay Quesions
                 </Text>
                 <Text mb={2} as="b">
@@ -172,7 +202,7 @@ function ModalForm() {
                 >
                   <Text> {selectData.essay_1} </Text>
                 </Box>
-                
+
                 {/* <Divider /> */}
                 <Text mb={2} as="b">
                   คุณเคยศึกษา/ มีประสบการณ์ใช้บริการ/
@@ -187,8 +217,7 @@ function ModalForm() {
                   pl={5}
                   mb={2}
                 >
-                <Text> {selectData.essay_2} </Text>
-
+                  <Text> {selectData.essay_2} </Text>
                 </Box>
                 <Text mb={2} as="b">
                   คุณคิดว่าขั้นตอนการให้บริการของศาล หรือกระบวนพิจารณาในชั้นศาล
@@ -202,7 +231,7 @@ function ModalForm() {
                   pl={5}
                   mb={2}
                 >
-                <Text> {selectData.essay_3}</Text>
+                  <Text> {selectData.essay_3}</Text>
                 </Box>
                 <Text mb={2} as="b">
                   คุณคาดหวังว่าการเข้าร่วมหลักสูตร “Justice by Design:
@@ -218,7 +247,7 @@ function ModalForm() {
                   pl={5}
                   mb={2}
                 >
-                <Text> {selectData.essay_4} </Text>
+                  <Text> {selectData.essay_4} </Text>
                 </Box>
                 <Text>
                   คุณสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่ :{" "}
@@ -232,7 +261,12 @@ function ModalForm() {
               </Flex>
 
               <Flex direction="column">
-                <Text fontWeight="bold" fontSize="19px" textDecorationLine="underline" mb={2}>
+                <Text
+                  fontWeight="bold"
+                  fontSize="19px"
+                  textDecorationLine="underline"
+                  mb={2}
+                >
                   ช่องทางรับทราบเกี่ยวกับหลักสูตร
                 </Text>
                 <Text>
@@ -265,13 +299,21 @@ function ModalForm() {
             </Table> */}
           </ModalBody>
           <ModalFooter>
-            <Button backgroundColor="palette.secondary" onClick={handlePrint} mr={2}>พิมพ์ใบสมัคร</Button>
-            <Button onClick={onClose} mr={5}>Close</Button>
+            <Button
+              backgroundColor="palette.secondary"
+              onClick={handlePrint}
+              mr={2}
+            >
+              พิมพ์ใบสมัคร
+            </Button>
+            <Button onClick={onClose} mr={5}>
+              Close
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
     </>
-  );
+  )
 }
 
-export default ModalForm;
+export default ModalForm
