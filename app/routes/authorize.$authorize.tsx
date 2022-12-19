@@ -13,6 +13,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   if (authenData.program_id != APP_ID || 
     (authenData.office_code != "0000011" && authenData.office_code != "0000022") || 
     (authenData.role_id != "3" && authenData.role_id != "5")) {
+      console.log("redirect > /?action=invalid")
     return redirect("/?action=invalid")
   }
 
