@@ -17,7 +17,7 @@ const storage = createCookieSessionStorage({
     maxAge: 86400,
     expires: new Date(Date.now() + 86400_000),
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    //secure: process.env.NODE_ENV === "production",
   },
 })
 
