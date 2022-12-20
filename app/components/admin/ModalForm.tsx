@@ -25,6 +25,7 @@ import {
 import { useRef } from "react"
 import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext"
 import { useReactToPrint } from "react-to-print"
+import { dateThaiFormat } from "~/util/dateThaiFormat"
 
 function ModalForm() {
   const { selectData, onClose, isOpen } = useSelectedApplicationContext()
@@ -93,7 +94,7 @@ function ModalForm() {
                   <Box bg="" height="30px">
                     {" "}
                     <HStack>
-                      <Text>วัน เดือน ปีเกิด : {selectData.birth_date} </Text>{" "}
+                      <Text>วัน เดือน ปีเกิด : {dateThaiFormat(selectData.birth_date)} </Text>{" "}
                     </HStack>
                   </Box>
                   <Box bg="" height="30px">

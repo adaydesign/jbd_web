@@ -5,5 +5,9 @@ export const createApplication = (data:any) => {
 }
 
 export const getAllApplications = () => {
-    return prisma.application.findMany()
+    return prisma.application.findMany({
+        orderBy:{
+            createdAt:"asc"
+        }
+    })
 }

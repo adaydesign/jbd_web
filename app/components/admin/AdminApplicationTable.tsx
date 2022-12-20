@@ -30,6 +30,7 @@ import {
 } from "react-icons/fa";
 import { APP_DOC_PATH } from "~/constants";
 import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext";
+import { dateThaiShortFormat } from "~/util/dateThaiFormat";
 
 
 type AdminApplicationTableProps = {
@@ -71,19 +72,31 @@ function AdminApplicationTable({ data }: AdminApplicationTableProps) {
       //   accessorKey: "tel",
       //   cell: (info: any) => info.getValue(),
       // },
-
       {
-        header: "เข้าร่วม",
-        accessorKey: "join",
+        header: "วันที่สมัคร",
+        accessorKey: "position",
         cell: (info: any) => {
-          if (info.getValue() == 1) {
-            return <Text>ทุกครั้ง</Text>;
-          }
-          if (info.getValue() == 2) {
-            return <Text>บางครั้ง</Text>;
-          }
-        },
+          const dt = info.row.original.createdAt;
+          return <>{dateThaiShortFormat(dt)}</>;
+
+
+          // dateThaiFormat(dt)
+          
+        }
       },
+
+      // {
+      //   header: "เข้าร่วม",
+      //   accessorKey: "join",
+      //   cell: (info: any) => {
+      //     if (info.getValue() == 1) {
+      //       return <Text>ทุกครั้ง</Text>;
+      //     }
+      //     if (info.getValue() == 2) {
+      //       return <Text>บางครั้ง</Text>;
+      //     }
+      //   },
+      // },
 
       {
         header: "Action",
