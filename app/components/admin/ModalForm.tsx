@@ -25,7 +25,7 @@ import {
 import { useRef } from "react"
 import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext"
 import { useReactToPrint } from "react-to-print"
-import { dateThaiFormat } from "~/util/dateThaiFormat"
+import { dateThaiFormat, dateThaiTimeFormat } from "~/util/dateThaiFormat"
 
 function ModalForm() {
   const { selectData, onClose, isOpen } = useSelectedApplicationContext()
@@ -75,13 +75,14 @@ function ModalForm() {
                 <Text
                   fontWeight="bold"
                   fontSize="19px"
-                  py={2}
+                  py={3}
                   textDecorationLine="underline"
+                  mb={2}
                 >
                   ประวัติส่วนตัว (Personal Information)
                 </Text>
 
-                <HStack>
+                <HStack mb={2} ml={5}>
                   <Text>ชื่อ : </Text>
                   <Text>
                     {" "}
@@ -90,14 +91,14 @@ function ModalForm() {
                   </Text>
                 </HStack>
 
-                <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
-                  <Box bg="" height="30px">
+                <SimpleGrid columns={2} spacingX="30px" spacingY="20px" mb={2} ml={5}>
+                  <Box bg="" height="50px">
                     {" "}
                     <HStack>
                       <Text>วัน เดือน ปีเกิด : {dateThaiFormat(selectData.birth_date)} </Text>{" "}
                     </HStack>
                   </Box>
-                  <Box bg="" height="30px">
+                  <Box bg="" height="50px">
                     {" "}
                     <HStack>
                       <Text>อายุ : {selectData.age}</Text> <Text>ปี </Text>
@@ -111,16 +112,16 @@ function ModalForm() {
                   fontWeight="bold"
                   fontSize="19px"
                   textDecorationLine="underline"
-                  mb={2}
+                  mb={5}
                 >
                   ข้อมูลเกี่ยวกับการติดต่อ (Contact Information)
                 </Text>
-                <Text>ที่อยู่ที่ประสงค์ใช้ติดต่อ : {selectData.address}</Text>
-                <Text>
+                <Text mb={2} ml={5}>ที่อยู่ที่ประสงค์ใช้ติดต่อ : {selectData.address}</Text>
+                <Text mb={2} ml={5}>
                   หมายเลขโทรศัพท์ที่ประสงค์ใช้ติดต่อ : {selectData.tel}{" "}
                 </Text>
-                <Text>หมายเลขโทรศัพท์ฉุกเฉิน : {selectData.emer_tel} </Text>
-                <Text>Email ที่ประสงค์ใช้ติดต่อ : {selectData.email} </Text>
+                <Text mb={2} ml={5}>หมายเลขโทรศัพท์ฉุกเฉิน : {selectData.emer_tel} </Text>
+                <Text mb={2} ml={5}>Email ที่ประสงค์ใช้ติดต่อ : {selectData.email} </Text>
               </Flex>
 
               <Flex direction="column" mb={2}>
@@ -128,15 +129,15 @@ function ModalForm() {
                   fontWeight="bold"
                   fontSize="19px"
                   textDecorationLine="underline"
-                  mb={2}
+                  mb={5}
                 >
                   ข้อมูลประวัติการศึกษา (Education Background)
                 </Text>
-                <Text>
+                <Text mb={2} ml={5}>
                   กรณีสำเร็จการศึกษา กรุณาระบุ หลักสูตรและปีที่สำเร็จการศึกษา :{" "}
                   {selectData.edu_1}{" "}
                 </Text>
-                <Text>
+                <Text mb={2} ml={5}>
                   กรณีอยู่ระหว่างการศึกษา กรุณาระบุ มหาวิทยาลัย คณะ สำนักวิชา
                   สาขา และชั้นปีที่เรียน : {selectData.edu_2}{" "}
                 </Text>
@@ -146,19 +147,19 @@ function ModalForm() {
                 <Text
                   fontWeight="bold"
                   fontSize="19px"
-                  mb={2}
+                  mb={5}
                   textDecorationLine="underline"
                 >
                   ข้อมูลเกี่ยวกับการประกอบอาชีพ (Working Experiences)
                 </Text>
-                <Text>ตำแหน่ง : {selectData.position} </Text>
-                <Text>องค์กร : {selectData.org} </Text>
-                <Text>อายุการทำงาน : {selectData.work_age} </Text>
-                <Text>
+                <Text mb={2} ml={5}>ตำแหน่ง : {selectData.position} </Text>
+                <Text mb={2} ml={5}>องค์กร : {selectData.org} </Text>
+                <Text mb={2} ml={5}>อายุการทำงาน : {selectData.work_age} </Text>
+                <Text mb={2} ml={5}>
                   ข้อมูลโดยสังเขปเกี่ยวกับลักษณะงานที่รับผิดชอบ :{" "}
                   {selectData.working_desc}{" "}
                 </Text>
-                <Text>
+                <Text mb={2} ml={5}>
                   ข้าพเจ้าอยู่ระหว่างการศึกษาในสถาบันการศึกษา :{" "}
                   {selectData.study == 1 ? "ใช่ " : "ไม่ใช่"}
                 </Text>
@@ -168,18 +169,18 @@ function ModalForm() {
                   fontWeight="bold"
                   fontSize="19px"
                   textDecorationLine="underline"
-                  mb={2}
+                  mb={5}
                 >
                   ข้อมูลเกี่ยวกับการประกอบอาชีพ (Working Experiences)
                 </Text>
-                <Text>ตำแหน่ง : {selectData.position} </Text>
-                <Text>องค์กร : {selectData.org} </Text>
-                <Text>อายุการทำงาน : {selectData.work_age} </Text>
-                <Text>
+                <Text mb={2} ml={5}>ตำแหน่ง : {selectData.position} </Text>
+                <Text mb={2} ml={5}>องค์กร : {selectData.org} </Text>
+                <Text mb={2} ml={5}>อายุการทำงาน : {selectData.work_age} </Text>
+                <Text mb={2} ml={5}>
                   ข้อมูลโดยสังเขปเกี่ยวกับลักษณะงานที่รับผิดชอบ :{" "}
                   {selectData.working_desc}{" "}
                 </Text>
-                <Text>
+                <Text mb={2} ml={5}>
                   ข้าพเจ้าอยู่ระหว่างการศึกษาในสถาบันการศึกษา :{" "}
                   {selectData.study == 1 ? "ใช่ " : "ไม่ใช่"}
                 </Text>
@@ -189,7 +190,7 @@ function ModalForm() {
                   fontWeight="bold"
                   fontSize="19px"
                   textDecorationLine="underline"
-                  mb={2}
+                  mb={5}
                 >
                   Essay Quesions
                 </Text>
@@ -269,11 +270,11 @@ function ModalForm() {
                   fontWeight="bold"
                   fontSize="19px"
                   textDecorationLine="underline"
-                  mb={2}
+                  mb={5}
                 >
                   ช่องทางรับทราบเกี่ยวกับหลักสูตร
                 </Text>
-                <Text>
+                <Text mb={2} ml={5}>
                   ช่องทางออนไลน์ :{" "}
                   {selectData.online_facebook == 1 ? "Facebook " : ""}
                   {selectData.online_instagram == 1 ? "Instagram " : ""}
@@ -281,8 +282,8 @@ function ModalForm() {
                   {selectData.online_email == 1 ? "Email " : ""}
                   {selectData.online_website == 1 ? "Website ศาลยุติธรรม " : ""}
                 </Text>
-                <HStack>
-                  <Text>
+                <HStack ml={5}>
+                  <Text mb={2}>
                     ได้รับการแนะนำจาก :{" "}
                     {selectData.sugg_colleague == 1 ? "เพื่อนร่วมงาน " : ""}
                     {selectData.sugg_teacher == 1 ? "อาจารย์ " : ""}
@@ -296,6 +297,19 @@ function ModalForm() {
                     <Text> {selectData.sugg_note} </Text>
                   </Collapse>
                 </HStack>
+              </Flex>
+              <Flex>
+              <Box
+                  bg=""
+                  // boxShadow="base"
+                  w="full"
+                  pl={5}
+                  mt={10}
+                  mb={2}
+                >
+                  <Text fontStyle="italic" align="right">ยื่นใบสมัครเมื่อ : {dateThaiTimeFormat(selectData.createdAt)} {" "}น.</Text>
+                </Box>
+
               </Flex>
             </Flex>
             {/* </Td></Tr>
