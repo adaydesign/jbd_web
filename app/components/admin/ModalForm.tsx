@@ -164,7 +164,7 @@ function ModalForm() {
                   {selectData.study == 1 ? "ใช่ " : "ไม่ใช่"}
                 </Text>
               </Flex>
-              <Flex direction="column" w="full" mb={2}>
+              {/* <Flex direction="column" w="full" mb={2}>
                 <Text
                   fontWeight="bold"
                   fontSize="19px"
@@ -184,7 +184,7 @@ function ModalForm() {
                   ข้าพเจ้าอยู่ระหว่างการศึกษาในสถาบันการศึกษา :{" "}
                   {selectData.study == 1 ? "ใช่ " : "ไม่ใช่"}
                 </Text>
-              </Flex>
+              </Flex> */}
               <Flex direction="column" mb={2}>
                 <Text
                   fontWeight="bold"
