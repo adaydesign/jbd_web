@@ -215,7 +215,7 @@ const FormStep5 = () => {
       <VStack spacing={4} mt={4} align="flex-start">
         <FormControl isRequired>
           <FormLabel>
-            คุณสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่
+          เนื่องจากกิจกรรมในหลักสูตรเป็นการจัดกิจกรรมแบบ on-site ไม่มีการจัดกิจกรรมแบบ online คุณจะสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่
           </FormLabel>
           <Controller
             name="join"

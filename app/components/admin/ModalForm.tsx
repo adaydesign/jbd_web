@@ -86,7 +86,8 @@ function ModalForm() {
                   <Text>ชื่อ : </Text>
                   <Text>
                     {" "}
-                    {selectData.title}
+                    {selectData.title == "-" ? "" : ""}
+                    {/* {selectData.title} */}
                     {selectData.first_name} {selectData.last_name}
                   </Text>
                 </HStack>
@@ -255,7 +256,7 @@ function ModalForm() {
                   <Text> {selectData.essay_4} </Text>
                 </Box>
                 <Text>
-                  คุณสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่ :{" "}
+                เนื่องจากกิจกรรมในหลักสูตรเป็นการจัดกิจกรรมแบบ on-site ไม่มีการจัดกิจกรรมแบบ online คุณจะสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่ :{" "}
                   {selectData.join == 1
                     ? "สามารถเข้าร่วมได้ทุกครั้ง"
                     : "สามารถเข้าร่วมได้บางครั้ง"}
