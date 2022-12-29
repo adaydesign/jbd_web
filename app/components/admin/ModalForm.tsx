@@ -21,23 +21,23 @@ import {
   Thead,
   Tr,
   Td,
-} from "@chakra-ui/react"
-import { useRef } from "react"
-import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext"
-import { useReactToPrint } from "react-to-print"
-import { dateThaiFormat, dateThaiTimeFormat } from "~/util/dateThaiFormat"
+} from "@chakra-ui/react";
+import { useRef } from "react";
+import { useSelectedApplicationContext } from "~/contexts/SelectedApplicationContext";
+import { useReactToPrint } from "react-to-print";
+import { dateThaiFormat, dateThaiTimeFormat } from "~/util/dateThaiFormat";
 
 function ModalForm() {
-  const { selectData, onClose, isOpen } = useSelectedApplicationContext()
+  const { selectData, onClose, isOpen } = useSelectedApplicationContext();
   //console.log(selectData);
 
   if (!selectData) {
-    return <>-</>
+    return <>-</>;
   }
-  const componentRef = useRef(null)
+  const componentRef = useRef(null);
   const handlePrint = useReactToPrint({
     content: () => componentRef?.current,
-  })
+  });
 
   return (
     <>
@@ -92,11 +92,20 @@ function ModalForm() {
                   </Text>
                 </HStack>
 
-                <SimpleGrid columns={2} spacingX="30px" spacingY="20px" mb={2} ml={5}>
+                <SimpleGrid
+                  columns={2}
+                  spacingX="30px"
+                  spacingY="20px"
+                  mb={2}
+                  ml={5}
+                >
                   <Box bg="" height="50px">
                     {" "}
                     <HStack>
-                      <Text>วัน เดือน ปีเกิด : {dateThaiFormat(selectData.birth_date)} </Text>{" "}
+                      <Text>
+                        วัน เดือน ปีเกิด :{" "}
+                        {dateThaiFormat(selectData.birth_date)}{" "}
+                      </Text>{" "}
                     </HStack>
                   </Box>
                   <Box bg="" height="50px">
@@ -117,12 +126,18 @@ function ModalForm() {
                 >
                   ข้อมูลเกี่ยวกับการติดต่อ (Contact Information)
                 </Text>
-                <Text mb={2} ml={5}>ที่อยู่ที่ประสงค์ใช้ติดต่อ : {selectData.address}</Text>
+                <Text mb={2} ml={5}>
+                  ที่อยู่ที่ประสงค์ใช้ติดต่อ : {selectData.address}
+                </Text>
                 <Text mb={2} ml={5}>
                   หมายเลขโทรศัพท์ที่ประสงค์ใช้ติดต่อ : {selectData.tel}{" "}
                 </Text>
-                <Text mb={2} ml={5}>หมายเลขโทรศัพท์ฉุกเฉิน : {selectData.emer_tel} </Text>
-                <Text mb={2} ml={5}>Email ที่ประสงค์ใช้ติดต่อ : {selectData.email} </Text>
+                <Text mb={2} ml={5}>
+                  หมายเลขโทรศัพท์ฉุกเฉิน : {selectData.emer_tel}{" "}
+                </Text>
+                <Text mb={2} ml={5}>
+                  Email ที่ประสงค์ใช้ติดต่อ : {selectData.email}{" "}
+                </Text>
               </Flex>
 
               <Flex direction="column" mb={2}>
@@ -153,9 +168,15 @@ function ModalForm() {
                 >
                   ข้อมูลเกี่ยวกับการประกอบอาชีพ (Working Experiences)
                 </Text>
-                <Text mb={2} ml={5}>ตำแหน่ง : {selectData.position} </Text>
-                <Text mb={2} ml={5}>องค์กร : {selectData.org} </Text>
-                <Text mb={2} ml={5}>อายุการทำงาน : {selectData.work_age} </Text>
+                <Text mb={2} ml={5}>
+                  ตำแหน่ง : {selectData.position}{" "}
+                </Text>
+                <Text mb={2} ml={5}>
+                  องค์กร : {selectData.org}{" "}
+                </Text>
+                <Text mb={2} ml={5}>
+                  อายุการทำงาน : {selectData.work_age}{" "}
+                </Text>
                 <Text mb={2} ml={5}>
                   ข้อมูลโดยสังเขปเกี่ยวกับลักษณะงานที่รับผิดชอบ :{" "}
                   {selectData.working_desc}{" "}
@@ -255,7 +276,7 @@ function ModalForm() {
                 >
                   <Text> {selectData.essay_4} </Text>
                 </Box>
-                <Text>
+                {/* <Text as="b">
                 เนื่องจากกิจกรรมในหลักสูตรเป็นการจัดกิจกรรมแบบ on-site ไม่มีการจัดกิจกรรมแบบ online คุณจะสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่ :{" "}
                   {selectData.join == 1
                     ? "สามารถเข้าร่วมได้ทุกครั้ง"
@@ -263,7 +284,32 @@ function ModalForm() {
                 </Text>
                 <Collapse in={selectData.join == "2"} animateOpacity>
                   <Text>เนื่องจาก: {selectData.join_note} </Text>
-                </Collapse>
+                </Collapse> */}
+                <Text mb={2} as="b">
+                  เนื่องจากกิจกรรมในหลักสูตรเป็นการจัดกิจกรรมแบบ on-site
+                  ไม่มีการจัดกิจกรรมแบบ online
+                  คุณจะสามารถเข้าร่วมกิจกรรมในหลักสูตรได้ครบถ้วนทุกครั้งหรือไม่
+                  {" "}
+                </Text>
+                <Box
+                  bg=""
+                  // boxShadow="base"
+                  w="full"
+                  pl={5}
+                  mb={2}
+                >
+                  <HStack>
+                    <Text>
+                      {selectData.join == 1
+                        ? "สามารถเข้าร่วมได้ทุกครั้ง"
+                        : "สามารถเข้าร่วมได้บางครั้ง"}{" "}
+                    </Text>
+
+                    <Collapse in={selectData.join == "2"} animateOpacity>
+                      <Text>เนื่องจาก: {selectData.join_note} </Text>
+                    </Collapse>
+                  </HStack>
+                </Box>
               </Flex>
 
               <Flex direction="column">
@@ -300,7 +346,7 @@ function ModalForm() {
                 </HStack>
               </Flex>
               <Flex>
-              <Box
+                <Box
                   bg=""
                   // boxShadow="base"
                   w="full"
@@ -308,9 +354,11 @@ function ModalForm() {
                   mt={10}
                   mb={2}
                 >
-                  <Text fontStyle="italic" align="right">ยื่นใบสมัครเมื่อ : {dateThaiTimeFormat(selectData.createdAt)} {" "}น.</Text>
+                  <Text fontStyle="italic" align="right">
+                    ยื่นใบสมัครเมื่อ :{" "}
+                    {dateThaiTimeFormat(selectData.createdAt)} น.
+                  </Text>
                 </Box>
-
               </Flex>
             </Flex>
             {/* </Td></Tr>
@@ -332,7 +380,7 @@ function ModalForm() {
         </ModalContent>
       </Modal>
     </>
-  )
+  );
 }
 
-export default ModalForm
+export default ModalForm;
