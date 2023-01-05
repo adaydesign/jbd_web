@@ -1,21 +1,22 @@
-import { Flex } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react";
 import {
   ActionFunction,
   unstable_composeUploadHandlers,
   unstable_createFileUploadHandler,
   unstable_createMemoryUploadHandler,
   unstable_parseMultipartFormData,
-} from "@remix-run/node"
+} from "@remix-run/node";
 import {
   ApplicationForm,
   NoticePanel,
+  RegisterClosePanel,
   SuccessPanel,
-} from "~/components/application"
-import { PageHeader2, TextHeader } from "~/components/common"
-import { APP_UPLOAD_DOC_PATH } from "~/constants"
-import { v4 as uuidv4 } from "uuid"
-import { createApplication } from "~/models/application"
-import { useActionData } from "@remix-run/react"
+} from "~/components/application";
+import { PageHeader, PageHeader2, TextHeader } from "~/components/common";
+import { APP_REGISTER, APP_UPLOAD_DOC_PATH } from "~/constants";
+import { v4 as uuidv4 } from "uuid";
+import { createApplication } from "~/models/application";
+import { useActionData } from "@remix-run/react";
 
 export const action: ActionFunction = async ({ request }) => {
   const uploadHandler = unstable_composeUploadHandlers(
@@ -23,24 +24,27 @@ export const action: ActionFunction = async ({ request }) => {
       maxPartSize: 5_000_000,
       directory: APP_UPLOAD_DOC_PATH,
       file: ({ filename }) => {
-        const ext = filename.split(".").pop()
-        return `doc_${uuidv4()}.${ext}`
+        const ext = filename.split(".").pop();
+        return `doc_${uuidv4()}.${ext}`;
       },
     }),
     // parse everything else into memory
     unstable_createMemoryUploadHandler()
-  )
-  const formData = await unstable_parseMultipartFormData(request, uploadHandler)
+  );
+  const formData = await unstable_parseMultipartFormData(
+    request,
+    uploadHandler
+  );
 
-  const file = formData.get("cv_file")
-  let fileName = ""
+  const file = formData.get("cv_file");
+  let fileName = "";
   if (file instanceof Object) {
-    fileName = file.name
+    fileName = file.name;
   }
-  const age = formData.get("age")
-  let ageInt = 0
+  const age = formData.get("age");
+  let ageInt = 0;
   if (age) {
-    ageInt = parseInt(age.toString())
+    ageInt = parseInt(age.toString());
   }
 
   // insert
@@ -79,33 +83,49 @@ export const action: ActionFunction = async ({ request }) => {
     sugg_email: formData.get("sugg_email") ? 1 : 0,
     sugg_other: formData.get("sugg_other") ? 1 : 0,
     sugg_note: formData.get("sugg_note"),
-  }
+  };
 
-  const rs = await createApplication(data)
+  const rs = await createApplication(data);
   if (rs) {
-    return { success: true }
+    return { success: true };
   } else {
-    return { success: false }
+    return { success: false };
   }
-}
+};
 
 const Application = () => {
-  const actionData = useActionData()
-
-  return (
-    <Flex w="full" direction="column">
-      <PageHeader2
-        heading='"We are waiting for YOU"'
-        text ='" สมัครได้ตั้งแต่วันนี้ ถึงวันที่ 15 ม.ค. 2566 รับจำนวนจำกัด! พิจารณาคัดเลือกผู้เข้าร่วมอบรมจากข้อมูลที่กรอกในใบสมัคร ประกาศผลภายในวันที่ 20 ม.ค. 2566 การคัดเลือกผู้เข้าร่วมอบรมโดยคณะกรรมการให้ถือเป็นที่สุด "'
-      />
-      <Flex w="full" direction="column" p={{ base: 4, md: 16 }}>
-        <TextHeader text1="Online" text2="Application Form" />
-        {actionData && actionData?.success && <SuccessPanel />}
-        {!actionData && <ApplicationForm />}
+  const actionData = useActionData();
+  if (APP_REGISTER) {
+    return (
+      <Flex w="full" direction="column">
+        <PageHeader2
+          heading='"We are waiting for YOU"'
+          text='" สมัครได้ตั้งแต่วันนี้ ถึงวันที่ 15 ม.ค. 2566 รับจำนวนจำกัด! พิจารณาคัดเลือกผู้เข้าร่วมอบรมจากข้อมูลที่กรอกในใบสมัคร ประกาศผลภายในวันที่ 20 ม.ค. 2566 การคัดเลือกผู้เข้าร่วมอบรมโดยคณะกรรมการให้ถือเป็นที่สุด "'
+        />
+        <Flex w="full" direction="column" p={{ base: 4, md: 16 }}>
+          <TextHeader text1="Online" text2="Application Form" />
+          {actionData && actionData?.success && <SuccessPanel />}
+          {!actionData && <ApplicationForm />}
+        </Flex>
+        <NoticePanel />
       </Flex>
-      <NoticePanel />
-    </Flex>
-  )
-}
+    );
+  } else {
+    //กรณีปิดรับสมัคร
+    return (
+      <Flex w="full" direction="column">
+        <PageHeader
+          heading='"ปิดรับใบสมัคร"'
+          text='" ขอขอบพระคุณทุกท่านที่สนใจสมัครเข้าร่วมหลักสูตร"'
+        />
+        <Flex w="full" direction="column" p={{ base: 4, md: 16 }}>
+          <TextHeader text1="Online" text2="Application Form" />
+          <RegisterClosePanel />
+        </Flex>
+        {/* <NoticePanel /> */}
+      </Flex>
+    );
+  }
+};
 
-export default Application
+export default Application;
