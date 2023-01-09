@@ -245,6 +245,18 @@ const LukkidLogo = () => {
   )
 }
 
+const TIJLogo = () => {
+  return (
+    <CKLink href="https://www.tijthailand.org/" isExternal>
+      <Image
+        src="/images/TIJ_logo.png"
+        height="60px"
+        mr={{ base: 0, md: 12 }}
+      />
+    </CKLink>
+  )
+}
+
 
 const HeaderDesktop = () => {
   return (
@@ -259,6 +271,7 @@ const HeaderDesktop = () => {
         <Spacer />
         <COJLogo />
         <LukkidLogo />
+        <TIJLogo />
         <Contact />
       </Flex>
       <HeaderBottom />
@@ -312,6 +325,8 @@ const HeaderMobile = () => {
             <COJLogo />
             <Spacer minH="30px" />
             <LukkidLogo />
+            <Spacer minH="30px" />
+            <TIJLogo />
             <Spacer minH="30px" />
           
             <Contact />
