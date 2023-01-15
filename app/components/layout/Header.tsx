@@ -155,6 +155,18 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
           APPLY NOW
         </Text>
       </Box>
+      {/* <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text
+          as={Link}
+          to={"/accepted_application"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
+          ACCEPTED APPPLICATION
+        </Text>
+      </Box> */}
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
         <Text

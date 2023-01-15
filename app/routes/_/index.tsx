@@ -17,7 +17,9 @@ export const loader: LoaderFunction = async ({ request }) => {
     return redirect("/?action=invalid")
   }
 
+  // const data = await getAllApplications({qualified:1})  //เงื่อนไขสำหรับการผ่านคัดเลือก
   const data = await getAllApplications()
+
   return data
 }
 
