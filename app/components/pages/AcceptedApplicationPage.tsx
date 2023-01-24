@@ -19,18 +19,16 @@ const AcceptedApplicationPage = () => {
   return (
     <Center
       w="full"
-      display="flex"
-      flexDirection="column"
-      py="20px"
+ 
       bgColor="palette.container"
-      px={{ base: 8, md: 16 }}
+   
     >
       
  
-      <Center>
-      {/* <Image src="/images/program_journey.png" /> */}
-      <Text as ="b">ประกาศผลผู้ผ่านการคัดเลือก</Text>
-      </Center>
+  
+
+      <iframe src="/docs/selectedcandidates.pdf" width="1000px" height="1200px" title="รายชื่อผู้ได้รับการคัดเลือกเข้าร่วมหลักสูตร"></iframe>
+  
 
       {/* <ClientPanel /> */}
     </Center>

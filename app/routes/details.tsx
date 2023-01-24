@@ -8,7 +8,7 @@ const Details = () => {
   return (
     <Flex w="full" direction="column">
       <PageHeader heading="Details" text="Home - Details" />
-      <Flex w="full" direction="column" p={0}>
+      <Flex w="full" direction="column" p={{base:6,lg:16}}>
         {/* <TextHeader text1="" text2="Details" /> */}
         {/* <ApplicationForm /> */}
         <WorkingSection />

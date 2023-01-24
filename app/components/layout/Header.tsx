@@ -143,7 +143,7 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
           HOME
         </Text>
       </Box>
-      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      {/* <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
         <Text
           as={Link}
@@ -154,8 +154,8 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
         >
           APPLY NOW
         </Text>
-      </Box>
-      {/* <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      </Box> */}
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
         <Text
           as={Link}
@@ -164,9 +164,9 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
           fontWeight="bold"
           onClick={onClose}
         >
-          ACCEPTED APPPLICATION
+          SELECTED CANDIDATES
         </Text>
-      </Box> */}
+      </Box>
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
         <Text

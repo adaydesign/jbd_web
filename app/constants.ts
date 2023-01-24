@@ -15,4 +15,4 @@ export const APP_REDIRECT_DELAY = 3
 // upload file
 export const APP_UPLOAD_DOC_PATH:string = "./public/upload/document/"
 export const APP_DOC_PATH:string = "/upload/document/"
-export const APP_REGISTER:boolean= new Date()<new Date("2023-01-16 12:00:00")  //เปิดระบบสมัครตามเงื่อนไขเวลา
+export const APP_REGISTER:boolean= new Date()<new Date("2023-01-16 12:00:00")  //ปิดระบบสมัครตามเงื่อนไขเวลา

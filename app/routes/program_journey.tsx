@@ -8,7 +8,7 @@ const ProgramJourney = () => {
   return (
     <Flex w="full" direction="column">
       <PageHeader heading="Program Journey" text="Home - Program Journey" />
-      <Flex w="full" direction="column" p={16}>
+      <Flex w="full" direction="column" p={{base:6,lg:16}}>
         <TextHeader text1="Program" text2="Journey" />
         {/* <Text align="center" fontSize="36" fontWeight="bold">-TBD-</Text> */}
         <ProgramJourneyPage />

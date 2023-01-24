@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <Flex w="full" direction="column">
       <PageHeader heading="Contact Us" text="Home - Contact Us" />
-      <Flex w="full" direction="column" p={16}>
+      <Flex w="full" direction="column" p={{base:6,lg:16}}>
         <TextHeader text1="Contact" text2="Us" />
         {/* <ApplicationForm /> */}
         <FooterContactSection />

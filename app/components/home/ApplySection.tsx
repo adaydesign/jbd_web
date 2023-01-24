@@ -44,50 +44,97 @@ const ContactUs = () => {
 }
 const ApplyNow = () => {
   return (
+    // <Flex
+    //   flex={{ base: 1, md: 7 }}
+    //   bgColor="rgba(85, 87, 89, 0.97)"
+    //   justify="center"
+    //   align="center"
+    //   direction={{ base: "column", md: "row" }}
+    //   p={{ base: 6, md: 0 }}
+    // >
+    //   <Icon as={RiFileTextFill} boxSize="60px" color="white" />
+    //   <Flex
+    //     px={{ base: 2, md: "60px" }}
+    //     direction="column"
+    //     my={{ base: 4, md: 0 }}
+    //   >
+    //     <Text fontSize="19px" color="white" align="center">
+    //      สนใจเข้าร่วมหลักสูตร 
+    //     </Text>
+    //     <Text fontSize="15px" color="white" mt={2} align="center" >
+    //     " ยื่นใบสมัครได้ตั้งแต่วันนี้ ถึงวันที่ 15 ม.ค. 66  
+    //     </Text>
+    //     <Text fontSize="14px" color="white" mt={1} align="center">
+    //     ไม่มีค่าใช้จ่ายในการร่วมหลักสูตร รับผู้เข้าร่วมอบรมจำนวนจำกัด
+    //     </Text>
+    //     <Text fontSize="15px" color="white" mt={1} align="center">
+    //       ประกาศผลการคัดเลือกภายในวันที่ 20 ม.ค. 66 "
+    //     </Text>  
+
+    //   </Flex>
+
+    //   <Button
+    //     rightIcon={<RiChatForwardFill />}
+    //     colorScheme="menu"
+    //     p={5}
+    //     borderRadius="xl"
+    //     color="white"
+    //     height="50px"
+    //     w="fit-content"
+    //     mt={0}
+    //     as={Link}
+    //     to={"/application"}
+    //   >
+    //     <Text fontSize="24px">Apply Now</Text>
+    //   </Button>
+    // </Flex>
+
+
     <Flex
-      flex={{ base: 1, md: 7 }}
-      bgColor="rgba(85, 87, 89, 0.97)"
-      justify="center"
-      align="center"
-      direction={{ base: "column", md: "row" }}
-      p={{ base: 6, md: 0 }}
+    flex={{ base: 1, md: 7 }}
+    bgColor="rgba(85, 87, 89, 0.97)"
+    justify="center"
+    align="center"
+    direction={{ base: "column", md: "row" }}
+    p={{ base: 6, md: 0 }}
+  >
+    <Icon as={RiFileTextFill} boxSize="60px" color="white" />
+    <Flex
+      px={{ base: 2, md: "60px" }}
+      direction="column"
+      my={{ base: 4, md: 0 }}
     >
-      <Icon as={RiFileTextFill} boxSize="60px" color="white" />
-      <Flex
-        px={{ base: 2, md: "60px" }}
-        direction="column"
-        my={{ base: 4, md: 0 }}
-      >
-        <Text fontSize="19px" color="white" align="center">
-         สนใจเข้าร่วมหลักสูตร 
-        </Text>
-        <Text fontSize="15px" color="white" mt={2} align="center" >
-        " ยื่นใบสมัครได้ตั้งแต่วันนี้ ถึงวันที่ 15 ม.ค. 66  
-        </Text>
-        <Text fontSize="14px" color="white" mt={1} align="center">
-        ไม่มีค่าใช้จ่ายในการร่วมหลักสูตร รับผู้เข้าร่วมอบรมจำนวนจำกัด
-        </Text>
-        <Text fontSize="15px" color="white" mt={1} align="center">
-          ประกาศผลการคัดเลือกภายในวันที่ 20 ม.ค. 66 "
-        </Text>  
+      <Text fontSize="24px" color="white" align="center">
+       ประกาศผล
+      </Text>
+      <Text fontSize="19px" color="white" mt={2} align="center" >
+      " รายผู้ผ่านการคัดเลือกเข้าร่วมสูตร "
+      </Text>
+      {/* <Text fontSize="14px" color="white" mt={1} align="center">
+      ไม่มีค่าใช้จ่ายในการร่วมหลักสูตร รับผู้เข้าร่วมอบรมจำนวนจำกัด
+      </Text>
+      <Text fontSize="15px" color="white" mt={1} align="center">
+        ประกาศผลการคัดเลือกภายในวันที่ 20 ม.ค. 66 "
+      </Text>   */}
 
-      </Flex>
-
-      <Button
-        rightIcon={<RiChatForwardFill />}
-        colorScheme="menu"
-        p={5}
-        borderRadius="xl"
-        color="white"
-        height="50px"
-        w="fit-content"
-        mt={0}
-        as={Link}
-        to={"/application"}
-      >
-        <Text fontSize="24px">Apply Now</Text>
-      </Button>
     </Flex>
+
+    <Button
+      rightIcon={<RiChatForwardFill />}
+      colorScheme="menu"
+      p={5}
+      borderRadius="xl"
+      color="white"
+      height="70px"
+      w="fit-content"
+      mt={0}
+      as={Link}
+      to={"/accepted_application"}
+    >
+      <Text as ="b"  fontSize="24px">Announcement!</Text>
+    
+    </Button>
+  </Flex>
   )
 }
 
