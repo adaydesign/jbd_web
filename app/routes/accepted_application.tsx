@@ -13,6 +13,7 @@ const AcceptedApplication = () => {
         <TextHeader text1="Selected" text2="Candidates" />
          <Text align="center" fontSize="22" fontWeight="bold" mb={10}>รายชื่อผู้ที่ได้รับเลือกเข้าร่วมโครงการ Justice by Design : กระบวนการยุติธรรมที่ทุกคนออกแบบได้</Text> 
         <AcceptedApplicationPage />
+        
 
 <Divider />
         <Box alignItems='center'
