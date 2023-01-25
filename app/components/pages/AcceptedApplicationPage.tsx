@@ -29,7 +29,7 @@ const AcceptedApplicationPage = () => {
 
       {/* <iframe src="/docs/selectedcandidates.pdf" width="1000px" height="1200px" title="รายชื่อผู้ได้รับการคัดเลือกเข้าร่วมหลักสูตร"></iframe> */}
   
-      <iframe src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/selectedcandidates.pdf&embedded=true" width="100%" height="650px" title="รายชื่อผู้ได้รับการคัดเลือกเข้าร่วมหลักสูตร"></iframe>
+      <iframe src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/selectedcandidates.pdf&embedded=true" width="100%" height="500px" title="รายชื่อผู้ได้รับการคัดเลือกเข้าร่วมหลักสูตร"></iframe>
       {/* <ClientPanel /> */}
     </Center>
   );
