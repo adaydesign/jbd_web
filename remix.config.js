@@ -7,6 +7,6 @@ module.exports = {
   // publicPath: "/build/",
   serverDependenciesToBundle: [
     "query-string",
-    "filter-obj"
+    "filter-obj",
   ],
 };

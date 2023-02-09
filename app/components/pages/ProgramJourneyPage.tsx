@@ -40,7 +40,7 @@ const ProgramJourneyPage = () => {
         title="โครงการ Justice by Design : กระบวนการยุติธรรมที่ทุกคนออกแบบได้"
       ></iframe>
 
-      <Divider mb={10} />
+      <Divider mt={5} mb={10} />
       <Text fontSize="20" fontWeight="bold" mb={5}>
         กำหนดการกิจกรรมที่ 1 สัมมนาทางวิชาการฯ
       </Text>
@@ -51,7 +51,7 @@ const ProgramJourneyPage = () => {
         title="กำหนดการกิจกรรมที่ 1 สัมมนาทางวิชาการฯ"
       ></iframe>
 
-      <Divider mb={10} />
+      <Divider mt={5} mb={10} />
       <Text fontSize="20" fontWeight="bold" mb={5}>
         กำหนดการกิจกรรมที่ 2 จัดงานมอบรางวัลฯ
       </Text>

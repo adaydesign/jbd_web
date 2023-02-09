@@ -6,6 +6,7 @@ import {
   Stack,
   Text,
   VStack,
+  keyframes,
 } from "@chakra-ui/react"
 import {
   RiContactsFill,
@@ -14,6 +15,44 @@ import {
   RiFileTextFill,
 } from "react-icons/ri"
 import { Link } from "@remix-run/react"
+//animate Blink Marquee
+import { motion } from "framer-motion";
+const animationKeyframes = keyframes`
+  0% { transform: scale(1) rotate(0); border-radius: 20%; }
+  25% { transform: scale(2) rotate(0); border-radius: 20%; }
+  50% { transform: scale(2) rotate(270deg); border-radius: 50%; }
+  75% { transform: scale(1) rotate(270deg); border-radius: 50%; }
+  100% { transform: scale(1) rotate(0); border-radius: 20%; }
+`;
+
+const blinker = keyframes`
+  50% { opacity: 0; }
+`;
+
+const pluse = keyframes`
+  0% { background-color: #8ebf42; }
+  50% { background-color: #1c87c9; }
+  100% { background-color: #d5dce8; }
+`;
+
+const marqueeVariants = {
+  animate: {
+    x: [400, -100],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 5,
+        ease: "linear"
+      }
+    }
+  }
+};
+
+const animation = `${animationKeyframes} 2s ease-in-out infinite`;
+const animationBlink = `${blinker} 1.5s linear infinite`;
+const animationPluse = `${pluse} 4s infinite`;
+//-----
 
 const ContactUs = () => {
   return (
@@ -104,11 +143,13 @@ const ApplyNow = () => {
       direction="column"
       my={{ base: 4, md: 0 }}
     >
-      <Text fontSize="24px" color="white" align="center">
-       ประกาศผล
+   
+      <Text fontSize="24px" color="white" align="center" >
+      Weekly Recap
       </Text>
-      <Text fontSize="19px" color="white" mt={2} align="center" >
-      " รายผู้ผ่านการคัดเลือกเข้าร่วมสูตร "
+      
+      <Text fontSize="19px" color="white" mt={2} >
+     " Justice x Design: Week 1 " 
       </Text>
       {/* <Text fontSize="14px" color="white" mt={1} align="center">
       ไม่มีค่าใช้จ่ายในการร่วมหลักสูตร รับผู้เข้าร่วมอบรมจำนวนจำกัด
@@ -129,9 +170,9 @@ const ApplyNow = () => {
       w="fit-content"
       mt={0}
       as={Link}
-      to={"/accepted_application"}
+      to={"/weekly_recap"}
     >
-      <Text as ="b"  fontSize="24px">Announcement!</Text>
+      <Text as={motion.div} animation={animationBlink} fontSize="24px" textColor="black">Read More!</Text>
     
     </Button>
   </Flex>

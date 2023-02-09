@@ -1,6 +1,74 @@
-import { Button, Flex, Text, VStack, HStack, Stack, Spacer } from "@chakra-ui/react"
+import { Button, Flex, Text, VStack, HStack, Stack,keyframes, Spacer } from "@chakra-ui/react"
 import { RiChatForwardFill } from "react-icons/ri"
+
+
 import { Link } from "@remix-run/react"
+
+//animate Blink Marquee
+import { motion } from "framer-motion";
+const animationKeyframes = keyframes`
+  0% { transform: scale(1) rotate(0); border-radius: 20%; }
+  25% { transform: scale(2) rotate(0); border-radius: 20%; }
+  50% { transform: scale(2) rotate(270deg); border-radius: 50%; }
+  75% { transform: scale(1) rotate(270deg); border-radius: 50%; }
+  100% { transform: scale(1) rotate(0); border-radius: 20%; }
+`;
+
+const blinker = keyframes`
+  50% { opacity: 0; }
+`;
+
+const pluse = keyframes`
+  0% { background-color: #8ebf42; }
+  50% { background-color: #1c87c9; }
+  100% { background-color: #d5dce8; }
+`;
+
+const marqueeVariants = {
+  animate: {
+    x: [400, -100],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 5,
+        ease: "linear"
+      }
+    }
+  }
+};
+
+const animation = `${animationKeyframes} 2s ease-in-out infinite`;
+const animationBlink = `${blinker} 1.5s linear infinite`;
+const animationPluse = `${pluse} 4s infinite`;
+//-----
+
+const TextHighlight = () => {
+  return (
+    <Flex
+    as={Link} 
+    to={"/weekly_recap"}  
+      p={2}
+      bgColor="blackAlpha.400"
+      w="fit-content"
+      borderRightWidth="25px"
+      borderRightColor="palette.secondary"
+    >
+      <Text 
+      color="white" 
+      fontSize="22px" 
+      // as={motion.div}
+      // variants={marqueeVariants}
+      // animate="animate"
+      
+
+    >
+        {/* Call for Applications for COJ Fellowship Program */}
+      <marquee> Update! การอบรมหลักสูตร Justice x Design: Week 1 ( 4<sup>th</sup> February 2023 ) </marquee> 
+      </Text>
+    </Flex>
+  )
+}
 
 const Text1 = () => {
   return (
@@ -60,6 +128,8 @@ const HeroSection = () => {
       backgroundPosition="center"
       justify="flex-end"
     >
+      
+
       <Flex
         w="full"
         bgColor={{ base: "blackAlpha.800", md: "blackAlpha.600" }}
@@ -68,6 +138,8 @@ const HeroSection = () => {
         align="flex-end"
         p={16}
       >
+        
+        
         <Flex
           w={{ base: "full", md: "68%" }}
           direction="column"
@@ -76,6 +148,8 @@ const HeroSection = () => {
         >
           <Text1 />
           <Text2 />
+<br/> 
+          <TextHighlight />
         </Flex>
       </Flex>
     </Flex>

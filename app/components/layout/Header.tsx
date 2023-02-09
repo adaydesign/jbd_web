@@ -143,6 +143,21 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
           HOME
         </Text>
       </Box>
+
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
+        <Text
+          as={Link}
+          to={"/weekly_recap"}
+          textColor="white"
+          fontWeight="bold"
+          onClick={onClose}
+        >
+          WEEKLY RECAP
+        </Text>
+      </Box>
+
+
       {/* <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
         <Text
@@ -286,8 +301,10 @@ const HeaderDesktop = () => {
         <TIJLogo />
         <Contact />
       </Flex>
+      
       <HeaderBottom />
     </Flex>
+    
   )
 }
 
