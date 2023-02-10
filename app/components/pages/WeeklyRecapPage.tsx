@@ -18,12 +18,52 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
+  keyframes,
 } from "@chakra-ui/react";
-
+import { Link } from "@remix-run/react"
 
 
 
 import { BlockTitle, Line } from "~/components/common";
+
+//animate Blink Marquee
+import { motion } from "framer-motion";
+const animationKeyframes = keyframes`
+  0% { transform: scale(1) rotate(0); border-radius: 20%; }
+  25% { transform: scale(2) rotate(0); border-radius: 20%; }
+  50% { transform: scale(2) rotate(270deg); border-radius: 50%; }
+  75% { transform: scale(1) rotate(270deg); border-radius: 50%; }
+  100% { transform: scale(1) rotate(0); border-radius: 20%; }
+`;
+
+const blinker = keyframes`
+  50% { opacity: 0; }
+`;
+
+const pluse = keyframes`
+  0% { background-color: #FFE15D; }
+  50% { background-color: #F49D1A; }
+  100% { background-color: #DC3535; }
+`;
+
+const marqueeVariants = {
+  animate: {
+    x: [400, -100],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 5,
+        ease: "linear"
+      }
+    }
+  }
+};
+
+const animation = `${animationKeyframes} 2s ease-in-out infinite`;
+const animationBlink = `${blinker} 1.5s linear infinite`;
+const animationPluse = `${pluse} 4s infinite`;
+//-----
 
 
 
@@ -39,6 +79,7 @@ const WeeklyRecapPage = () => {
                 <Text as="b" fontSize="22px">
                   Update! การอบรมหลักสูตร Justice x Design: Week 1 ( 4<sup>th</sup> February 2023 )
                 </Text>
+                
 
 
                 
@@ -48,9 +89,32 @@ const WeeklyRecapPage = () => {
           </h1>
           <AccordionPanel pb={4}>
             <Box p={10} shadow="2xl">
-              <Center>
-            <Image src="images/week1/01.jpg" borderRadius="xl" boxSize="80%" boxShadow="dark-lg"  />
+              <Center flexDirection="column">
+            <Image src="images/week1/01.jpg" borderRadius="xl" boxSize="90%" boxShadow="dark-lg"  />
+            
+
+            <Text
+            
+            // as ={Link}
+            // to ={"https://drive.google.com/drive/folders/14lRM6qMLZJpsDMr6nTGqcM_E4j8WohUC?usp=sharing"}
+            fontSize="22px"
+            textAlign="center"
+            textColor="white"
+           w="150px"
+            mt={10}
+            as={motion.div}
+            animation={animationPluse}
+            // bgColor="blue.200"
+          >
+            <a href="https://drive.google.com/drive/folders/14lRM6qMLZJpsDMr6nTGqcM_E4j8WohUC?usp=sharing" target="_blank">
+              -More Photos-
+          </a>
+          </Text>
+        
+
             </Center>
+
+            
           
             <Text
               fontSize="19px"
@@ -58,6 +122,7 @@ const WeeklyRecapPage = () => {
               textAlign="justify"
               textIndent="50px"
               mt={10}
+              
             >
               Week 1 Recap! ผ่านไปแล้วสำหรับสัปดาห์แรกของการอบรมหลักสูตร
               <b> “Justice x Design: กระบวนการยุติธรรมที่ทุกคนออกแบบได้” </b>
