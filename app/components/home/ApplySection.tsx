@@ -7,6 +7,7 @@ import {
   Text,
   VStack,
   keyframes,
+  Link as CKLink,
 } from "@chakra-ui/react"
 import {
   RiContactsFill,
@@ -145,11 +146,11 @@ const ApplyNow = () => {
     >
    
       <Text fontSize="24px" color="white" align="center" >
-      Weekly Recap
+      การนำเสนอผลงานโครงการ
       </Text>
       
       <Text fontSize="19px" color="white" mt={2} >
-     " Justice x Design: Week 1 " 
+      Justice by Design
       </Text>
       {/* <Text fontSize="14px" color="white" mt={1} align="center">
       ไม่มีค่าใช้จ่ายในการร่วมหลักสูตร รับผู้เข้าร่วมอบรมจำนวนจำกัด
@@ -159,7 +160,7 @@ const ApplyNow = () => {
       </Text>   */}
 
     </Flex>
-
+    <CKLink href="https://www.youtube.com/watch?v=lj6rC-Eo_sQ" isExternal>
     <Button
       rightIcon={<RiChatForwardFill />}
       colorScheme="menu"
@@ -169,12 +170,13 @@ const ApplyNow = () => {
       height="70px"
       w="fit-content"
       mt={0}
-      as={Link}
-      to={"/weekly_recap"}
+      // as={Link}
+      // to={"https://www.youtube.com/watch?v=lj6rC-Eo_sQ"}
     >
-      <Text as={motion.div} animation={animationBlink} fontSize="24px" textColor="black">Read More!</Text>
+      <Text as={motion.div} animation={animationBlink} fontSize="24px" textColor="black">WATCH NOW!</Text>
     
     </Button>
+    </CKLink>
   </Flex>
   )
 }

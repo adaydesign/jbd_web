@@ -16,8 +16,13 @@ import {
   DrawerOverlay,
   DrawerContent,
   Stack,
-} from "@chakra-ui/react"
-import { Link } from "@remix-run/react"
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  background,
+} from "@chakra-ui/react";
+import { Link } from "@remix-run/react";
 import {
   RiWechatFill,
   RiChatHistoryFill,
@@ -29,26 +34,26 @@ import {
   RiSearch2Line,
   RiGovernmentFill,
   RiLayoutGridFill,
-} from "react-icons/ri"
-import { APP_COJ_URL } from "~/constants"
+} from "react-icons/ri";
+import { APP_COJ_URL } from "~/constants";
 
 type LogoProps = {
-  size?: string
-}
+  size?: string;
+};
 const Logo = ({ size = "200px" }: LogoProps) => {
   return (
     <Link to="/">
       <Image src="/images/logo_jbd_top.png" width={size} />
     </Link>
-  )
-}
+  );
+};
 
 type ContactItemProps = {
-  icon: any
-  text: string
-  text2: string
-  detail: string
-}
+  icon: any;
+  text: string;
+  text2: string;
+  detail: string;
+};
 const ContactItem = ({ icon, text, text2, detail }: ContactItemProps) => {
   return (
     <Flex>
@@ -65,8 +70,8 @@ const ContactItem = ({ icon, text, text2, detail }: ContactItemProps) => {
         </Text>
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 const Contact = () => {
   return (
@@ -84,14 +89,14 @@ const Contact = () => {
         detail="oja@coj.go.th"
       />
     </Stack>
-  )
-}
+  );
+};
 
 type SocialIconProps = {
-  icon: any
-  url: string
-  color?: any
-}
+  icon: any;
+  url: string;
+  color?: any;
+};
 const SocialIcon = ({ icon, url, color }: SocialIconProps) => {
   return (
     <Button
@@ -103,8 +108,8 @@ const SocialIcon = ({ icon, url, color }: SocialIconProps) => {
     >
       <Icon as={icon} color={color || ""} />
     </Button>
-  )
-}
+  );
+};
 
 export const SocialIconPanel = () => {
   return (
@@ -114,12 +119,12 @@ export const SocialIconPanel = () => {
       <SocialIcon icon={RiTwitterFill} url="" />
       <SocialIcon icon={RiYoutubeLine} url="" />
     </HStack>
-  )
-}
+  );
+};
 
 type MainMenuGroupProps = {
-  onClose?: any
-}
+  onClose?: any;
+};
 const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
   return (
     <Flex
@@ -146,6 +151,25 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
 
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
+        <Menu>
+          <MenuButton textColor="white" fontWeight="bold">
+            ผลงานโครงการ
+          </MenuButton>
+          <MenuList p={{ base: 4, md: 2 }}>
+            <MenuItem as={Link} to={"/green_group"}>
+              กลุ่มสีเขียว
+            </MenuItem>
+            <MenuItem as={Link} to={"/"}>กลุ่มสีชมพู</MenuItem>
+            <MenuItem as={Link} to={"/"}>กลุ่มสีแดง</MenuItem>
+            <MenuItem as={Link} to={"/"}>กลุ่มสีฟ้า</MenuItem>
+            <MenuItem as={Link} to={"/"}>กลุ่มสีส้ม</MenuItem>
+            <MenuItem as={Link} to={"/"}>กลุ่มสีเหลือง</MenuItem>
+          </MenuList>
+        </Menu>
+      </Box>
+
+      {/* <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+      <Box p={{ base: 4, md: 2 }}>
         <Text
           as={Link}
           to={"/weekly_recap"}
@@ -155,8 +179,7 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
         >
           WEEKLY RECAP
         </Text>
-      </Box>
-
+      </Box> */}
 
       {/* <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
@@ -219,6 +242,8 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
         </Text>
       </Box>
       <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
+
+      <Divider orientation="vertical" display={{ base: "none", md: "block" }} />
       <Box p={{ base: 4, md: 2 }}>
         <Text
           as={Link}
@@ -237,16 +262,16 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
         <Icon as={RiSearch2Line} color="white" />
       </Button>
     </Flex>
-  )
-}
+  );
+};
 const HeaderBottom = () => {
   return (
     <Flex mt={4}>
       <SocialIconPanel />
       <MainMenuGroup />
     </Flex>
-  )
-}
+  );
+};
 
 const COJLogo = () => {
   return (
@@ -257,20 +282,16 @@ const COJLogo = () => {
         mr={{ base: 0, md: 12 }}
       />
     </CKLink>
-  )
-}
+  );
+};
 
 const LukkidLogo = () => {
   return (
     <CKLink href="https://www.lukkidgroup.com/" isExternal>
-      <Image
-        src="/images/lukkid.png"
-        height="50px"
-        mr={{ base: 0, md: 12 }}
-      />
+      <Image src="/images/lukkid.png" height="50px" mr={{ base: 0, md: 12 }} />
     </CKLink>
-  )
-}
+  );
+};
 
 const TIJLogo = () => {
   return (
@@ -281,9 +302,8 @@ const TIJLogo = () => {
         mr={{ base: 0, md: 12 }}
       />
     </CKLink>
-  )
-}
-
+  );
+};
 
 const HeaderDesktop = () => {
   return (
@@ -301,15 +321,14 @@ const HeaderDesktop = () => {
         <TIJLogo />
         <Contact />
       </Flex>
-      
+
       <HeaderBottom />
     </Flex>
-    
-  )
-}
+  );
+};
 
 const HeaderMobile = () => {
-  const sidebar = useDisclosure()
+  const sidebar = useDisclosure();
 
   return (
     <>
@@ -357,14 +376,14 @@ const HeaderMobile = () => {
             <Spacer minH="30px" />
             <TIJLogo />
             <Spacer minH="30px" />
-          
+
             <Contact />
           </Flex>
         </DrawerContent>
       </Drawer>
     </>
-  )
-}
+  );
+};
 
 const Header = () => {
   return (
@@ -376,7 +395,7 @@ const Header = () => {
         <HeaderDesktop />
       </Show>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

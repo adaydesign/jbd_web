@@ -46,8 +46,8 @@ const animationPluse = `${pluse} 4s infinite`;
 const TextHighlight = () => {
   return (
     <Flex
-    as={Link} 
-    to={"/weekly_recap"}  
+    // as={Link} 
+    // to={"/weekly_recap"}  
       p={2}
       bgColor="blackAlpha.400"
       w="fit-content"
@@ -64,7 +64,8 @@ const TextHighlight = () => {
 
     >
         {/* Call for Applications for COJ Fellowship Program */}
-      <marquee> Update! การอบรมหลักสูตร Justice x Design: Week 1 ( 4<sup>th</sup> February 2023 ) </marquee> 
+      {/* <marquee> Update! การอบรมหลักสูตร Justice x Design: Week 1 ( 4<sup>th</sup> February 2023 ) </marquee>  */}
+      <marquee> Update! การนำเสนอผลงานโครงการ "Justice by Design" กระบวนการยุติธรรมที่ทุกคนออกแบบได้ </marquee> 
       </Text>
     </Flex>
   )
