@@ -157,13 +157,13 @@ const MainMenuGroup = ({ onClose }: MainMenuGroupProps) => {
           </MenuButton>
           <MenuList p={{ base: 4, md: 2 }}>
             <MenuItem as={Link} to={"/green_group"}>
-              กลุ่มสีเขียว
+              ทีมสีเขียว
             </MenuItem>
-            <MenuItem as={Link} to={"/"}>กลุ่มสีชมพู</MenuItem>
-            <MenuItem as={Link} to={"/"}>กลุ่มสีแดง</MenuItem>
-            <MenuItem as={Link} to={"/"}>กลุ่มสีฟ้า</MenuItem>
-            <MenuItem as={Link} to={"/"}>กลุ่มสีส้ม</MenuItem>
-            <MenuItem as={Link} to={"/"}>กลุ่มสีเหลือง</MenuItem>
+            <MenuItem as={Link} to={"/pink_group"}>ทีมสีชมพู</MenuItem>
+            <MenuItem as={Link} to={"/red_group"}>ทีมสีแดง</MenuItem>
+            <MenuItem as={Link} to={"/blue_group"}>ทีมสีฟ้า</MenuItem>
+            <MenuItem as={Link} to={"/orange_group"}>ทีมสีส้ม</MenuItem>
+            <MenuItem as={Link} to={"/yellow_group"}>ทีมสีเหลือง</MenuItem>
           </MenuList>
         </Menu>
       </Box>

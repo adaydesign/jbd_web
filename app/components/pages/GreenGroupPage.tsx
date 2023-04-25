@@ -30,7 +30,7 @@ const GreenGroupPage = () => {
       flexDirection="column"
       py="20px"
       bgColor="palette.container"
-      px={{ base: 8, md: 16 }}
+      px={{ base: 3, md: 6 }}
     >
       <Flex w="full" mt={2} mb={4} p={5} justify="center" shadow="2xl">
         <iframe
@@ -57,13 +57,13 @@ const GreenGroupPage = () => {
               </AccordionButton>
             </h1>
             <AccordionPanel pb={4}>
-              <Box p={10} shadow="xl">
+              <Box p={5} shadow="xl">
                 <Center flexDirection="column"></Center>
                        <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/green/Project_Summary-Green.pdf&embedded=true"
                   width="100%"
-                  height="400px"
-                  title="Project Summary"
+                  height="500px"
+                  title="Project Summary - Green Team"
                 ></iframe>
               </Box>
             </AccordionPanel>
@@ -81,13 +81,13 @@ const GreenGroupPage = () => {
               </AccordionButton>
             </h1>
             <AccordionPanel pb={4}>
-              <Box p={10} shadow="xl">
+              <Box p={5} shadow="xl">
                 <Center flexDirection="column"></Center>
                        <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/green/Project_Presentation-Green.pdf&embedded=true"
                   width="100%"
-                  height="400px"
-                  title="กำหนดการกิจกรรมที่ 1 สัมมนาทางวิชาการฯ"
+                  height="500px"
+                  title="Project Presentation - Green Team"
                 ></iframe>
               </Box>
             </AccordionPanel>
@@ -105,13 +105,13 @@ const GreenGroupPage = () => {
               </AccordionButton>
             </h1>
             <AccordionPanel pb={4}>
-              <Box p={10} shadow="xl">
+              <Box p={5} shadow="xl">
                 <Center flexDirection="column"></Center>
                        <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/green/Project_Journey-Green.pdf&embedded=true"
                   width="100%"
-                  height="400px"
-                  title="กำหนดการกิจกรรมที่ 1 สัมมนาทางวิชาการฯ"
+                  height="500px"
+                  title="Project Journey - Green Team"
                 ></iframe>
               </Box>
             </AccordionPanel>
