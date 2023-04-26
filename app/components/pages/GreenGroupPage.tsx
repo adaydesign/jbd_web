@@ -18,7 +18,10 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Button,
+  Link as CKLink,
 } from "@chakra-ui/react";
+import { MdOutlineDownloadForOffline } from "react-icons/md";
 
 import { BlockTitle, Line } from "~/components/common";
 
@@ -58,8 +61,22 @@ const GreenGroupPage = () => {
             </h1>
             <AccordionPanel pb={4}>
               <Box p={5} shadow="xl">
-                <Center flexDirection="column"></Center>
-                       <iframe
+                <Center flexDirection="column">
+                  <CKLink
+                    href="https://jbd.coj.go.th/docs/outcome/green/Project_Summary-Green.pdf"
+                    isExternal
+                  >
+                    <Button
+                      leftIcon={<MdOutlineDownloadForOffline size="30" />}
+                      colorScheme="green"
+                      variant="solid"
+                      mb={5}
+                    >
+                      Download
+                    </Button>
+                  </CKLink>
+                </Center>
+                <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/green/Project_Summary-Green.pdf&embedded=true"
                   width="100%"
                   height="500px"
@@ -82,8 +99,25 @@ const GreenGroupPage = () => {
             </h1>
             <AccordionPanel pb={4}>
               <Box p={5} shadow="xl">
-                <Center flexDirection="column"></Center>
-                       <iframe
+                <Center flexDirection="column">
+
+                <CKLink
+                    href="https://jbd.coj.go.th/docs/outcome/green/Project_Presentation-Green.pdf"
+                    isExternal
+                  >
+                    <Button
+                      leftIcon={<MdOutlineDownloadForOffline size="30" />}
+                      colorScheme="green"
+                      variant="solid"
+                      mb={5}
+                    >
+                      Download
+                    </Button>
+                  </CKLink>
+
+
+                </Center>
+                <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/green/Project_Presentation-Green.pdf&embedded=true"
                   width="100%"
                   height="500px"
@@ -106,8 +140,26 @@ const GreenGroupPage = () => {
             </h1>
             <AccordionPanel pb={4}>
               <Box p={5} shadow="xl">
-                <Center flexDirection="column"></Center>
-                       <iframe
+                <Center flexDirection="column">
+
+                <CKLink
+                    href="https://jbd.coj.go.th/docs/outcome/green/Project_Journey-Green.pdf"
+                    isExternal
+                  >
+                    <Button
+                      leftIcon={<MdOutlineDownloadForOffline size="30" />}
+                      colorScheme="green"
+                      variant="solid"
+                      mb={5}
+                    >
+                      Download
+                    </Button>
+                  </CKLink>
+
+
+
+                </Center>
+                <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/green/Project_Journey-Green.pdf&embedded=true"
                   width="100%"
                   height="500px"
@@ -116,14 +168,10 @@ const GreenGroupPage = () => {
               </Box>
             </AccordionPanel>
           </AccordionItem>
-</Accordion>
-
+        </Accordion>
       </Center>
-     
-      <Divider mb={10} />
-     
 
-  
+      <Divider mb={10} />
     </Center>
   );
 };

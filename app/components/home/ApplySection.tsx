@@ -14,6 +14,7 @@ import {
   RiChatForwardFill,
   RiPhoneFill,
   RiFileTextFill,
+  RiVidicon2Fill,
 } from "react-icons/ri"
 import { Link } from "@remix-run/react"
 //animate Blink Marquee
@@ -138,7 +139,7 @@ const ApplyNow = () => {
     direction={{ base: "column", md: "row" }}
     p={{ base: 6, md: 0 }}
   >
-    <Icon as={RiFileTextFill} boxSize="60px" color="white" />
+    <Icon as={RiVidicon2Fill} boxSize="60px" color="white" />
     <Flex
       px={{ base: 2, md: "60px" }}
       direction="column"

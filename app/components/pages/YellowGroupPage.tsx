@@ -18,7 +18,10 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Button,
+  Link as CKLink,
 } from "@chakra-ui/react";
+import { MdOutlineDownloadForOffline } from "react-icons/md";
 
 import { BlockTitle, Line } from "~/components/common";
 
@@ -58,7 +61,26 @@ const YellowGroupPage = () => {
             </h1>
             <AccordionPanel pb={4}>
               <Box p={5} shadow="xl">
-                <Center flexDirection="column"></Center>
+                <Center flexDirection="column">
+
+
+                <CKLink
+                    href="https://jbd.coj.go.th/docs/outcome/yellow/Project_Summary1-Yellow.pdf"
+                    isExternal
+                  >
+                    <Button
+                      leftIcon={<MdOutlineDownloadForOffline size="30" />}
+                      colorScheme="yellow"
+                      variant="solid"
+                      mb={5}
+                    >
+                      Download
+                    </Button>
+                  </CKLink>
+
+
+
+                </Center>
                        <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/yellow/Project_Summary1-Yellow.pdf&embedded=true"
                   width="100%"
@@ -82,7 +104,25 @@ const YellowGroupPage = () => {
             </h1>
             <AccordionPanel pb={4}>
               <Box p={5} shadow="xl">
-                <Center flexDirection="column"></Center>
+                <Center flexDirection="column">
+
+                <CKLink
+                    href="https://jbd.coj.go.th/docs/outcome/yellow/Project_Summary2-Yellow.pdf"
+                    isExternal
+                  >
+                    <Button
+                      leftIcon={<MdOutlineDownloadForOffline size="30" />}
+                      colorScheme="yellow"
+                      variant="solid"
+                      mb={5}
+                    >
+                      Download
+                    </Button>
+                  </CKLink>
+
+
+
+                </Center>
                        <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/yellow/Project_Summary2-Yellow.pdf&embedded=true"
                   width="100%"
@@ -106,7 +146,26 @@ const YellowGroupPage = () => {
             </h1>
             <AccordionPanel pb={4}>
               <Box p={5} shadow="xl">
-                <Center flexDirection="column"></Center>
+                <Center flexDirection="column">
+
+
+                <CKLink
+                    href="https://jbd.coj.go.th/docs/outcome/yellow/Project_Presentation-Yellow.pdf"
+                    isExternal
+                  >
+                    <Button
+                      leftIcon={<MdOutlineDownloadForOffline size="30" />}
+                      colorScheme="yellow"
+                      variant="solid"
+                      mb={5}
+                    >
+                      Download
+                    </Button>
+                  </CKLink>
+
+
+
+                </Center>
                        <iframe
                   src="https://docs.google.com/viewer?url=https://jbd.coj.go.th/docs/outcome/yellow/Project_Presentation-Yellow.pdf&embedded=true"
                   width="100%"
