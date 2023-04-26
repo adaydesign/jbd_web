@@ -39,7 +39,7 @@ const BlueGroupPage = () => {
         <iframe
           width="800"
           height="450"
-          src="https://www.youtube.com/embed/lj6rC-Eo_sQ"
+          src="https://www.youtube.com/embed/EyendGXCI3Q"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

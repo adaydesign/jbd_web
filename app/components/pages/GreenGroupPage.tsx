@@ -39,7 +39,7 @@ const GreenGroupPage = () => {
         <iframe
           width="800"
           height="450"
-          src="https://www.youtube.com/embed/lj6rC-Eo_sQ"
+          src="https://www.youtube.com/embed/tH8ohYR9bm0"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
