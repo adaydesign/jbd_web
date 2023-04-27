@@ -39,7 +39,7 @@ const YellowGroupPage = () => {
         <iframe
           width="800"
           height="450"
-          src="https://www.youtube.com/embed/EhhTNW7SbBo"
+          src="https://www.youtube.com/embed/13LkyWBgPfU"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

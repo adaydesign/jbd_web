@@ -39,7 +39,7 @@ const RedGroupPage = () => {
         <iframe
           width="800"
           height="450"
-          src="https://www.youtube.com/embed/6G6zl9rPndw"
+          src="https://www.youtube.com/embed/PAaINgLtjcQ"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

@@ -39,7 +39,7 @@ const PinkGroupPage = () => {
         <iframe
           width="800"
           height="450"
-          src="https://www.youtube.com/embed/JJDMAb6ntus"
+          src="https://www.youtube.com/embed/rdkAG9JYhfc"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
